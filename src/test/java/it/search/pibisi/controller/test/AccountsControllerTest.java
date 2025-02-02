@@ -1,4 +1,4 @@
-package it.monitoraggio.controller.test;
+package it.search.pibisi.controller.test;
 
 import static org.mockito.Mockito.when;
 
@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import it.monitoraggio.service.AccountsService;
+import it.search.pibisi.service.AccountsService;
 
 @SpringBootTest
 public class AccountsControllerTest {
@@ -36,9 +36,9 @@ public class AccountsControllerTest {
 		when(accountsService.getUserAccounts()).thenReturn(new ResponseEntity<>(userAccounts, HttpStatus.OK));
 
 		// Mock per l'endpoint /accounts/{accountId}/subjects/find-blocked
-		String blockedSubjects = "{\"blocked_subjects\": [{\"subject_id\": \"1\", \"subject_name\": \"Blocked Subject A\"}, {\"subject_id\": \"2\", \"subject_name\": \"Blocked Subject B\"}]}";
-		when(accountsService.findBlockedSubjectsForAccount(Mockito.anyString(), Mockito.anyString()))
-				.thenReturn(new ResponseEntity<>(blockedSubjects, HttpStatus.OK));
+//		String blockedSubjects = "{\"blocked_subjects\": [{\"subject_id\": \"1\", \"subject_name\": \"Blocked Subject A\"}, {\"subject_id\": \"2\", \"subject_name\": \"Blocked Subject B\"}]}";
+//		when(accountsService.findBlockedSubjectsForAccount(Mockito.anyString()))
+//				.thenReturn(new ResponseEntity<>(blockedSubjects, HttpStatus.OK));
 	}
 
 	@Test

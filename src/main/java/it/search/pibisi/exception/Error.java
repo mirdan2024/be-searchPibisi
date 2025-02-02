@@ -1,4 +1,4 @@
-package it.monitoraggio.exception;
+package it.search.pibisi.exception;
 
 public class Error {
 

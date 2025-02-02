@@ -1,4 +1,4 @@
-package it.monitoraggio.exception;
+package it.search.pibisi.exception;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.LinkedHashMap;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import it.monitoraggio.utils.DateUtils;
+import it.search.pibisi.utils.DateUtils;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

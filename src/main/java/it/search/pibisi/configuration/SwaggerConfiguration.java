@@ -1,4 +1,4 @@
-package it.monitoraggio.configuration;
+package it.search.pibisi.configuration;
 
 import java.util.List;
 
