@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.StringJoiner;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,10 +14,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.StreamReadFeature;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import it.search.pibisi.controller.pojo.PibisiPojo;
+import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
+import it.search.pibisi.pojo.users.me.UsersMeResponse;
+import it.search.pibisi.pojo.users.me.accounts.UsersMeAccountsResponse;
 
 @Service
-public class AccountsService {
+public class AccountsService extends BaseService {
 
 	// Token preso dal file application.properties
 	@Value("${api.token}")
@@ -42,15 +50,38 @@ public class AccountsService {
 
 	private RestTemplate restTemplate = new RestTemplate();
 
+	
+
+	// Metodo per ottenere le informazioni sugli account
+		@Cacheable("accountId")
+		public String getAccountId() {
+			try {
+				
+				UsersMeAccountsResponse usersMeAccountsResponse =  userMeAccounts();
+				
+				return usersMeAccountsResponse.getData().get(0).getAccount().getUuid();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		
+		
 	// Metodo per chiamare l'API e ottenere i dati dell'utente
-	public ResponseEntity<String> getUserData() {
+	public UsersMeResponse userMe() {
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("X-AUTH-TOKEN", token);
 
 			HttpEntity<String> entity = new HttpEntity<>(headers);
 
-			return restTemplate.exchange(userUrl, HttpMethod.GET, entity, String.class);
+			ResponseEntity<String> response = restTemplate.exchange(userUrl, HttpMethod.GET, entity, String.class);
+
+			ObjectMapper om = new ObjectMapper();
+			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+			return om.readValue(response.getBody(), UsersMeResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -58,20 +89,90 @@ public class AccountsService {
 	}
 
 	// Metodo per ottenere le informazioni sugli account
-	public ResponseEntity<String> getUserAccounts() {
+	public UsersMeAccountsResponse userMeAccounts() {
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("X-AUTH-TOKEN", token);
 
 			HttpEntity<String> entity = new HttpEntity<>(headers);
 
-			return restTemplate.exchange(accountsUrl, HttpMethod.GET, entity, String.class);
+			ResponseEntity<String> response = restTemplate.exchange(accountsUrl, HttpMethod.GET, entity, String.class);
+
+			ObjectMapper om = new ObjectMapper();
+			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+			return om.readValue(response.getBody(), UsersMeAccountsResponse.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+		
+	// Metodo per fare una richiesta di ricerca
+	public AccountsSubjectsFindResponse accountsSubjectsFind(PibisiPojo requestJson) {
+		try {
+
+			String accountId = getAccountId(requestJson);
+
+			String url = findSubjectsUrl.replace("{accountId}", accountId);
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.set("X-AUTH-TOKEN", token);
+			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+
+			String requestBody = "[{\"type\": \"" + requestJson.getType() + "\", \"content\": \""
+					+ requestJson.getContent() + "\"}]";
+
+			Map<Object, Object> data = new HashMap<>();
+			data.put("pois", requestBody);
+
+			// Codifica dei dati in formato application/x-www-form-urlencoded
+			StringJoiner sj = new StringJoiner("&");
+			for (Map.Entry<Object, Object> entry : data.entrySet()) {
+				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
+						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+			}
+
+			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+
+			ObjectMapper om = new ObjectMapper();
+			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			
+			return om.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// Metodo per ottenere un report di un soggetto
 	public ResponseEntity<byte[]> getSubjectReport(PibisiPojo requestJson) {
 		try {
@@ -102,37 +203,6 @@ public class AccountsService {
 			HttpEntity<String> entity = new HttpEntity<>(headers);
 
 			return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	// Metodo per fare una richiesta di ricerca
-	public ResponseEntity<String> findSubjectsForAccount(PibisiPojo requestJson) {
-		try {
-			String url = findSubjectsUrl.replace("{accountId}", requestJson.getAccountId());
-
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
-
-			String requestBody = "[{\"type\": \"" + requestJson.getType() + "\", \"content\": \""
-					+ requestJson.getContent() + "\"}]";
-
-			Map<Object, Object> data = new HashMap<>();
-			data.put("pois", requestBody);
-
-			// Codifica dei dati in formato application/x-www-form-urlencoded
-			StringJoiner sj = new StringJoiner("&");
-			for (Map.Entry<Object, Object> entry : data.entrySet()) {
-				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
-						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
-			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

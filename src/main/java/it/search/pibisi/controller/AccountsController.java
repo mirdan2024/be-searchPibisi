@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.search.pibisi.controller.pojo.PibisiPojo;
+import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
+import it.search.pibisi.pojo.users.me.UsersMeResponse;
+import it.search.pibisi.pojo.users.me.accounts.UsersMeAccountsResponse;
 import it.search.pibisi.service.AccountsService;
 
 @RestController
@@ -18,15 +21,31 @@ public class AccountsController {
 
 	// Endpoint per ottenere i dati dell'utente
 	@GetMapping("/user")
-	public ResponseEntity<String> getUser() {
-		return accountsService.getUserData();
+	public UsersMeResponse userMe() {
+		return accountsService.userMe();
 	}
 
 	// Endpoint per ottenere le informazioni sugli account dell'utente
 	@GetMapping("/user/accounts")
-	public ResponseEntity<String> getUserAccounts() {
-		return accountsService.getUserAccounts();
+	public UsersMeAccountsResponse userMeAccounts() {
+		return accountsService.userMeAccounts();
 	}
+
+	// Endpoint per inviare una richiesta di ricerca
+	@PostMapping("/accounts/subjects/find")
+	public AccountsSubjectsFindResponse findSubjects(@RequestBody PibisiPojo requestJson) {
+		// Corpo della richiesta con il valore per "pois"
+		return accountsService.accountsSubjectsFind(requestJson);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// Endpoint per ottenere un report di un soggetto
 	@GetMapping("/accounts/subjects/report")
@@ -38,13 +57,6 @@ public class AccountsController {
 	@GetMapping("/accounts/subjects")
 	public ResponseEntity<String> getSubjectDetails(@RequestBody PibisiPojo requestJson) {
 		return accountsService.getSubjectDetails(requestJson);
-	}
-
-	// Endpoint per inviare una richiesta di ricerca
-	@PostMapping("/accounts/subjects/find")
-	public ResponseEntity<String> findSubjects(@RequestBody PibisiPojo requestJson) {
-		// Corpo della richiesta con il valore per "pois"
-		return accountsService.findSubjectsForAccount(requestJson);
 	}
 
 	// Endpoint per inviare una richiesta di ricerca
