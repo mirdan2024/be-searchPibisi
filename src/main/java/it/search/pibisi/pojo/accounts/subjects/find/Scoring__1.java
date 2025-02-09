@@ -15,7 +15,7 @@ public class Scoring__1 {
 	@JsonProperty("was_pep")
 	private Boolean wasPep;
 	@JsonProperty("was_pep_date")
-	private Integer wasPepDate;
+	private String wasPepDate;
 	@JsonProperty("is_sanctioned")
 	private Boolean isSanctioned;
 	@JsonProperty("was_sanctioned")
@@ -71,11 +71,11 @@ public class Scoring__1 {
 		this.wasPep = wasPep;
 	}
 
-	public Integer getWasPepDate() {
+	public String getWasPepDate() {
 		return wasPepDate;
 	}
 
-	public void setWasPepDate(Integer wasPepDate) {
+	public void setWasPepDate(String wasPepDate) {
 		this.wasPepDate = wasPepDate;
 	}
 

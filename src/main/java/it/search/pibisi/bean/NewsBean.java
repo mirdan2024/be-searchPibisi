@@ -1,17 +1,21 @@
 package it.search.pibisi.bean;
 
+import java.util.List;
+
 public class NewsBean {
 
 	private String group;
 	private String uuid;
 	private String type;
 	private String content;
-	private String contentTypes;
-	private String contentSummary;
-	private String contentIssuer;
-	private String contentCountry;
-	private String contentFrom;
-	private String contentUrl;
+
+	// Content
+	private List<String> types;
+	private String summary;
+	private String issuer;
+	private String country;
+	private String from;
+	private String url;
 
 	public String getGroup() {
 		return group;
@@ -45,51 +49,52 @@ public class NewsBean {
 		this.content = content;
 	}
 
-	public String getContentTypes() {
-		return contentTypes;
+	public List<String> getTypes() {
+		return types;
 	}
 
-	public void setContentTypes(String contentTypes) {
-		this.contentTypes = contentTypes;
+	public void setTypes(List<String> types) {
+		this.types = types;
 	}
 
-	public String getContentSummary() {
-		return contentSummary;
+	public String getSummary() {
+		return summary;
 	}
 
-	public void setContentSummary(String contentSummary) {
-		this.contentSummary = contentSummary;
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
-	public String getContentIssuer() {
-		return contentIssuer;
+	public String getIssuer() {
+		return issuer;
 	}
 
-	public void setContentIssuer(String contentIssuer) {
-		this.contentIssuer = contentIssuer;
+	public void setIssuer(String issuer) {
+		this.issuer = issuer;
 	}
 
-	public String getContentCountry() {
-		return contentCountry;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setContentCountry(String contentCountry) {
-		this.contentCountry = contentCountry;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
-	public String getContentFrom() {
-		return contentFrom;
+	public String getFrom() {
+		return from;
 	}
 
-	public void setContentFrom(String contentFrom) {
-		this.contentFrom = contentFrom;
+	public void setFrom(String from) {
+		this.from = from;
 	}
 
-	public String getContentUrl() {
-		return contentUrl;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setContentUrl(String contentUrl) {
-		this.contentUrl = contentUrl;
+	public void setUrl(String url) {
+		this.url = url;
 	}
+
 }
