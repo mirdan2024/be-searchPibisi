@@ -14,11 +14,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.core.StreamReadFeature;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.search.pibisi.controller.pojo.PibisiPojo;
+import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.pojo.users.me.UsersMeResponse;
 import it.search.pibisi.pojo.users.me.accounts.UsersMeAccountsResponse;
@@ -50,23 +50,20 @@ public class AccountsService extends BaseService {
 
 	private RestTemplate restTemplate = new RestTemplate();
 
-	
-
 	// Metodo per ottenere le informazioni sugli account
-		@Cacheable("accountId")
-		public String getAccountId() {
-			try {
-				
-				UsersMeAccountsResponse usersMeAccountsResponse =  userMeAccounts();
-				
-				return usersMeAccountsResponse.getData().get(0).getAccount().getUuid();
-			} catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
+	@Cacheable("accountId")
+	public String getAccountId() {
+		try {
+
+			UsersMeAccountsResponse usersMeAccountsResponse = userMeAccounts();
+
+			return usersMeAccountsResponse.getData().get(0).getAccount().getUuid();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
-		
-		
+	}
+
 	// Metodo per chiamare l'API e ottenere i dati dell'utente
 	public UsersMeResponse userMe() {
 		try {
@@ -108,7 +105,7 @@ public class AccountsService extends BaseService {
 			return null;
 		}
 	}
-		
+
 	// Metodo per fare una richiesta di ricerca
 	public AccountsSubjectsFindResponse accountsSubjectsFind(PibisiPojo requestJson) {
 		try {
@@ -141,7 +138,7 @@ public class AccountsService extends BaseService {
 			ObjectMapper om = new ObjectMapper();
 			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-			
+
 			return om.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -149,50 +146,8 @@ public class AccountsService extends BaseService {
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// Metodo per ottenere un report di un soggetto
-	public ResponseEntity<byte[]> getSubjectReport(PibisiPojo requestJson) {
-		try {
-			String url = subjectReportUrl.replace("{accountId}", requestJson.getAccountId()).replace("{subjectId}",
-					requestJson.getSubjectId());
-
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-
-			return restTemplate.exchange(url, HttpMethod.GET, entity, byte[].class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
 	// Metodo per ottenere i dettagli di un soggetto
-	public ResponseEntity<String> getSubjectDetails(PibisiPojo requestJson) {
+	public AccountsSubjectsResponse accountsSubjects(PibisiPojo requestJson) {
 		try {
 			String url = subjectDetailsUrl.replace("{accountId}", requestJson.getAccountId()).replace("{subjectId}",
 					requestJson.getSubjectId());
@@ -202,7 +157,13 @@ public class AccountsService extends BaseService {
 
 			HttpEntity<String> entity = new HttpEntity<>(headers);
 
-			return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+
+			ObjectMapper om = new ObjectMapper();
+			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+			return om.readValue(response.getBody(), AccountsSubjectsResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -210,8 +171,7 @@ public class AccountsService extends BaseService {
 	}
 
 	// Metodo per fare una richiesta POST all'endpoint
-	// /accounts/{accounts}/subjects/find-blocked
-	public ResponseEntity<String> findBlockedSubjectsForAccount(PibisiPojo requestJson) {
+	public AccountsSubjectsFindResponse accountsSubjectsFindBlocked(PibisiPojo requestJson) {
 		try {
 			String url = findBlockedSubjectsUrl.replace("{accountId}", requestJson.getAccountId());
 
@@ -234,7 +194,31 @@ public class AccountsService extends BaseService {
 
 			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
 
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+
+			ObjectMapper om = new ObjectMapper();
+			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+			return om.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	// Metodo per ottenere un report di un soggetto
+	public ResponseEntity<byte[]> accountsSubjectsReport(PibisiPojo requestJson) {
+		try {
+			String url = subjectReportUrl.replace("{accountId}", requestJson.getAccountId()).replace("{subjectId}",
+					requestJson.getSubjectId());
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.set("X-AUTH-TOKEN", token);
+
+			HttpEntity<String> entity = new HttpEntity<>(headers);
+
+			return restTemplate.exchange(url, HttpMethod.GET, entity, byte[].class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
