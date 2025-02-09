@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.search.pibisi.bean.InfoBean;
+import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.MatchListBean;
 import it.search.pibisi.bean.NameFullBean;
 import it.search.pibisi.bean.NewsBean;
@@ -31,6 +32,7 @@ public class AccountsSearchService extends BaseService {
 
 	// Metodo per fare una richiesta di ricerca
 	public MatchListBean search(AccountsSearchPojo requestJson) {
+		MatchListBean matchListBean = new MatchListBean();
 		try {
 
 			PibisiPojo pibisiPojo = new PibisiPojo();
@@ -40,43 +42,46 @@ public class AccountsSearchService extends BaseService {
 			AccountsSubjectsFindResponse accountsSubjectsFindResponse = accountsService
 					.accountsSubjectsFind(pibisiPojo);
 
-			MatchListBean matchList = new MatchListBean();
-			matchList.setNameFull(new ArrayList<>());
-			matchList.setInfoMap(new HashMap<>());
-			matchList.setNews(new ArrayList<>());
-
 			if (accountsSubjectsFindResponse != null && accountsSubjectsFindResponse.getData() != null
 					&& accountsSubjectsFindResponse.getData().getMatches() != null
 					&& accountsSubjectsFindResponse.getData().getMatches() != null) {
 				for (Match__1 match : accountsSubjectsFindResponse.getData().getMatches()) {
+
+					MatchBean matchBean = new MatchBean();
+					matchBean.setNameFull(new ArrayList<>());
+					matchBean.setInfoMap(new HashMap<>());
+					matchBean.setNews(new ArrayList<>());
+
 					for (Info info : match.getInfo()) {
 						switch (info.getType()) {
 						case "name.full":
-							addNameFullBean(matchList, info);
+							addNameFullBean(matchBean, info);
 							break;
 						case "person", "gender", "birth.date", "birth.place", "nationality", "function", "illegal",
 								"id.platform", "name.first", "name.last", "sanction", "id.passport", "photo",
 								"function.public":
-							setMap(matchList, info, info.getType());
+							setMap(matchBean, info, info.getType());
 							break;
 						case "media":
-							addNewsBean(matchList, info);
+							addNewsBean(matchBean, info);
 							break;
 						default:
 							logUnknownInfo(info);
 							break;
 						}
 					}
+
+					matchListBean.addMatchBean(matchBean);
 				}
 			}
-			return matchList;
+			return matchListBean;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 
-	private void addNameFullBean(MatchListBean matchList, Info info) {
+	private void addNameFullBean(MatchBean matchList, Info info) {
 		NameFullBean nameFullBean = new NameFullBean();
 		nameFullBean.setUuid(info.getUuid());
 		nameFullBean.setType(info.getType());
@@ -85,7 +90,7 @@ public class AccountsSearchService extends BaseService {
 		matchList.getNameFull().add(nameFullBean);
 	}
 
-	private void addNewsBean(MatchListBean matchList, Info info)
+	private void addNewsBean(MatchBean matchList, Info info)
 			throws StreamReadException, DatabindException, JsonProcessingException, IOException {
 		// Crea un'istanza dell'ObjectMapper
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -108,7 +113,7 @@ public class AccountsSearchService extends BaseService {
 		matchList.getNews().add(newsBean);
 	}
 
-	private void setMap(MatchListBean matchList, Info info, String fieldName)
+	private void setMap(MatchBean matchList, Info info, String fieldName)
 			throws StreamReadException, DatabindException, JsonProcessingException, IOException {
 		InfoBean infoBean = new InfoBean();
 		infoBean.setUuid(info.getUuid());

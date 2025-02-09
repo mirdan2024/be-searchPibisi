@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.MatchListBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.service.AccountsSearchService;

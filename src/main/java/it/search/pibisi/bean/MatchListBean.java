@@ -1,36 +1,27 @@
 package it.search.pibisi.bean;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MatchListBean {
 
-	private List<NameFullBean> nameFull;
-	private HashMap<String, InfoBean> infoMap; 
-	private List<NewsBean> news;
+	
+	public List<MatchBean> elencoMatch;
 
-	public HashMap<String, InfoBean> getInfoMap() {
-		return infoMap;
+	public List<MatchBean> getElencoMatch() {
+		if (elencoMatch==null )
+			elencoMatch  = new ArrayList<MatchBean>();
+		
+		return elencoMatch;
 	}
 
-	public void setInfoMap(HashMap<String, InfoBean> infoMap) {
-		this.infoMap = infoMap;
+	public void setElencoMatch(List<MatchBean> elencoMatch) {
+		this.elencoMatch = elencoMatch;
 	}
-
-	public List<NameFullBean> getNameFull() {
-		return nameFull;
+	
+	public void addMatchBean(MatchBean mb) {
+		getElencoMatch().add(mb);
 	}
-
-	public void setNameFull(List<NameFullBean> nameFull) {
-		this.nameFull = nameFull;
-	}
-
-	public List<NewsBean> getNews() {
-		return news;
-	}
-
-	public void setNews(List<NewsBean> news) {
-		this.news = news;
-	}
-
+	
+	
 }
