@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -118,11 +119,19 @@ public class AccountsService extends BaseService {
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			String requestBody = "[{\"type\": \"" + requestJson.getType() + "\", \"content\": \""
-					+ requestJson.getContent() + "\"}]";
+			StringBuilder sb = new StringBuilder();
+			sb.append("[{");
+			sb.append("\"type\": \"" + requestJson.getType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getContent() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}]");
 
 			Map<Object, Object> data = new HashMap<>();
-			data.put("pois", requestBody);
+			data.put("pois", sb.toString());
 
 			// Codifica dei dati in formato application/x-www-form-urlencoded
 			StringJoiner sj = new StringJoiner("&");
@@ -179,11 +188,19 @@ public class AccountsService extends BaseService {
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			String requestBody = "[{\"type\": \"" + requestJson.getType() + "\", \"content\": \""
-					+ requestJson.getContent() + "\"}]";
+			StringBuilder sb = new StringBuilder();
+			sb.append("[{");
+			sb.append("\"type\": \"" + requestJson.getType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getContent() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}]");
 
 			Map<Object, Object> data = new HashMap<>();
-			data.put("pois", requestBody);
+			data.put("pois", sb.toString());
 
 			// Codifica dei dati in formato application/x-www-form-urlencoded
 			StringJoiner sj = new StringJoiner("&");

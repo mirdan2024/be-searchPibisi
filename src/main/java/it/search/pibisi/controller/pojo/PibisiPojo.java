@@ -30,6 +30,8 @@ public class PibisiPojo {
 
 	private String data;
 
+	private String threshold;
+
 	public String getType() {
 		return type;
 	}
@@ -124,5 +126,13 @@ public class PibisiPojo {
 
 	public void setData(String data) {
 		this.data = data;
+	}
+
+	public String getThreshold() {
+		return threshold;
+	}
+
+	public void setThreshold(String threshold) {
+		this.threshold = threshold;
 	}
 }
