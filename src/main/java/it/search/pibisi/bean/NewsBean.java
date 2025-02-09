@@ -5,6 +5,7 @@ public class NewsBean {
 	private String group;
 	private String uuid;
 	private String type;
+	private String content;
 	private String contentTypes;
 	private String contentSummary;
 	private String contentIssuer;
@@ -34,6 +35,14 @@ public class NewsBean {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public String getContentTypes() {

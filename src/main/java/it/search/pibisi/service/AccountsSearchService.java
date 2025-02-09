@@ -1,6 +1,7 @@
 package it.search.pibisi.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import it.search.pibisi.bean.InfoBean;
 import it.search.pibisi.bean.MatchListBean;
 import it.search.pibisi.bean.NameFullBean;
+import it.search.pibisi.bean.NewsBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.controller.pojo.PibisiPojo;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
@@ -33,9 +35,8 @@ public class AccountsSearchService extends BaseService {
 
 			MatchListBean matchList = new MatchListBean();
 			matchList.setNameFull(new ArrayList<>());
-			matchList.setInfo(new ArrayList<>());
+			matchList.setInfoMap(new HashMap<>());
 			matchList.setNews(new ArrayList<>());
-			InfoBean infoBean = new InfoBean();
 
 			for (Match__1 match : accountsSubjectsFindResponse.getData().getMatches()) {
 				for (Info info : match.getInfo()) {
@@ -43,26 +44,8 @@ public class AccountsSearchService extends BaseService {
 					case "name.full":
 						addNameFullBean(matchList, info);
 						break;
-					case "person":
-						setInfoBean(infoBean, info, "person");
-						break;
-					case "gender":
-						setInfoBean(infoBean, info, "gender");
-						break;
-					case "birth.date":
-						setInfoBean(infoBean, info, "birthDate");
-						break;
-					case "birth.place":
-						setInfoBean(infoBean, info, "birthPlace");
-						break;
-					case "nationality":
-						setInfoBean(infoBean, info, "nationality");
-						break;
-					case "function":
-						setInfoBean(infoBean, info, "function");
-						break;
-					case "illegal":
-						setInfoBean(infoBean, info, "illegal");
+					case "person", "gender", "birth.date", "birth.place", "nationality", "function", "illegal":
+						setMap(matchList, info, info.getType());
 						break;
 					case "media":
 						addNewsBean(matchList, info);
@@ -73,7 +56,6 @@ public class AccountsSearchService extends BaseService {
 					}
 				}
 			}
-			matchList.getInfo().add(infoBean);
 
 			return matchList;
 		} catch (Exception e) {
@@ -84,39 +66,31 @@ public class AccountsSearchService extends BaseService {
 
 	private void addNameFullBean(MatchListBean matchList, Info info) {
 		NameFullBean nameFullBean = new NameFullBean();
-		setCommonProperties(nameFullBean, info);
+		nameFullBean.setUuid(info.getUuid());
+		nameFullBean.setType(info.getType());
+		nameFullBean.setContent(String.valueOf(info.getContent()));
+		nameFullBean.setGroup(String.valueOf(info.getGroup()));
 		matchList.getNameFull().add(nameFullBean);
 	}
 
 	private void addNewsBean(MatchListBean matchList, Info info) {
-		it.search.pibisi.bean.NewsBean newsBean = new it.search.pibisi.bean.NewsBean();
-		setCommonProperties(newsBean, info);
-		newsBean.setContentUrl(String.valueOf(info.getContent()));
+		NewsBean newsBean = new NewsBean();
+		newsBean.setUuid(info.getUuid());
+		newsBean.setType(info.getType());
+		newsBean.setContent(String.valueOf(info.getContent()));
+		newsBean.setGroup(String.valueOf(info.getGroup()));
 		matchList.getNews().add(newsBean);
 	}
 
-	private void setInfoBean(InfoBean infoBean, Info info, String fieldName) {
+	private void setMap(MatchListBean matchList, Info info, String fieldName) {
 		try {
-			// Usa reflection per settare dinamicamente i campi dell'InfoBean
-			infoBean.getClass().getMethod("set" + capitalizeFirstLetter(fieldName) + "Uuid", String.class)
-					.invoke(infoBean, info.getUuid());
-			infoBean.getClass().getMethod("set" + capitalizeFirstLetter(fieldName) + "Content", String.class)
-					.invoke(infoBean, String.valueOf(info.getContent()));
-			infoBean.getClass().getMethod("set" + capitalizeFirstLetter(fieldName) + "Type", String.class)
-					.invoke(infoBean, info.getType());
-			infoBean.getClass().getMethod("set" + capitalizeFirstLetter(fieldName) + "Group", String.class)
-					.invoke(infoBean, String.valueOf(info.getGroup()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+			InfoBean infoBean = new InfoBean();
+			infoBean.setUuid(info.getUuid());
+			infoBean.setType(info.getType());
+			infoBean.setContent(String.valueOf(info.getContent()));
+			infoBean.setGroup(String.valueOf(info.getGroup()));
 
-	private void setCommonProperties(Object bean, Info info) {
-		try {
-			bean.getClass().getMethod("setUuid", String.class).invoke(bean, info.getUuid());
-			bean.getClass().getMethod("setType", String.class).invoke(bean, info.getType());
-			bean.getClass().getMethod("setContent", String.class).invoke(bean, String.valueOf(info.getContent()));
-			bean.getClass().getMethod("setGroup", String.class).invoke(bean, String.valueOf(info.getGroup()));
+			matchList.getInfoMap().put(fieldName, infoBean);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -133,7 +107,4 @@ public class AccountsSearchService extends BaseService {
 		System.out.println("-----------------------------------");
 	}
 
-	private String capitalizeFirstLetter(String field) {
-		return field.substring(0, 1).toUpperCase() + field.substring(1);
-	}
 }

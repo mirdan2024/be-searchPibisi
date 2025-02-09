@@ -1,19 +1,20 @@
 package it.search.pibisi.bean;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class MatchListBean {
 
 	private List<NameFullBean> nameFull;
-	private List<InfoBean> info;
+	private HashMap<String, InfoBean> infoMap; 
 	private List<NewsBean> news;
 
-	public List<InfoBean> getInfo() {
-		return info;
+	public HashMap<String, InfoBean> getInfoMap() {
+		return infoMap;
 	}
 
-	public void setInfo(List<InfoBean> info) {
-		this.info = info;
+	public void setInfoMap(HashMap<String, InfoBean> infoMap) {
+		this.infoMap = infoMap;
 	}
 
 	public List<NameFullBean> getNameFull() {
