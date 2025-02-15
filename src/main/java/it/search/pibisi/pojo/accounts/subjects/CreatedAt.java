@@ -6,8 +6,10 @@ public class CreatedAt {
 
 	@JsonProperty("date")
 	private String date;
+	
 	@JsonProperty("timezone_type")
 	private Integer timezoneType;
+	
 	@JsonProperty("timezone")
 	private String timezone;
 

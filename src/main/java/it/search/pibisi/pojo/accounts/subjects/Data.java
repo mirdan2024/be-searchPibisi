@@ -8,10 +8,13 @@ public class Data {
 
 	@JsonProperty("uuid")
 	private String uuid;
+	
 	@JsonProperty("info")
 	private List<Info> info;
+	
 	@JsonProperty("scoring")
 	private Scoring scoring;
+	
 	@JsonProperty("created_at")
 	private CreatedAt createdAt;
 

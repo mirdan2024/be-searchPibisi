@@ -6,6 +6,7 @@ public class AccountsSubjectsResponse {
 
 	@JsonProperty("data")
 	private Data data;
+	
 	@JsonProperty("meta")
 	private Meta meta;
 

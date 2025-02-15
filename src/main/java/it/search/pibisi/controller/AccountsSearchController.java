@@ -21,4 +21,10 @@ public class AccountsSearchController {
 	public MatchListBean search(@RequestBody AccountsSearchPojo requestJson) {
 		return searchService.search(requestJson);
 	}
+
+	// Endpoint per il dettaglio di un nominativo trovato liste
+	@GetMapping("/accounts/detail")
+	public MatchBean detail(@RequestBody AccountsSearchPojo requestJson) {
+		return searchService.detail(requestJson);
+	}
 }

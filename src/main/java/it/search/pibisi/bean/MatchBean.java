@@ -8,6 +8,7 @@ public class MatchBean {
 	private List<NameFullBean> nameFull;
 	private HashMap<String, InfoBean> infoMap;
 	private List<NewsBean> news;
+	private SubjectBean subjectBean;
 
 	// Scoring
 	private Integer scoring;
@@ -145,5 +146,13 @@ public class MatchBean {
 
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public SubjectBean getSubjectBean() {
+		return subjectBean;
+	}
+
+	public void setSubjectBean(SubjectBean subjectBean) {
+		this.subjectBean = subjectBean;
 	}
 }
