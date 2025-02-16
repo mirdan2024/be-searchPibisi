@@ -1,5 +1,7 @@
 package it.search.pibisi.bean;
 
+import java.util.List;
+
 public class SubjectInfoBean {
 
 	private String content;
@@ -10,7 +12,7 @@ public class SubjectInfoBean {
 
 	private String type;
 
-	private SoiBean soiBean;
+	private List<SoiBean> soiBean;
 
 	// Getter e Setter
 	public String getGroup() {
@@ -41,11 +43,11 @@ public class SubjectInfoBean {
 		this.type = type;
 	}
 
-	public SoiBean getSoiBean() {
+	public List<SoiBean> getSoiBean() {
 		return soiBean;
 	}
 
-	public void setSoiBean(SoiBean soiBean) {
+	public void setSoiBean(List<SoiBean> soiBean) {
 		this.soiBean = soiBean;
 	}
 

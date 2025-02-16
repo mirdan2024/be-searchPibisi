@@ -151,50 +151,15 @@ public class AccountsSearchService extends BaseService {
 
 		if (scoring.getFlags() != null) {
 			StringBuilder category = new StringBuilder();
-			String highRisk = "Low Risk";
 
-			if (Boolean.TRUE.equals(scoring.getFlags().getIsPep())) {
-				matchBean.setPep(scoring.getFlags().getIsPep());
-				category.append("  PEP");
-			} else if (Boolean.TRUE.equals(scoring.getFlags().getWasPep())) {
-				matchBean.setWasPep(scoring.getFlags().getWasPep());
-				category.append("  EX_PEP");
-				if (StringUtils.hasLength(scoring.getFlags().getWasPepDate())) {
-					matchBean.setWasPepDate(scoring.getFlags().getWasPepDate().toString());
-					category.append(" (" + scoring.getFlags().getWasPepDate().toString() + ")");
-				}
-			}
-
-			if (Boolean.TRUE.equals(scoring.getFlags().getIsSanctioned())) {
-				matchBean.setSanctioned(scoring.getFlags().getIsSanctioned());
-				category.append("  SANTION");
-			} else if (Boolean.TRUE.equals(scoring.getFlags().getWasSanctioned())) {
-				matchBean.setWasSanctioned(scoring.getFlags().getWasSanctioned());
-				category.append("  EX_SANTION");
-				if (StringUtils.hasLength(scoring.getFlags().getWasSanctionedDate())) {
-					category.append(" (" + scoring.getFlags().getWasSanctionedDate().toString() + ")");
-				}
-			}
-
-			if (Boolean.TRUE.equals(scoring.getFlags().getIsTerrorist())) {
-				matchBean.setTerrorist(scoring.getFlags().getIsTerrorist());
-				category.append("  TERRORIST");
-			}
-
-			if (Boolean.TRUE.equals(scoring.getFlags().getHasMedia())) {
-				matchBean.setHasMedia(scoring.getFlags().getHasMedia());
-				category.append("  MEDIA");
-			}
-
-			if (Boolean.TRUE.equals(scoring.getFlags().getHasAdverseInfo())) {
-				matchBean.setHasAdverseInfo(scoring.getFlags().getHasAdverseInfo());
-				category.append("  ADVERSE INFO");
-			}
-
-			if (Boolean.TRUE.equals(scoring.getFlags().getIsHighRisk())) {
-				matchBean.setHighRisk(scoring.getFlags().getIsHighRisk());
-				highRisk = "High Risk";
-			}
+			categoryPep(scoring.getFlags().getIsPep(), scoring.getFlags().getWasPep(),
+					scoring.getFlags().getWasPepDate(), matchBean, category);
+			categorySanction(scoring.getFlags().getIsSanctioned(), scoring.getFlags().getWasSanctioned(),
+					scoring.getFlags().getWasSanctionedDate(), matchBean, category);
+			categoryTerrorist(scoring.getFlags().getIsTerrorist(), matchBean, category);
+			categoryHasMedia(scoring.getFlags().getHasMedia(), matchBean, category);
+			categoryHasAdverseInfo(scoring.getFlags().getHasAdverseInfo(), matchBean, category);
+			String highRisk = readHighRisk(scoring.getFlags().getIsHighRisk(), matchBean);
 
 			matchBean.setTypeCategory(category.toString());
 			matchBean.setTypeRisk(highRisk);
@@ -205,18 +170,80 @@ public class AccountsSearchService extends BaseService {
 		matchBean.setScoring(scoring.getValue());
 
 		if (scoring.getFlags() != null) {
-			matchBean.setPep(scoring.getFlags().getIsPep());
-			matchBean.setWasPep(scoring.getFlags().getWasPep());
-			if (scoring.getFlags().getWasPepDate() != null)
-				matchBean.setWasPepDate(scoring.getFlags().getWasPepDate().toString());
-			matchBean.setSanctioned(scoring.getFlags().getIsSanctioned());
-			matchBean.setWasSanctioned(scoring.getFlags().getWasSanctioned());
-			matchBean.setWasSanctionedDate(scoring.getFlags().getWasSanctionedDate());
-			matchBean.setTerrorist(scoring.getFlags().getIsTerrorist());
-			matchBean.setHasMedia(scoring.getFlags().getHasMedia());
-			matchBean.setHasAdverseInfo(scoring.getFlags().getHasAdverseInfo());
-			matchBean.setHighRisk(scoring.getFlags().getIsHighRisk());
+			StringBuilder category = new StringBuilder();
+
+			categoryPep(scoring.getFlags().getIsPep(), scoring.getFlags().getWasPep(),
+					scoring.getFlags().getWasPepDate(), matchBean, category);
+			categorySanction(scoring.getFlags().getIsSanctioned(), scoring.getFlags().getWasSanctioned(),
+					scoring.getFlags().getWasSanctionedDate(), matchBean, category);
+			categoryTerrorist(scoring.getFlags().getIsTerrorist(), matchBean, category);
+			categoryHasMedia(scoring.getFlags().getHasMedia(), matchBean, category);
+			categoryHasAdverseInfo(scoring.getFlags().getHasAdverseInfo(), matchBean, category);
+			String highRisk = readHighRisk(scoring.getFlags().getIsHighRisk(), matchBean);
+
+			matchBean.setTypeCategory(category.toString());
+			matchBean.setTypeRisk(highRisk);
 		}
+	}
+
+	private void categoryPep(Boolean isPep, Boolean wasPep, String wasPepDate, MatchBean matchBean,
+			StringBuilder category) {
+		if (Boolean.TRUE.equals(isPep)) {
+			matchBean.setPep(isPep);
+			category.append("  PEP");
+		} else if (Boolean.TRUE.equals(wasPep)) {
+			matchBean.setWasPep(wasPep);
+			category.append("  EX_PEP");
+			if (StringUtils.hasLength(wasPepDate)) {
+				matchBean.setWasPepDate(wasPepDate);
+				category.append(" (" + wasPepDate + ")");
+			}
+		}
+	}
+
+	private void categorySanction(Boolean isSanctioned, Boolean wasSanctioned, String wasSanctionedDate,
+			MatchBean matchBean, StringBuilder category) {
+		if (Boolean.TRUE.equals(isSanctioned)) {
+			matchBean.setSanctioned(isSanctioned);
+			category.append("  SANTION");
+		} else if (Boolean.TRUE.equals(wasSanctioned)) {
+			matchBean.setWasSanctioned(wasSanctioned);
+			category.append("  EX_SANTION");
+			if (StringUtils.hasLength(wasSanctionedDate)) {
+				matchBean.setWasSanctionedDate(wasSanctionedDate);
+				category.append(" (" + wasSanctionedDate + ")");
+			}
+		}
+	}
+
+	private void categoryTerrorist(Boolean isTerrorist, MatchBean matchBean, StringBuilder category) {
+		if (Boolean.TRUE.equals(isTerrorist)) {
+			matchBean.setTerrorist(isTerrorist);
+			category.append("  TERRORIST");
+		}
+	}
+
+	private void categoryHasMedia(Boolean hasMedia, MatchBean matchBean, StringBuilder category) {
+		if (Boolean.TRUE.equals(hasMedia)) {
+			matchBean.setHasMedia(hasMedia);
+			category.append("  MEDIA");
+		}
+	}
+
+	private void categoryHasAdverseInfo(Boolean hasAdverseInfo, MatchBean matchBean, StringBuilder category) {
+		if (Boolean.TRUE.equals(hasAdverseInfo)) {
+			matchBean.setHasAdverseInfo(hasAdverseInfo);
+			category.append("  ADVERSE INFO");
+		}
+	}
+
+	private String readHighRisk(Boolean isHighRisk, MatchBean matchBean) {
+		String highRisk = "Low Risk";
+		if (Boolean.TRUE.equals(isHighRisk)) {
+			matchBean.setHighRisk(isHighRisk);
+			highRisk = "High Risk";
+		}
+		return highRisk;
 	}
 
 	private AccountsSubjectsFindResponse searchMatch(AccountsSearchPojo requestJson) {
@@ -339,6 +366,15 @@ public class AccountsSearchService extends BaseService {
 	private void setSubjectInfo2Bean(MatchBean matchList, Info__2 info) throws IOException {
 		matchList.getSubjectBean().setSubjectInfoBean(new ArrayList<>());
 		if (info.getSois() != null) {
+			SubjectInfoBean subjectInfoBean = new SubjectInfoBean();
+			if (info.getContent() != null)
+				subjectInfoBean.setContent(info.getContent().toString());
+			if (info.getGroup() != null)
+				subjectInfoBean.setGroup(info.getGroup().toString());
+			subjectInfoBean.setUuid(info.getUuid());
+			subjectInfoBean.setType(info.getType());
+			subjectInfoBean.setSoiBean(new ArrayList<SoiBean>());
+
 			for (Soi soi : info.getSois()) {
 				ObjectMapper objectMapper = new ObjectMapper();
 				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -348,16 +384,9 @@ public class AccountsSearchService extends BaseService {
 				SoiBean soiBean = new SoiBean();
 				BeanUtils.copyProperties(soiWrapper, soiBean);
 
-				SubjectInfoBean subjectInfoBean = new SubjectInfoBean();
-				if (info.getContent() != null)
-					subjectInfoBean.setContent(info.getContent().toString());
-				if (info.getGroup() != null)
-					subjectInfoBean.setGroup(info.getGroup().toString());
-				subjectInfoBean.setUuid(info.getUuid());
-				subjectInfoBean.setType(info.getType());
-				subjectInfoBean.setSoiBean(soiBean);
-				matchList.getSubjectBean().getSubjectInfoBean().add(subjectInfoBean);
+				subjectInfoBean.getSoiBean().add(soiBean);
 			}
+			matchList.getSubjectBean().getSubjectInfoBean().add(subjectInfoBean);
 		}
 	}
 
