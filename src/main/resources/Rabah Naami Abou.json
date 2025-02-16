@@ -1,0 +1,786 @@
+{
+	"data": {
+		"search_result": {
+			"uuid": "3703d90c-1fee-44d5-b1c2-66e20cc213d0",
+			"performed_at": "2025-02-16T09:53:10+01:00",
+			"threshold": 0.9,
+			"status": "processed",
+			"pois": [
+				{
+					"type": "name.full",
+					"content": "Rabah Naami Abou",
+					"threshold": "0.1"
+				}
+			],
+			"matches": [
+				{
+					"subject": "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc",
+					"similarity": 1,
+					"cardinality": 0.5,
+					"similarity_vector": {
+						"id": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"name": {
+							"fuzzy": "eq",
+							"exact": 1,
+							"poi_uuids_1": [],
+							"poi_uuids_2": [
+								"32e1d431-d446-4b3e-973f-0293c1754216"
+							]
+						},
+						"birth.date": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"death.date": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"person": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"function.current#country": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"function.current#scope": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"life_interval.birth": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"life_interval.death": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						}
+					}
+				}
+			],
+			"discarded_matches": [],
+			"account_uuid": "9c5e54af-2e9c-4375-b17c-9ff4090f596a",
+			"name_comparison_configs": {
+				"default": {
+					"search_type": "advanced",
+					"threshold": "0.9",
+					"max_allowed_blanks": 0,
+					"max_allowed_blanks_name": 0,
+					"max_allowed_blanks_surname": 0,
+					"allow_extra_words": false
+				}
+			},
+			"full_matches": []
+		},
+		"matches": [
+			{
+				"uuid": "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc",
+				"info": [
+					{
+						"group": null,
+						"uuid": "32e1d431-d446-4b3e-973f-0293c1754216",
+						"type": "name.full",
+						"content": "rabah naami abou"
+					},
+					{
+						"group": null,
+						"uuid": "8b5d5397-321e-4b2a-9cfe-11a6c9e6df4d",
+						"type": "name.full",
+						"content": "naami hamza"
+					},
+					{
+						"group": null,
+						"uuid": "a16e9927-a5fe-4f42-b2de-1bbcb3a85a6e",
+						"type": "name.full",
+						"content": "mihoubi faycal"
+					},
+					{
+						"group": null,
+						"uuid": "99755cbc-e48c-449d-b958-67300c90b83a",
+						"type": "name.full",
+						"content": "fellah ahmed"
+					},
+					{
+						"group": null,
+						"uuid": "f7253435-2e7b-4773-b535-5ef22f76f1ea",
+						"type": "name.full",
+						"content": "dafri rèmi lahdi"
+					},
+					{
+						"group": null,
+						"uuid": "4b01e9c3-2b3a-4dcf-b620-beb140fce25a",
+						"type": "gender",
+						"content": "M"
+					},
+					{
+						"group": null,
+						"uuid": "d749cc26-cd76-42b0-98a7-69bd406b6e4b",
+						"type": "birth.date",
+						"content": "1966-02-01"
+					},
+					{
+						"group": null,
+						"uuid": "f95dbb65-1261-402b-b595-8e5626ed6001",
+						"type": "birth.place",
+						"content": {
+							"city": "Algiers",
+							"country": "DZA"
+						}
+					},
+					{
+						"group": null,
+						"uuid": "86cab10e-ae88-490b-828c-c27304e6ef31",
+						"type": "nationality",
+						"content": "DZA"
+					},
+					{
+						"group": null,
+						"uuid": "02760259-44ef-4e59-b95b-a7fa809e0252",
+						"type": "function",
+						"content": {
+							"charge": "member",
+							"organization": "al-takfir and al-hijra"
+						}
+					},
+					{
+						"group": null,
+						"uuid": "7f2b45da-3c38-4eb1-8ba1-fc2656647b43",
+						"type": "illegal",
+						"content": "terrorist"
+					},
+					{
+						"group": null,
+						"uuid": "eb742e3d-cd4e-4bd4-80e4-fd416e43c484",
+						"type": "person",
+						"content": "P"
+					}
+				],
+				"similarity": 1,
+				"cardinality": 0.5,
+				"similarity_vector": {
+					"id": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"name": {
+						"fuzzy": "eq",
+						"exact": 1,
+						"poi_uuids_1": [],
+						"poi_uuids_2": [
+							"32e1d431-d446-4b3e-973f-0293c1754216"
+						]
+					},
+					"birth.date": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"death.date": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"person": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"function.current#country": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"function.current#scope": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"life_interval.birth": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"life_interval.death": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					}
+				},
+				"scoring": {
+					"value": 10,
+					"flags": {
+						"is_pep": false,
+						"was_pep": false,
+						"was_pep_date": 0,
+						"is_sanctioned": false,
+						"was_sanctioned": false,
+						"was_sanctioned_date": "",
+						"is_terrorist": true,
+						"has_media": false,
+						"has_adverse_info": false,
+						"is_high_risk": true
+					},
+					"info": {
+						"pep": [],
+						"pep_pois": [],
+						"pep_relations": [],
+						"sanctioned": [],
+						"terrorist": [
+							"7f2b45da-3c38-4eb1-8ba1-fc2656647b43"
+						],
+						"media": [],
+						"adverse_info": [],
+						"high_risk": [
+							"f95dbb65-1261-402b-b595-8e5626ed6001",
+							"86cab10e-ae88-490b-828c-c27304e6ef31"
+						]
+					},
+					"is_pep": false,
+					"was_pep": false,
+					"was_pep_date": 0,
+					"is_sanctioned": false,
+					"was_sanctioned": false,
+					"was_sanctioned_date": "",
+					"is_terrorist": true,
+					"has_media": false,
+					"has_adverse_info": false,
+					"is_high_risk": true
+				},
+				"subject": {
+					"uuid": "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc",
+					"info": [
+						{
+							"group": null,
+							"uuid": "32e1d431-d446-4b3e-973f-0293c1754216",
+							"type": "name.full",
+							"content": "rabah naami abou",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "8b5d5397-321e-4b2a-9cfe-11a6c9e6df4d",
+							"type": "name.full",
+							"content": "naami hamza",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "a16e9927-a5fe-4f42-b2de-1bbcb3a85a6e",
+							"type": "name.full",
+							"content": "mihoubi faycal",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "99755cbc-e48c-449d-b958-67300c90b83a",
+							"type": "name.full",
+							"content": "fellah ahmed",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "f7253435-2e7b-4773-b535-5ef22f76f1ea",
+							"type": "name.full",
+							"content": "dafri rèmi lahdi",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "4b01e9c3-2b3a-4dcf-b620-beb140fce25a",
+							"type": "gender",
+							"content": "M",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "d749cc26-cd76-42b0-98a7-69bd406b6e4b",
+							"type": "birth.date",
+							"content": "1966-02-01",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "f95dbb65-1261-402b-b595-8e5626ed6001",
+							"type": "birth.place",
+							"content": {
+								"city": "Algiers",
+								"country": "DZA"
+							},
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "86cab10e-ae88-490b-828c-c27304e6ef31",
+							"type": "nationality",
+							"content": "DZA",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "02760259-44ef-4e59-b95b-a7fa809e0252",
+							"type": "function",
+							"content": {
+								"charge": "member",
+								"organization": "al-takfir and al-hijra"
+							},
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "7f2b45da-3c38-4eb1-8ba1-fc2656647b43",
+							"type": "illegal",
+							"content": "terrorist",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "eb742e3d-cd4e-4bd4-80e4-fd416e43c484",
+							"type": "person",
+							"content": "P",
+							"sois": [
+								{
+									"uuid": "ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"status": "active",
+									"uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"internal_uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32005E0847",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2018-12-04T13:39:25+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "European Union Terrorists List",
+									"soi_group": {
+										"uuid": "13186f28-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "European Union Terrorists List",
+										"description": "European Union Terrorists List",
+										"issuer": "EU",
+										"info": "terrorist",
+										"group_set_code": "ue.ec"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=ac46b495-828f-48d5-b566-6bc22247b9fe",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						}
+					],
+					"scoring": {
+						"value": 10,
+						"flags": {
+							"is_pep": false,
+							"was_pep": false,
+							"was_pep_date": 0,
+							"is_sanctioned": false,
+							"was_sanctioned": false,
+							"was_sanctioned_date": "",
+							"is_terrorist": true,
+							"has_media": false,
+							"has_adverse_info": false,
+							"is_high_risk": true
+						},
+						"info": {
+							"pep": [],
+							"pep_pois": [],
+							"pep_relations": [],
+							"sanctioned": [],
+							"terrorist": [
+								"7f2b45da-3c38-4eb1-8ba1-fc2656647b43"
+							],
+							"media": [],
+							"adverse_info": [],
+							"high_risk": [
+								"f95dbb65-1261-402b-b595-8e5626ed6001",
+								"86cab10e-ae88-490b-828c-c27304e6ef31"
+							]
+						},
+						"is_pep": false,
+						"was_pep": false,
+						"was_pep_date": 0,
+						"is_sanctioned": false,
+						"was_sanctioned": false,
+						"was_sanctioned_date": "",
+						"is_terrorist": true,
+						"has_media": false,
+						"has_adverse_info": false,
+						"is_high_risk": true
+					},
+					"created_at": {
+						"date": "2018-12-10 09:26:31.000000",
+						"timezone_type": 3,
+						"timezone": "Etc/GMT-1"
+					}
+				}
+			}
+		],
+		"discarded_matches": []
+	},
+	"meta": {
+		"total_count": 1,
+		"count": 1,
+		"page": 1,
+		"page_size": 10,
+		"add": false,
+		"query": {
+			"pois": [
+				{
+					"type": "name.full",
+					"content": "Rabah Naami Abou",
+					"threshold": "0.1"
+				}
+			],
+			"threshold": 0.9,
+			"match_config": {
+				"default": {
+					"search_type": "advanced",
+					"threshold": "0.9",
+					"max_allowed_blanks": 0,
+					"max_allowed_blanks_name": 0,
+					"max_allowed_blanks_surname": 0,
+					"allow_extra_words": false
+				}
+			}
+		},
+		"version": "v2",
+		"time": "2025-02-16T09:53:10+01:00"
+	}
+}
