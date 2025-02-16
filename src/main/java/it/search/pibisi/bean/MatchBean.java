@@ -10,8 +10,10 @@ public class MatchBean {
 	private List<NewsBean> news;
 	private SubjectBean subjectBean;
 
-	// Scoring
+	// Scoring Category HighRisk
 	private Integer scoring;
+	String typeCategory;
+	String typeRisk;
 
 	// Category
 	private boolean isPep;
@@ -154,5 +156,21 @@ public class MatchBean {
 
 	public void setSubjectBean(SubjectBean subjectBean) {
 		this.subjectBean = subjectBean;
+	}
+
+	public String getTypeCategory() {
+		return typeCategory;
+	}
+
+	public void setTypeCategory(String typeCategory) {
+		this.typeCategory = typeCategory;
+	}
+
+	public String getTypeRisk() {
+		return typeRisk;
+	}
+
+	public void setTypeRisk(String typeRisk) {
+		this.typeRisk = typeRisk;
 	}
 }

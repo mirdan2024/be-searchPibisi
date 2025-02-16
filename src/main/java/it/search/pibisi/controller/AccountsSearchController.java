@@ -1,7 +1,7 @@
 package it.search.pibisi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +17,13 @@ public class AccountsSearchController {
 	private AccountsSearchService searchService;
 
 	// Endpoint per la ricerca di un nominativo sulle liste
-	@GetMapping("/accounts/search")
+	@PostMapping("/accounts/search")
 	public MatchListBean search(@RequestBody AccountsSearchPojo requestJson) {
 		return searchService.search(requestJson);
 	}
 
 	// Endpoint per il dettaglio di un nominativo trovato liste
-	@GetMapping("/accounts/detail")
+	@PostMapping("/accounts/detail")
 	public MatchBean detail(@RequestBody AccountsSearchPojo requestJson) {
 		return searchService.detail(requestJson);
 	}
