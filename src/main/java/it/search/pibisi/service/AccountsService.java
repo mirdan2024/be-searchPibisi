@@ -75,11 +75,11 @@ public class AccountsService extends BaseService {
 
 			ResponseEntity<String> response = restTemplate.exchange(userUrl, HttpMethod.GET, entity, String.class);
 
-			ObjectMapper om = new ObjectMapper();
-			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-			return om.readValue(response.getBody(), UsersMeResponse.class);
+			return objectMapper.readValue(response.getBody(), UsersMeResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -96,11 +96,11 @@ public class AccountsService extends BaseService {
 
 			ResponseEntity<String> response = restTemplate.exchange(accountsUrl, HttpMethod.GET, entity, String.class);
 
-			ObjectMapper om = new ObjectMapper();
-			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-			return om.readValue(response.getBody(), UsersMeAccountsResponse.class);
+			return objectMapper.readValue(response.getBody(), UsersMeAccountsResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -144,11 +144,11 @@ public class AccountsService extends BaseService {
 
 			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 
-			ObjectMapper om = new ObjectMapper();
-			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-			return om.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
+			return objectMapper.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -168,11 +168,11 @@ public class AccountsService extends BaseService {
 
 			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 
-			ObjectMapper om = new ObjectMapper();
-			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-			return om.readValue(response.getBody(), AccountsSubjectsResponse.class);
+			return objectMapper.readValue(response.getBody(), AccountsSubjectsResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -213,11 +213,11 @@ public class AccountsService extends BaseService {
 
 			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 
-			ObjectMapper om = new ObjectMapper();
-			om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-			om.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-			return om.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
+			return objectMapper.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

@@ -14,6 +14,8 @@ public class AccountsSearchPojo {
 
 	private String type;
 
+	private String threshold;
+
 	public String getSubjectId() {
 		return subjectId;
 	}
@@ -44,6 +46,14 @@ public class AccountsSearchPojo {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getThreshold() {
+		return threshold;
+	}
+
+	public void setThreshold(String threshold) {
+		this.threshold = threshold;
 	}
 
 }

@@ -224,6 +224,7 @@ public class AccountsSearchService extends BaseService {
 		pibisiPojo.setAccountId(accountsService.getAccountId());
 		pibisiPojo.setType(requestJson.getType());
 		pibisiPojo.setContent(requestJson.getContent());
+		pibisiPojo.setThreshold(requestJson.getThreshold());
 		return accountsService.accountsSubjectsFind(pibisiPojo);
 	}
 
