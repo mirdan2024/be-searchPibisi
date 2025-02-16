@@ -9,6 +9,7 @@ import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.MatchListBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.service.AccountsSearchService;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 public class AccountsSearchController {
@@ -18,8 +19,8 @@ public class AccountsSearchController {
 
 	// Endpoint per la ricerca di un nominativo sulle liste
 	@PostMapping("/accounts/search")
-	public MatchListBean search(@RequestBody AccountsSearchPojo requestJson) {
-		return searchService.search(requestJson);
+	public MatchListBean search(@RequestBody AccountsSearchPojo requestJson,HttpServletRequest request) {
+		return searchService.search(requestJson,request);
 	}
 
 	// Endpoint per il dettaglio di un nominativo trovato liste

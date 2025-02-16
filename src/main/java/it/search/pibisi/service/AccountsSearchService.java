@@ -3,6 +3,7 @@ package it.search.pibisi.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.util.StringUtils;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.base.ListaCategorieGruppoPojo;
 import it.search.pibisi.bean.InfoBean;
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.MatchListBean;
@@ -31,6 +33,7 @@ import it.search.pibisi.pojo.accounts.subjects.find.Scoring;
 import it.search.pibisi.pojo.accounts.subjects.find.Soi;
 import it.search.pibisi.wrapper.ContentWrapper;
 import it.search.pibisi.wrapper.SoiWrapper;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Service
 public class AccountsSearchService extends BaseService {
@@ -38,18 +41,56 @@ public class AccountsSearchService extends BaseService {
 	@Autowired
 	private AccountsService accountsService;
 
+	@Autowired
+	private UtilsService utilsService;
+
 	// Metodo per fare una richiesta di ricerca
-	public MatchListBean search(AccountsSearchPojo requestJson) {
+	public MatchListBean search(AccountsSearchPojo requestJson, HttpServletRequest request) {
 
 		try {
 
 			MatchListBean matchListBean = readMatchSearch(searchMatch(requestJson));
 
-			return matchListBean;
+			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(requestJson, request);
+			List<String> listCategorie = new ArrayList<>();
+			lcgp.getCategorieGruppoPojo().forEach(e -> {
+				e.getListaCategorie().forEach(c -> {
+					listCategorie.add(c.getCategoria());
+				});
+			});
+
+			MatchListBean matchListBeanResponse = new MatchListBean();
+			matchListBean.getElencoMatch().forEach(e -> {
+				if (Boolean.TRUE.equals(matchCategory(e, listCategorie))) {
+					matchListBeanResponse.addMatchBean(e);
+				}
+			});
+
+			return matchListBeanResponse;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public Boolean matchCategory(MatchBean matchBean, List<String> listCategorie) {
+		if ((matchBean.isPep() || matchBean.isWasPep()) && !listCategorie.contains("PEP")) {
+			return Boolean.FALSE;
+		}
+		if ((matchBean.isSanctioned() || matchBean.isWasSanctioned()) && !listCategorie.contains("Sanction")) {
+			return Boolean.FALSE;
+		}
+		if (matchBean.isTerrorist() && !listCategorie.contains("Terrorist")) {
+			return Boolean.FALSE;
+		}
+		if (matchBean.isHasMedia() && !listCategorie.contains("Adverse media")) {
+			return Boolean.FALSE;
+		}
+		if (matchBean.isHasAdverseInfo() && !listCategorie.contains("Adverse info")) {
+			return Boolean.FALSE;
+		}
+
+		return Boolean.TRUE;
 	}
 
 	// Metodo per fare una richiesta di dettaglio
@@ -393,6 +434,15 @@ public class AccountsSearchService extends BaseService {
 	private void readSubjectInfo(SubjectBean subjectBean, Info info) throws IOException {
 		subjectBean.setSubjectInfoBean(new ArrayList<>());
 		if (info.getSois() != null) {
+			SubjectInfoBean subjectInfoBean = new SubjectInfoBean();
+			if (info.getContent() != null)
+				subjectInfoBean.setContent(info.getContent().toString());
+			if (info.getGroup() != null)
+				subjectInfoBean.setGroup(info.getGroup().toString());
+			subjectInfoBean.setUuid(info.getUuid());
+			subjectInfoBean.setType(info.getType());
+			subjectInfoBean.setSoiBean(new ArrayList<SoiBean>());
+
 			for (it.search.pibisi.pojo.accounts.subjects.Soi soi : info.getSois()) {
 				ObjectMapper objectMapper = new ObjectMapper();
 				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -402,16 +452,9 @@ public class AccountsSearchService extends BaseService {
 				SoiBean soiBean = new SoiBean();
 				BeanUtils.copyProperties(soiWrapper, soiBean);
 
-				SubjectInfoBean subjectInfoBean = new SubjectInfoBean();
-				if (info.getContent() != null)
-					subjectInfoBean.setContent(info.getContent().toString());
-				if (info.getGroup() != null)
-					subjectInfoBean.setGroup(info.getGroup().toString());
-				subjectInfoBean.setUuid(info.getUuid());
-				subjectInfoBean.setType(info.getType());
-				subjectInfoBean.setSoiBean(soiBean);
-				subjectBean.getSubjectInfoBean().add(subjectInfoBean);
+				subjectInfoBean.getSoiBean().add(soiBean);
 			}
+			subjectBean.getSubjectInfoBean().add(subjectInfoBean);
 		}
 	}
 

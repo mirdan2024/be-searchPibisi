@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 public class AccountsSearchPojo {
 
+	private Integer idIntermediario;
+	
 	private String subjectId;
 
 	private String content;
@@ -15,6 +17,16 @@ public class AccountsSearchPojo {
 	private String type;
 
 	private String threshold;
+	
+	
+
+	public Integer getIdIntermediario() {
+		return idIntermediario;
+	}
+
+	public void setIdIntermediario(Integer idIntermediario) {
+		this.idIntermediario = idIntermediario;
+	}
 
 	public String getSubjectId() {
 		return subjectId;
