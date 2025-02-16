@@ -1,0 +1,501 @@
+{
+	"data": {
+		"search_result": {
+			"uuid": "4bf3f34c-02a1-4985-ba4a-a94e501dd6d3",
+			"performed_at": "2025-02-16T09:53:37+01:00",
+			"threshold": 0.9,
+			"status": "processed",
+			"pois": [
+				{
+					"type": "name.full",
+					"content": "José Jerónimo Enrile de Cárdenas",
+					"threshold": "0.1"
+				}
+			],
+			"matches": [
+				{
+					"subject": "b7abe04a-e9bc-4d6d-b3a8-3461f059a65f",
+					"similarity": 0.99,
+					"cardinality": 0.5,
+					"similarity_vector": {
+						"id": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"name": {
+							"fuzzy": "eq",
+							"exact": 0.99,
+							"poi_uuids_1": [],
+							"poi_uuids_2": [
+								"aee7bc1f-758d-41f3-b481-6bdd0a2812fb"
+							]
+						},
+						"birth.date": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"death.date": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"person": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"function.current#country": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"function.current#scope": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"life_interval.birth": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"life_interval.death": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						}
+					}
+				}
+			],
+			"discarded_matches": [],
+			"account_uuid": "9c5e54af-2e9c-4375-b17c-9ff4090f596a",
+			"name_comparison_configs": {
+				"default": {
+					"search_type": "advanced",
+					"threshold": "0.9",
+					"max_allowed_blanks": 0,
+					"max_allowed_blanks_name": 0,
+					"max_allowed_blanks_surname": 0,
+					"allow_extra_words": false
+				}
+			},
+			"full_matches": []
+		},
+		"matches": [
+			{
+				"uuid": "b7abe04a-e9bc-4d6d-b3a8-3461f059a65f",
+				"info": [
+					{
+						"group": null,
+						"uuid": "46605934-1bde-46c7-8c5b-8e89a14d3d34",
+						"type": "person",
+						"content": "P"
+					},
+					{
+						"group": null,
+						"uuid": "aee7bc1f-758d-41f3-b481-6bdd0a2812fb",
+						"type": "name.full",
+						"content": "josé jerónimo enrile de cárdenas"
+					},
+					{
+						"group": null,
+						"uuid": "8df54da5-19f4-4443-b26f-30312a333714",
+						"type": "photo",
+						"content": {
+							"url": "https://int.api.pibisi.com/docs/3acb1bd8dea0f74f_1619779362.jpeg"
+						}
+					},
+					{
+						"group": 1,
+						"uuid": "cd37d24b-52b5-4f01-b131-c72fa3ff6ce4",
+						"type": "function.public",
+						"content": {
+							"charge": "parlamentario",
+							"organization": "parlamento andalucía",
+							"from": "1982-05-01",
+							"to": "1986-06-30",
+							"country": "ESP"
+						}
+					},
+					{
+						"group": null,
+						"uuid": "58ed3c69-2b87-42e9-a904-df9e6bee3efa",
+						"type": "gender",
+						"content": "M"
+					}
+				],
+				"similarity": 0.99,
+				"cardinality": 0.5,
+				"similarity_vector": {
+					"id": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"name": {
+						"fuzzy": "eq",
+						"exact": 0.99,
+						"poi_uuids_1": [],
+						"poi_uuids_2": [
+							"aee7bc1f-758d-41f3-b481-6bdd0a2812fb"
+						]
+					},
+					"birth.date": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"death.date": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"person": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"function.current#country": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"function.current#scope": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"life_interval.birth": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"life_interval.death": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					}
+				},
+				"scoring": {
+					"value": 10,
+					"flags": {
+						"is_pep": false,
+						"was_pep": true,
+						"was_pep_date": "1986-06-30",
+						"is_sanctioned": false,
+						"was_sanctioned": false,
+						"was_sanctioned_date": "",
+						"is_terrorist": false,
+						"has_media": false,
+						"has_adverse_info": false,
+						"is_high_risk": false
+					},
+					"info": {
+						"pep": [
+							"cd37d24b-52b5-4f01-b131-c72fa3ff6ce4"
+						],
+						"pep_pois": [
+							"cd37d24b-52b5-4f01-b131-c72fa3ff6ce4"
+						],
+						"pep_relations": [],
+						"sanctioned": [],
+						"terrorist": [],
+						"media": [],
+						"adverse_info": [],
+						"high_risk": []
+					},
+					"is_pep": false,
+					"was_pep": true,
+					"was_pep_date": "1986-06-30",
+					"is_sanctioned": false,
+					"was_sanctioned": false,
+					"was_sanctioned_date": "",
+					"is_terrorist": false,
+					"has_media": false,
+					"has_adverse_info": false,
+					"is_high_risk": false
+				},
+				"subject": {
+					"uuid": "b7abe04a-e9bc-4d6d-b3a8-3461f059a65f",
+					"info": [
+						{
+							"group": null,
+							"uuid": "46605934-1bde-46c7-8c5b-8e89a14d3d34",
+							"type": "person",
+							"content": "P",
+							"sois": [
+								{
+									"uuid": "5062adbc-7416-452f-aefe-2643429a88ff",
+									"status": "active",
+									"uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"internal_uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-02-20T11:49:09+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Web oficial del Parlamento de AndalucÃ­a",
+									"soi_group": {
+										"uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Web oficial del Parlamento de AndalucÃ­a",
+										"description": "Web oficial del Parlamento de AndalucÃ­a",
+										"issuer": "Spain",
+										"info": "pep",
+										"group_set_code": "esp.regional_peps"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=5062adbc-7416-452f-aefe-2643429a88ff",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "aee7bc1f-758d-41f3-b481-6bdd0a2812fb",
+							"type": "name.full",
+							"content": "josé jerónimo enrile de cárdenas",
+							"sois": [
+								{
+									"uuid": "5062adbc-7416-452f-aefe-2643429a88ff",
+									"status": "active",
+									"uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"internal_uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-02-20T11:49:09+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Web oficial del Parlamento de AndalucÃ­a",
+									"soi_group": {
+										"uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Web oficial del Parlamento de AndalucÃ­a",
+										"description": "Web oficial del Parlamento de AndalucÃ­a",
+										"issuer": "Spain",
+										"info": "pep",
+										"group_set_code": "esp.regional_peps"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=5062adbc-7416-452f-aefe-2643429a88ff",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "8df54da5-19f4-4443-b26f-30312a333714",
+							"type": "photo",
+							"content": {
+								"url": "https://int.api.pibisi.com/docs/3acb1bd8dea0f74f_1619779362.jpeg"
+							},
+							"sois": [
+								{
+									"uuid": "5062adbc-7416-452f-aefe-2643429a88ff",
+									"status": "active",
+									"uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"internal_uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-02-20T11:49:09+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Web oficial del Parlamento de AndalucÃ­a",
+									"soi_group": {
+										"uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Web oficial del Parlamento de AndalucÃ­a",
+										"description": "Web oficial del Parlamento de AndalucÃ­a",
+										"issuer": "Spain",
+										"info": "pep",
+										"group_set_code": "esp.regional_peps"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=5062adbc-7416-452f-aefe-2643429a88ff",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": 1,
+							"uuid": "cd37d24b-52b5-4f01-b131-c72fa3ff6ce4",
+							"type": "function.public",
+							"content": {
+								"charge": "parlamentario",
+								"organization": "parlamento andalucía",
+								"from": "1982-05-01",
+								"to": "1986-06-30",
+								"country": "ESP"
+							},
+							"sois": [
+								{
+									"uuid": "5062adbc-7416-452f-aefe-2643429a88ff",
+									"status": "active",
+									"uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"internal_uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-02-20T11:49:09+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Web oficial del Parlamento de AndalucÃ­a",
+									"soi_group": {
+										"uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Web oficial del Parlamento de AndalucÃ­a",
+										"description": "Web oficial del Parlamento de AndalucÃ­a",
+										"issuer": "Spain",
+										"info": "pep",
+										"group_set_code": "esp.regional_peps"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=5062adbc-7416-452f-aefe-2643429a88ff",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "58ed3c69-2b87-42e9-a904-df9e6bee3efa",
+							"type": "gender",
+							"content": "M",
+							"sois": [
+								{
+									"uuid": "5062adbc-7416-452f-aefe-2643429a88ff",
+									"status": "active",
+									"uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"internal_uri": "http://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/elparlamento/historia/memoriadecomposiciones.do?codmie=22&nlegis=1&seleccion=diputadosydiputadas&subseleccion=grupo&organo=1001&subsubseleccion=20&grupo=3&accion=Ver resultados",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-02-20T11:49:09+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Web oficial del Parlamento de AndalucÃ­a",
+									"soi_group": {
+										"uuid": "13186a47-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Web oficial del Parlamento de AndalucÃ­a",
+										"description": "Web oficial del Parlamento de AndalucÃ­a",
+										"issuer": "Spain",
+										"info": "pep",
+										"group_set_code": "esp.regional_peps"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=5062adbc-7416-452f-aefe-2643429a88ff",
+									"rel_date": "2019-03-25T08:39:21+01:00"
+								}
+							]
+						}
+					],
+					"scoring": {
+						"value": 10,
+						"flags": {
+							"is_pep": false,
+							"was_pep": true,
+							"was_pep_date": "1986-06-30",
+							"is_sanctioned": false,
+							"was_sanctioned": false,
+							"was_sanctioned_date": "",
+							"is_terrorist": false,
+							"has_media": false,
+							"has_adverse_info": false,
+							"is_high_risk": false
+						},
+						"info": {
+							"pep": [
+								"cd37d24b-52b5-4f01-b131-c72fa3ff6ce4"
+							],
+							"pep_pois": [
+								"cd37d24b-52b5-4f01-b131-c72fa3ff6ce4"
+							],
+							"pep_relations": [],
+							"sanctioned": [],
+							"terrorist": [],
+							"media": [],
+							"adverse_info": [],
+							"high_risk": []
+						},
+						"is_pep": false,
+						"was_pep": true,
+						"was_pep_date": "1986-06-30",
+						"is_sanctioned": false,
+						"was_sanctioned": false,
+						"was_sanctioned_date": "",
+						"is_terrorist": false,
+						"has_media": false,
+						"has_adverse_info": false,
+						"is_high_risk": false
+					},
+					"created_at": {
+						"date": "2019-02-20 11:49:09.000000",
+						"timezone_type": 3,
+						"timezone": "Etc/GMT-1"
+					}
+				}
+			}
+		],
+		"discarded_matches": []
+	},
+	"meta": {
+		"total_count": 1,
+		"count": 1,
+		"page": 1,
+		"page_size": 10,
+		"add": false,
+		"query": {
+			"pois": [
+				{
+					"type": "name.full",
+					"content": "José Jerónimo Enrile de Cárdenas",
+					"threshold": "0.1"
+				}
+			],
+			"threshold": 0.9,
+			"match_config": {
+				"default": {
+					"search_type": "advanced",
+					"threshold": "0.9",
+					"max_allowed_blanks": 0,
+					"max_allowed_blanks_name": 0,
+					"max_allowed_blanks_surname": 0,
+					"allow_extra_words": false
+				}
+			}
+		},
+		"version": "v2",
+		"time": "2025-02-16T09:53:37+01:00"
+	}
+}

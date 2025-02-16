@@ -1,6 +1,10 @@
 package it.search.pibisi.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -12,6 +16,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
@@ -26,6 +31,9 @@ import it.search.pibisi.pojo.users.me.accounts.UsersMeAccountsResponse;
 
 @Service
 public class AccountsService extends BaseService {
+
+	@Value("${mock.response.search}")
+	private Boolean mockResponseSearch;
 
 	// Token preso dal file application.properties
 	@Value("${api.token}")
@@ -139,20 +147,42 @@ public class AccountsService extends BaseService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-
 			ObjectMapper objectMapper = new ObjectMapper();
 			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+			if (mockResponseSearch) {
+				String responseBodyMock = "";
+				if ("a".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("José Ignacio Encinas.json");
+				}
+				if ("b".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("José Jerónimo Enrile de Cárdenas.json");
+				}
+				if ("c".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Mohamed Jabir.json");
+				}
+				if ("d".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Rabah Naami Abou.json");
+				}
+				return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
+			}
+
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 			return objectMapper.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
-		} catch (Exception e) {
+		} catch (
+
+		Exception e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public String readFile(String filePath) throws IOException {
+		File file = ResourceUtils.getFile("classpath:" + filePath);
+		byte[] fileData = Files.readAllBytes(Paths.get(file.getPath()));
+		return new String(fileData);
 	}
 
 	// Metodo per ottenere i dettagli di un soggetto
