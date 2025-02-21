@@ -21,7 +21,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.base.ListaCategorieGruppoPojo;
@@ -37,7 +36,7 @@ public class UtilsService {
 		final BeanWrapper src = new BeanWrapperImpl(source);
 		java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
 
-		Set<String> emptyNames = new HashSet<String>();
+		Set<String> emptyNames = new HashSet<>();
 		for (java.beans.PropertyDescriptor pd : pds) {
 			Object srcValue = src.getPropertyValue(pd.getName());
 			if (srcValue == null)
@@ -48,7 +47,7 @@ public class UtilsService {
 		return emptyNames.toArray(result);
 	}
 
-	public static void copyNonNullProperties(Object source, Object target) throws IllegalAccessException {
+	public static void copyNonNullProperties(Object source, Object target) {
 		BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
 	}
 
@@ -70,7 +69,7 @@ public class UtilsService {
 
 	@Cacheable("callGetListaCategorie")
 	public ListaCategorieGruppoPojo callGetListaCategorie(AccountsSearchPojo requestJson, HttpServletRequest request)
-			throws JsonMappingException, JsonProcessingException {
+			throws JsonProcessingException {
 		RestTemplate restTemplate = new RestTemplate(new SimpleClientHttpRequestFactory());
 
 		HttpHeaders headers = new HttpHeaders();

@@ -1,12 +1,14 @@
 package it.search.pibisi.bean;
 
-import java.util.List;
+import java.util.HashMap;
 
 public class SubjectBean {
 
 	private String uuid;
 
 	private String createdAt;
+
+	private HashMap<String, SubjectInfoBean> subjectInfoMap;
 
 	public String getCreatedAt() {
 		return createdAt;
@@ -15,8 +17,6 @@ public class SubjectBean {
 	public void setCreatedAt(String string) {
 		this.createdAt = string;
 	}
-
-	private List<SubjectInfoBean> subjectInfoBean;
 
 	// Getter e Setter
 	public String getUuid() {
@@ -27,12 +27,12 @@ public class SubjectBean {
 		this.uuid = uuid;
 	}
 
-	public List<SubjectInfoBean> getSubjectInfoBean() {
-		return subjectInfoBean;
+	public HashMap<String, SubjectInfoBean> getSubjectInfoMap() {
+		return subjectInfoMap;
 	}
 
-	public void setSubjectInfoBean(List<SubjectInfoBean> subjectInfoBean) {
-		this.subjectInfoBean = subjectInfoBean;
+	public void setSubjectInfoMap(HashMap<String, SubjectInfoBean> subjectInfoMap) {
+		this.subjectInfoMap = subjectInfoMap;
 	}
 
 }

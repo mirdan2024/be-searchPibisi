@@ -209,6 +209,30 @@ public class AccountsService extends BaseService {
 		}
 	}
 
+	// Metodo per ottenere i dettagli di un soggetto
+	public String accountsSubjectsJson(PibisiPojo requestJson) {
+		try {
+			String url = subjectDetailsUrl.replace("{accountId}", requestJson.getAccountId()).replace("{subjectId}",
+					requestJson.getSubjectId());
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.set("X-AUTH-TOKEN", token);
+
+			HttpEntity<String> entity = new HttpEntity<>(headers);
+
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+			return  response.getBody() ;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	// Metodo per fare una richiesta POST all'endpoint
 	public AccountsSubjectsFindResponse accountsSubjectsFindBlocked(PibisiPojo requestJson) {
 		try {
