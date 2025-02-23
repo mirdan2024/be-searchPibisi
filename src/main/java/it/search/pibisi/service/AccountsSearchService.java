@@ -135,9 +135,13 @@ public class AccountsSearchService extends BaseService {
 				addNameFullBean(matchBean, info);
 				break;
 			case "person", "gender", "birth.date", "birth.place", "nationality", "function", "illegal", "id.platform",
-					"name.first", "name.last", "sanction", "id.passport", "photo", "function.public":
+					"name.first", "name.last",  "id.passport", "photo", "function.public":
 				setMapInfo(matchBean, info, info.getType());
 				break;
+			case "sanction":
+				addSanctionBean(matchBean, info);
+				break;
+				
 			case "media":
 				addNewsBean(matchBean, info);
 				break;
@@ -247,6 +251,36 @@ public class AccountsSearchService extends BaseService {
 		newsBean.setUrl(wrapper.getUrl());
 
 		matchList.getNews().add(newsBean);
+	}
+	
+	
+	private void addSanctionBean(MatchBean matchList, it.search.pibisi.pojo.accounts.subjects.find.Info info)
+			throws IOException {
+		// Crea un'istanza dell'ObjectMapper
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		// Deserializza il JSON in un oggetto Wrapper
+		ContentWrapper wrapper = objectMapper.readValue(objectMapper.writeValueAsBytes(info.getContent()),
+				ContentWrapper.class);
+
+		NewsBean newsBean = new NewsBean();
+		newsBean.setUuid(info.getUuid());
+		newsBean.setType(info.getType());
+		newsBean.setGroup(String.valueOf(info.getGroup()));
+
+		newsBean.setTypes(wrapper.getTypes());
+		newsBean.setSummary(wrapper.getSummary());
+		newsBean.setIssuer(wrapper.getIssuer());
+		newsBean.setCountry(wrapper.getCountry());
+		newsBean.setFrom(wrapper.getFrom());
+		newsBean.setUrl(wrapper.getUrl());
+		
+		newsBean.setReason(wrapper.getReason());
+		newsBean.setProgram(wrapper.getProgram());
+		newsBean.setProgramDescription(wrapper.getProgramDescription());
+		newsBean.setProgramSource(wrapper.getProgramSource());
+
+		matchList.getSanction().add(newsBean);
 	}
 
 	private void logUnknownInfo(it.search.pibisi.pojo.accounts.subjects.find.Info info) {

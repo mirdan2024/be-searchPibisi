@@ -16,6 +16,45 @@ public class NewsBean {
 	private String country;
 	private String from;
 	private String url;
+	private String reason;
+	private String program;
+	private String programSource;
+	private String programDescription;
+	
+	
+	
+
+	public String getProgram() {
+		return program;
+	}
+
+	public void setProgram(String program) {
+		this.program = program;
+	}
+
+	public String getProgramSource() {
+		return programSource;
+	}
+
+	public void setProgramSource(String programSource) {
+		this.programSource = programSource;
+	}
+
+	public String getProgramDescription() {
+		return programDescription;
+	}
+
+	public void setProgramDescription(String programDescription) {
+		this.programDescription = programDescription;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
 
 	public String getGroup() {
 		return group;

@@ -1,5 +1,6 @@
 package it.search.pibisi.bean;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class MatchBean {
 	private List<NameFullBean> nameFull;
 	private HashMap<String, InfoBean> infoMap;
 	private List<NewsBean> news;
+	private List<NewsBean> sanction;
 	private SubjectBean subjectBean;
 
 	// Scoring Category HighRisk
@@ -29,6 +31,17 @@ public class MatchBean {
 
 	// record created
 	private String createdAt;
+
+	public List<NewsBean> getSanction() {
+		if (sanction==null) {
+			sanction = new ArrayList<NewsBean>();
+		}
+		return sanction;
+	}
+
+	public void setSanction(List<NewsBean> sanction) {
+		this.sanction = sanction;
+	}
 
 	public HashMap<String, InfoBean> getInfoMap() {
 		return infoMap;
