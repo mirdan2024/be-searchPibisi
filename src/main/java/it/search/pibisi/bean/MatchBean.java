@@ -8,8 +8,11 @@ public class MatchBean {
 
 	private List<NameFullBean> nameFull;
 	private HashMap<String, InfoBean> infoMap;
-	private List<NewsBean> news;
-	private List<NewsBean> sanction;
+	private List<PoiBean> news;
+	private List<PoiBean> function;
+	private List<PoiBean> functionPublic;
+	private List<PoiBean> functionPolitical;
+	private List<PoiBean> sanction;
 	private SubjectBean subjectBean;
 
 	// Scoring Category HighRisk
@@ -32,14 +35,47 @@ public class MatchBean {
 	// record created
 	private String createdAt;
 
-	public List<NewsBean> getSanction() {
+	public List<PoiBean> getFunction() {
+		if (function==null) {
+			function = new ArrayList<PoiBean>();
+		}
+		return function;
+	}
+
+	public void setFunction(List<PoiBean> function) {
+		this.function = function;
+	}
+
+	public List<PoiBean> getFunctionPublic() {
+		if (functionPublic==null) {
+			functionPublic = new ArrayList<PoiBean>();
+		}
+		return functionPublic;
+	}
+
+	public void setFunctionPublic(List<PoiBean> functionPublic) {
+		this.functionPublic = functionPublic;
+	}
+
+	public List<PoiBean> getFunctionPolitical() {
+		if (functionPolitical==null) {
+			functionPolitical = new ArrayList<PoiBean>();
+		}
+		return functionPolitical;
+	}
+
+	public void setFunctionPolitical(List<PoiBean> functionPolitical) {
+		this.functionPolitical = functionPolitical;
+	}
+
+	public List<PoiBean> getSanction() {
 		if (sanction==null) {
-			sanction = new ArrayList<NewsBean>();
+			sanction = new ArrayList<PoiBean>();
 		}
 		return sanction;
 	}
 
-	public void setSanction(List<NewsBean> sanction) {
+	public void setSanction(List<PoiBean> sanction) {
 		this.sanction = sanction;
 	}
 
@@ -59,11 +95,11 @@ public class MatchBean {
 		this.nameFull = nameFull;
 	}
 
-	public List<NewsBean> getNews() {
+	public List<PoiBean> getNews() {
 		return news;
 	}
 
-	public void setNews(List<NewsBean> news) {
+	public void setNews(List<PoiBean> news) {
 		this.news = news;
 	}
 

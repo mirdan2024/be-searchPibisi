@@ -2,12 +2,12 @@ package it.search.pibisi.bean;
 
 import java.util.List;
 
-public class NewsBean {
+public class PoiBean {
 
 	private String group;
 	private String uuid;
 	private String type;
-	private String content;
+	private Object content;
 
 	// Content
 	private List<String> types;
@@ -80,11 +80,11 @@ public class NewsBean {
 		this.type = type;
 	}
 
-	public String getContent() {
+	public Object getContent() {
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(Object content) {
 		this.content = content;
 	}
 

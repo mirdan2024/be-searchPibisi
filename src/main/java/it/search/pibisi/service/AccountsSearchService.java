@@ -18,7 +18,7 @@ import it.search.pibisi.bean.InfoBean;
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.MatchListBean;
 import it.search.pibisi.bean.NameFullBean;
-import it.search.pibisi.bean.NewsBean;
+import it.search.pibisi.bean.PoiBean;
 import it.search.pibisi.bean.SoiBean;
 import it.search.pibisi.bean.SubjectBean;
 import it.search.pibisi.bean.SubjectInfoBean;
@@ -134,16 +134,25 @@ public class AccountsSearchService extends BaseService {
 			case "name.full":
 				addNameFullBean(matchBean, info);
 				break;
-			case "person", "gender", "birth.date", "birth.place", "nationality", "function", "illegal", "id.platform",
-					"name.first", "name.last",  "id.passport", "photo", "function.public":
+			case "person", "gender", "birth.date", "birth.place", "nationality",  "illegal", "id.platform",
+					"name.first", "name.last",  "id.passport", "photo":
 				setMapInfo(matchBean, info, info.getType());
 				break;
+			case "function":
+				addPoisBean(matchBean.getFunction(), info);
+				break;
+			case "function.public":
+				addPoisBean(matchBean.getFunctionPublic(), info);
+				break;
+			case "function.political":
+				addPoisBean(matchBean.getFunctionPolitical(), info);
+				break;																
 			case "sanction":
-				addSanctionBean(matchBean, info);
+				addPoisBean(matchBean.getSanction(), info);
 				break;
 				
 			case "media":
-				addNewsBean(matchBean, info);
+				addPoisBean(matchBean.getNews(), info);
 				break;
 			default:
 				logUnknownInfo(info);
@@ -229,7 +238,32 @@ public class AccountsSearchService extends BaseService {
 		matchList.getInfoMap().put(fieldName, infoBean);
 	}
 
-	private void addNewsBean(MatchBean matchList, it.search.pibisi.pojo.accounts.subjects.find.Info info)
+//	private void addNewsBean(MatchBean matchList, it.search.pibisi.pojo.accounts.subjects.find.Info info)
+//			throws IOException {
+//		// Crea un'istanza dell'ObjectMapper
+//		ObjectMapper objectMapper = new ObjectMapper();
+//		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+//		// Deserializza il JSON in un oggetto Wrapper
+//		ContentWrapper wrapper = objectMapper.readValue(objectMapper.writeValueAsBytes(info.getContent()),
+//				ContentWrapper.class);
+//
+//		PoiBean newsBean = new PoiBean();
+//		newsBean.setUuid(info.getUuid());
+//		newsBean.setType(info.getType());
+//		newsBean.setGroup(String.valueOf(info.getGroup()));
+//
+//		newsBean.setTypes(wrapper.getTypes());
+//		newsBean.setSummary(wrapper.getSummary());
+//		newsBean.setIssuer(wrapper.getIssuer());
+//		newsBean.setCountry(wrapper.getCountry());
+//		newsBean.setFrom(wrapper.getFrom());
+//		newsBean.setUrl(wrapper.getUrl());
+//
+//		matchList.getNews().add(newsBean);
+//	}
+	
+	
+	private void addPoisBean(List<PoiBean> listPois, it.search.pibisi.pojo.accounts.subjects.find.Info info)
 			throws IOException {
 		// Crea un'istanza dell'ObjectMapper
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -238,36 +272,11 @@ public class AccountsSearchService extends BaseService {
 		ContentWrapper wrapper = objectMapper.readValue(objectMapper.writeValueAsBytes(info.getContent()),
 				ContentWrapper.class);
 
-		NewsBean newsBean = new NewsBean();
+		PoiBean newsBean = new PoiBean();
 		newsBean.setUuid(info.getUuid());
 		newsBean.setType(info.getType());
 		newsBean.setGroup(String.valueOf(info.getGroup()));
-
-		newsBean.setTypes(wrapper.getTypes());
-		newsBean.setSummary(wrapper.getSummary());
-		newsBean.setIssuer(wrapper.getIssuer());
-		newsBean.setCountry(wrapper.getCountry());
-		newsBean.setFrom(wrapper.getFrom());
-		newsBean.setUrl(wrapper.getUrl());
-
-		matchList.getNews().add(newsBean);
-	}
-	
-	
-	private void addSanctionBean(MatchBean matchList, it.search.pibisi.pojo.accounts.subjects.find.Info info)
-			throws IOException {
-		// Crea un'istanza dell'ObjectMapper
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		// Deserializza il JSON in un oggetto Wrapper
-		ContentWrapper wrapper = objectMapper.readValue(objectMapper.writeValueAsBytes(info.getContent()),
-				ContentWrapper.class);
-
-		NewsBean newsBean = new NewsBean();
-		newsBean.setUuid(info.getUuid());
-		newsBean.setType(info.getType());
-		newsBean.setGroup(String.valueOf(info.getGroup()));
-
+		newsBean.setContent(info.getContent());
 		newsBean.setTypes(wrapper.getTypes());
 		newsBean.setSummary(wrapper.getSummary());
 		newsBean.setIssuer(wrapper.getIssuer());
@@ -280,7 +289,7 @@ public class AccountsSearchService extends BaseService {
 		newsBean.setProgramDescription(wrapper.getProgramDescription());
 		newsBean.setProgramSource(wrapper.getProgramSource());
 
-		matchList.getSanction().add(newsBean);
+		listPois.add(newsBean);
 	}
 
 	private void logUnknownInfo(it.search.pibisi.pojo.accounts.subjects.find.Info info) {
