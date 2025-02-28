@@ -1,0 +1,1685 @@
+{
+  "data": {
+    "search_result": {
+      "uuid": "918efc93-642e-403e-81f0-c33505036baa",
+      "performed_at": "2025-02-25T12:03:17+01:00",
+      "threshold": 0.85,
+      "status": "processed",
+      "pois": [
+        {
+          "type": "name.full",
+          "content": "Giorgia Meloni"
+        }
+      ],
+      "matches": [
+        {
+          "subject": "3b9ebe9c-6e73-470d-8769-508c044514b7",
+          "similarity": 1,
+          "cardinality": 0.5,
+          "similarity_vector": {
+            "id": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "name": {
+              "fuzzy": "eq",
+              "exact": 1,
+              "poi_uuids_1": [],
+              "poi_uuids_2": [
+                "fbc3e7e5-9361-4688-9c62-15a89719c8ba"
+              ]
+            },
+            "birth.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "death.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "person": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#country": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#scope": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.birth": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.death": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            }
+          }
+        }
+      ],
+      "discarded_matches": [],
+      "account_uuid": "870b24d8-a9b3-41d6-8e01-762d33d9c5c4",
+      "name_comparison_configs": {
+        "default": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 2,
+          "max_allowed_blanks_name": 2,
+          "max_allowed_blanks_surname": 2,
+          "allow_extra_words": true
+        },
+        "scoring.pep": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 100,
+          "max_allowed_blanks_name": 100,
+          "max_allowed_blanks_surname": 100,
+          "allow_extra_words": true
+        }
+      },
+      "full_matches": []
+    },
+    "matches": [
+      {
+        "uuid": "3b9ebe9c-6e73-470d-8769-508c044514b7",
+        "info": [
+          {
+            "group": null,
+            "uuid": "268d49ae-a316-480c-b892-3e32ff8bcdc1",
+            "type": "person",
+            "content": "P"
+          },
+          {
+            "group": null,
+            "uuid": "fbc3e7e5-9361-4688-9c62-15a89719c8ba",
+            "type": "name.full",
+            "content": "giorgia meloni"
+          },
+          {
+            "group": null,
+            "uuid": "53a3bcd8-2c5c-4faf-a2df-63a46ada12b7",
+            "type": "gender",
+            "content": "F"
+          },
+          {
+            "group": null,
+            "uuid": "757109b1-d0eb-4ca6-a75d-d79a67ec4fb4",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/326ce1131dfda789_1608049852.jpg"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "f8fd6726-fd0b-45b0-b36c-0cea30b37724",
+            "type": "birth.date",
+            "content": "1977-01-15"
+          },
+          {
+            "group": null,
+            "uuid": "b46cbf25-16ab-40dd-8f0d-40ff13804a61",
+            "type": "birth.place",
+            "content": {
+              "city": "Roma"
+            }
+          },
+          {
+            "group": 5,
+            "uuid": "91d737e5-b6a2-4be9-84bc-3a71dc1fceb4",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XVIII Legislatura",
+              "from": "2018-03-12"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "c3050810-b0d2-492a-a3d6-99a8b4347fd5",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/47b674bdbc8fa2d7_1608109903.jpg"
+            }
+          },
+          {
+            "group": 1,
+            "uuid": "11a074a6-6a1f-43f8-9213-fb4342a9cc56",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XV",
+              "from": "2006-04-28",
+              "to": "2008-04-28"
+            }
+          },
+          {
+            "group": 2,
+            "uuid": "4dfa7197-8f53-4c27-b61d-350aa40ec5cc",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XVI",
+              "from": "2008-04-29",
+              "to": "2013-03-14"
+            }
+          },
+          {
+            "group": 3,
+            "uuid": "186a9350-1d9f-43c8-9db6-94d5d5ef504a",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XVII",
+              "from": "2013-03-15",
+              "to": "2018-03-22"
+            }
+          },
+          {
+            "group": 5,
+            "uuid": "5043741f-e800-4d7c-9014-a414314318bc",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XVIII Legislatura",
+              "from": "2018-03-12",
+              "to": "2022-10-12"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "3066c49b-5eef-4fae-9002-23f60096f843",
+            "type": "function.public",
+            "content": {
+              "charge": "presidente del consiglio dei ministri",
+              "organization": "governo italiano",
+              "scope": "ITA"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "e17d0e9d-6a19-4d0d-9451-69045f14a792",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/d231a6281e0ac517_1680680132.jpg"
+            }
+          },
+          {
+            "group": 5,
+            "uuid": "5e9e7c6c-ac52-4429-8755-01bdfdb521aa",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XIX Legislatura",
+              "from": "2022-09-30"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "e018be1c-75a6-4774-94f6-472bb997a14b",
+            "type": "name.first",
+            "content": "giorgia"
+          },
+          {
+            "group": null,
+            "uuid": "a284a720-4a1c-4276-97a8-2e3d5e0da98b",
+            "type": "name.last",
+            "content": "meloni"
+          },
+          {
+            "group": null,
+            "uuid": "e32be118-75b3-4894-9e5f-7c1b6cd77565",
+            "type": "function.political",
+            "content": {
+              "charge": "presidente nazionale",
+              "organization": "fratelli d'italia",
+              "scope": "ITA"
+            }
+          }
+        ],
+        "similarity": 1,
+        "cardinality": 0.5,
+        "similarity_vector": {
+          "id": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "name": {
+            "fuzzy": "eq",
+            "exact": 1,
+            "poi_uuids_1": [],
+            "poi_uuids_2": [
+              "fbc3e7e5-9361-4688-9c62-15a89719c8ba"
+            ]
+          },
+          "birth.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "death.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "person": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#country": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#scope": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.birth": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.death": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          }
+        },
+        "scoring": {
+          "value": 10,
+          "flags": {
+            "is_pep": true,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": false,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "info": {
+            "pep": [
+              "91d737e5-b6a2-4be9-84bc-3a71dc1fceb4",
+              "11a074a6-6a1f-43f8-9213-fb4342a9cc56",
+              "4dfa7197-8f53-4c27-b61d-350aa40ec5cc",
+              "186a9350-1d9f-43c8-9db6-94d5d5ef504a",
+              "5043741f-e800-4d7c-9014-a414314318bc",
+              "3066c49b-5eef-4fae-9002-23f60096f843",
+              "5e9e7c6c-ac52-4429-8755-01bdfdb521aa",
+              "e32be118-75b3-4894-9e5f-7c1b6cd77565"
+            ],
+            "pep_pois": [
+              "91d737e5-b6a2-4be9-84bc-3a71dc1fceb4",
+              "11a074a6-6a1f-43f8-9213-fb4342a9cc56",
+              "4dfa7197-8f53-4c27-b61d-350aa40ec5cc",
+              "186a9350-1d9f-43c8-9db6-94d5d5ef504a",
+              "5043741f-e800-4d7c-9014-a414314318bc",
+              "3066c49b-5eef-4fae-9002-23f60096f843",
+              "5e9e7c6c-ac52-4429-8755-01bdfdb521aa",
+              "e32be118-75b3-4894-9e5f-7c1b6cd77565"
+            ],
+            "pep_relations": [],
+            "sanctioned": [],
+            "terrorist": [],
+            "media": [],
+            "adverse_info": [],
+            "high_risk": []
+          },
+          "is_pep": true,
+          "was_pep": false,
+          "was_pep_date": 0,
+          "is_sanctioned": false,
+          "was_sanctioned": false,
+          "was_sanctioned_date": "",
+          "is_terrorist": false,
+          "has_media": false,
+          "has_adverse_info": false,
+          "is_high_risk": false
+        },
+        "subject": {
+          "uuid": "3b9ebe9c-6e73-470d-8769-508c044514b7",
+          "info": [
+            {
+              "group": null,
+              "uuid": "268d49ae-a316-480c-b892-3e32ff8bcdc1",
+              "type": "person",
+              "content": "P",
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                },
+                {
+                  "uuid": "66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "version": "3c184d8a795c992ae9f61480a06b244d",
+                  "reliability": 1,
+                  "gathered_at": "2023-01-30T00:53:05+01:00",
+                  "published_at": "2023-01-30T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "rel_date": "2023-01-30T02:04:05+01:00"
+                },
+                {
+                  "uuid": "0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "status": "active",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "b3da8b9db08d7641d343669f624a71d9",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T02:51:17+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "rel_date": "2024-09-03T04:19:04+01:00"
+                },
+                {
+                  "uuid": "09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "86772bff20950e06e02118055640a172",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T03:05:39+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "rel_date": "2024-09-03T05:57:04+01:00"
+                },
+                {
+                  "uuid": "9640b88d-6c7f-43d1-8ec0-9cb150d7138c",
+                  "status": "active",
+                  "uri": "https://www.fratelli-italia.it/esecutivo-nazionale-2/",
+                  "internal_uri": "https://www.fratelli-italia.it/esecutivo-nazionale-2/",
+                  "version": "83087365e8c03a509992a5eb81ad949a",
+                  "reliability": 1,
+                  "gathered_at": "2024-12-01T03:43:54+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "8f1e8a88-fedb-457a-9253-59ca08a6e915",
+                  "scope": "ITA",
+                  "description": "Web del Partido Político Fratelli d'Italia",
+                  "soi_group": {
+                    "uuid": "8f1e8a88-fedb-457a-9253-59ca08a6e915",
+                    "scope": "ITA",
+                    "title": "Web del Partido Político Fratelli d'Italia",
+                    "description": "Web del Partido Político Fratelli d'Italia",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=9640b88d-6c7f-43d1-8ec0-9cb150d7138c",
+                  "rel_date": "2024-12-02T17:14:47+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "fbc3e7e5-9361-4688-9c62-15a89719c8ba",
+              "type": "name.full",
+              "content": "giorgia meloni",
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                },
+                {
+                  "uuid": "66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "version": "3c184d8a795c992ae9f61480a06b244d",
+                  "reliability": 1,
+                  "gathered_at": "2023-01-30T00:53:05+01:00",
+                  "published_at": "2023-01-30T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "rel_date": "2023-01-30T02:04:05+01:00"
+                },
+                {
+                  "uuid": "0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "status": "active",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "b3da8b9db08d7641d343669f624a71d9",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T02:51:17+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "rel_date": "2024-09-03T04:19:04+01:00"
+                },
+                {
+                  "uuid": "09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "86772bff20950e06e02118055640a172",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T03:05:39+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "rel_date": "2024-09-03T05:57:04+01:00"
+                },
+                {
+                  "uuid": "9640b88d-6c7f-43d1-8ec0-9cb150d7138c",
+                  "status": "active",
+                  "uri": "https://www.fratelli-italia.it/esecutivo-nazionale-2/",
+                  "internal_uri": "https://www.fratelli-italia.it/esecutivo-nazionale-2/",
+                  "version": "83087365e8c03a509992a5eb81ad949a",
+                  "reliability": 1,
+                  "gathered_at": "2024-12-01T03:43:54+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "8f1e8a88-fedb-457a-9253-59ca08a6e915",
+                  "scope": "ITA",
+                  "description": "Web del Partido Político Fratelli d'Italia",
+                  "soi_group": {
+                    "uuid": "8f1e8a88-fedb-457a-9253-59ca08a6e915",
+                    "scope": "ITA",
+                    "title": "Web del Partido Político Fratelli d'Italia",
+                    "description": "Web del Partido Político Fratelli d'Italia",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=9640b88d-6c7f-43d1-8ec0-9cb150d7138c",
+                  "rel_date": "2024-12-02T17:14:47+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "53a3bcd8-2c5c-4faf-a2df-63a46ada12b7",
+              "type": "gender",
+              "content": "F",
+              "sois": [
+                {
+                  "uuid": "0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "status": "active",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "b3da8b9db08d7641d343669f624a71d9",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T02:51:17+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "rel_date": "2024-09-03T04:19:04+01:00"
+                },
+                {
+                  "uuid": "09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "86772bff20950e06e02118055640a172",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T03:05:39+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "rel_date": "2024-09-03T05:57:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "757109b1-d0eb-4ca6-a75d-d79a67ec4fb4",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/326ce1131dfda789_1608049852.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "status": "active",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "b3da8b9db08d7641d343669f624a71d9",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T02:51:17+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "rel_date": "2024-09-03T04:19:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "f8fd6726-fd0b-45b0-b36c-0cea30b37724",
+              "type": "birth.date",
+              "content": "1977-01-15",
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                },
+                {
+                  "uuid": "0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "status": "active",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "b3da8b9db08d7641d343669f624a71d9",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T02:51:17+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "rel_date": "2024-09-03T04:19:04+01:00"
+                },
+                {
+                  "uuid": "09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "86772bff20950e06e02118055640a172",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T03:05:39+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "rel_date": "2024-09-03T05:57:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "b46cbf25-16ab-40dd-8f0d-40ff13804a61",
+              "type": "birth.place",
+              "content": {
+                "city": "Roma"
+              },
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                },
+                {
+                  "uuid": "0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "status": "active",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "b3da8b9db08d7641d343669f624a71d9",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T02:51:17+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "rel_date": "2024-09-03T04:19:04+01:00"
+                },
+                {
+                  "uuid": "09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "86772bff20950e06e02118055640a172",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T03:05:39+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "rel_date": "2024-09-03T05:57:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": 5,
+              "uuid": "91d737e5-b6a2-4be9-84bc-3a71dc1fceb4",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XVIII Legislatura",
+                "from": "2018-03-12"
+              },
+              "sois": [
+                {
+                  "uuid": "771da16a-c718-4928-a1e8-61ca957a7a03",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "fe9f29c6270adf237b9cfd01c1fdc0a4",
+                  "reliability": 1,
+                  "gathered_at": "2022-10-05T16:44:29+01:00",
+                  "published_at": "2022-10-05T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=771da16a-c718-4928-a1e8-61ca957a7a03",
+                  "rel_date": "2022-10-06T22:38:30+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "c3050810-b0d2-492a-a3d6-99a8b4347fd5",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/47b674bdbc8fa2d7_1608109903.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                }
+              ]
+            },
+            {
+              "group": 1,
+              "uuid": "11a074a6-6a1f-43f8-9213-fb4342a9cc56",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XV",
+                "from": "2006-04-28",
+                "to": "2008-04-28"
+              },
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                }
+              ]
+            },
+            {
+              "group": 2,
+              "uuid": "4dfa7197-8f53-4c27-b61d-350aa40ec5cc",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XVI",
+                "from": "2008-04-29",
+                "to": "2013-03-14"
+              },
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                }
+              ]
+            },
+            {
+              "group": 3,
+              "uuid": "186a9350-1d9f-43c8-9db6-94d5d5ef504a",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XVII",
+                "from": "2013-03-15",
+                "to": "2018-03-22"
+              },
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2020-12-16T10:11:43+01:00"
+                }
+              ]
+            },
+            {
+              "group": 5,
+              "uuid": "5043741f-e800-4d7c-9014-a414314318bc",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XVIII Legislatura",
+                "from": "2018-03-12",
+                "to": "2022-10-12"
+              },
+              "sois": [
+                {
+                  "uuid": "0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "status": "active",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "b3da8b9db08d7641d343669f624a71d9",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T02:51:17+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0fe7398a-bc0c-4f91-b10d-27a9594ead07",
+                  "rel_date": "2024-09-03T04:19:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "3066c49b-5eef-4fae-9002-23f60096f843",
+              "type": "function.public",
+              "content": {
+                "charge": "presidente del consiglio dei ministri",
+                "organization": "governo italiano",
+                "scope": "ITA"
+              },
+              "sois": [
+                {
+                  "uuid": "66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "version": "3c184d8a795c992ae9f61480a06b244d",
+                  "reliability": 1,
+                  "gathered_at": "2023-01-30T00:53:05+01:00",
+                  "published_at": "2023-01-30T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "rel_date": "2023-01-30T02:04:05+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "e17d0e9d-6a19-4d0d-9451-69045f14a792",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/d231a6281e0ac517_1680680132.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "86772bff20950e06e02118055640a172",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T03:05:39+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "rel_date": "2024-09-03T05:57:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": 5,
+              "uuid": "5e9e7c6c-ac52-4429-8755-01bdfdb521aa",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XIX Legislatura",
+                "from": "2022-09-30"
+              },
+              "sois": [
+                {
+                  "uuid": "09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "86772bff20950e06e02118055640a172",
+                  "reliability": 1,
+                  "gathered_at": "2024-09-03T03:05:39+01:00",
+                  "published_at": "2024-09-03T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=09a67cc2-5860-47a1-b17d-15abc8afc629",
+                  "rel_date": "2024-09-03T05:57:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "e018be1c-75a6-4774-94f6-472bb997a14b",
+              "type": "name.first",
+              "content": "giorgia",
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                },
+                {
+                  "uuid": "66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "version": "3c184d8a795c992ae9f61480a06b244d",
+                  "reliability": 1,
+                  "gathered_at": "2023-01-30T00:53:05+01:00",
+                  "published_at": "2023-01-30T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                },
+                {
+                  "uuid": "a78c4f6f-13c0-464d-bbac-c6b07362d772",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "98e80dcf7ef5c26634e102bfaf70a8f7",
+                  "reliability": 1,
+                  "gathered_at": "2023-03-04T01:04:49+01:00",
+                  "published_at": "2023-03-04T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=a78c4f6f-13c0-464d-bbac-c6b07362d772",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                },
+                {
+                  "uuid": "3138d75a-e76f-4c4a-9bbb-37bc9160d43a",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "a0ae3f6da0d231e0c5398d0210e4c83e",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-21T10:12:15+01:00",
+                  "published_at": "2023-04-21T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=3138d75a-e76f-4c4a-9bbb-37bc9160d43a",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "a284a720-4a1c-4276-97a8-2e3d5e0da98b",
+              "type": "name.last",
+              "content": "meloni",
+              "sois": [
+                {
+                  "uuid": "638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "internal_uri": "https://storia.camera.it/deputato/giorgia-meloni-19770115",
+                  "version": "ddc6679e893204a751cf8c0036aa3325",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T08:27:47+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=638f65b3-5b54-4158-94bd-0e1870071a83",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                },
+                {
+                  "uuid": "66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/presidente-del-consiglio/giorgia-meloni",
+                  "version": "3c184d8a795c992ae9f61480a06b244d",
+                  "reliability": 1,
+                  "gathered_at": "2023-01-30T00:53:05+01:00",
+                  "published_at": "2023-01-30T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=66c9fa5a-9559-457b-90ae-1793b5b12431",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                },
+                {
+                  "uuid": "a78c4f6f-13c0-464d-bbac-c6b07362d772",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=18&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "98e80dcf7ef5c26634e102bfaf70a8f7",
+                  "reliability": 1,
+                  "gathered_at": "2023-03-04T01:04:49+01:00",
+                  "published_at": "2023-03-04T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=a78c4f6f-13c0-464d-bbac-c6b07362d772",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                },
+                {
+                  "uuid": "3138d75a-e76f-4c4a-9bbb-37bc9160d43a",
+                  "status": "inactive",
+                  "uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "internal_uri": "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?sezione=deputati&tipoDoc=schedaDeputato&idlegislatura=19&idPersona=302103&tipoAttivita=&tipoVisAtt=&tipoPersona=",
+                  "version": "a0ae3f6da0d231e0c5398d0210e4c83e",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-21T10:12:15+01:00",
+                  "published_at": "2023-04-21T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Congreso Italiano",
+                  "soi_group": {
+                    "uuid": "627f1682-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Congreso Italiano",
+                    "description": "Web del Congreso Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=3138d75a-e76f-4c4a-9bbb-37bc9160d43a",
+                  "rel_date": "2023-05-01T20:26:37+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "e32be118-75b3-4894-9e5f-7c1b6cd77565",
+              "type": "function.political",
+              "content": {
+                "charge": "presidente nazionale",
+                "organization": "fratelli d'italia",
+                "scope": "ITA"
+              },
+              "sois": [
+                {
+                  "uuid": "9640b88d-6c7f-43d1-8ec0-9cb150d7138c",
+                  "status": "active",
+                  "uri": "https://www.fratelli-italia.it/esecutivo-nazionale-2/",
+                  "internal_uri": "https://www.fratelli-italia.it/esecutivo-nazionale-2/",
+                  "version": "83087365e8c03a509992a5eb81ad949a",
+                  "reliability": 1,
+                  "gathered_at": "2024-12-01T03:43:54+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "8f1e8a88-fedb-457a-9253-59ca08a6e915",
+                  "scope": "ITA",
+                  "description": "Web del Partido Político Fratelli d'Italia",
+                  "soi_group": {
+                    "uuid": "8f1e8a88-fedb-457a-9253-59ca08a6e915",
+                    "scope": "ITA",
+                    "title": "Web del Partido Político Fratelli d'Italia",
+                    "description": "Web del Partido Político Fratelli d'Italia",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=9640b88d-6c7f-43d1-8ec0-9cb150d7138c",
+                  "rel_date": "2024-12-02T17:14:47+01:00"
+                }
+              ]
+            }
+          ],
+          "scoring": {
+            "value": 10,
+            "flags": {
+              "is_pep": true,
+              "was_pep": false,
+              "was_pep_date": 0,
+              "is_sanctioned": false,
+              "was_sanctioned": false,
+              "was_sanctioned_date": "",
+              "is_terrorist": false,
+              "has_media": false,
+              "has_adverse_info": false,
+              "is_high_risk": false
+            },
+            "info": {
+              "pep": [
+                "91d737e5-b6a2-4be9-84bc-3a71dc1fceb4",
+                "11a074a6-6a1f-43f8-9213-fb4342a9cc56",
+                "4dfa7197-8f53-4c27-b61d-350aa40ec5cc",
+                "186a9350-1d9f-43c8-9db6-94d5d5ef504a",
+                "5043741f-e800-4d7c-9014-a414314318bc",
+                "3066c49b-5eef-4fae-9002-23f60096f843",
+                "5e9e7c6c-ac52-4429-8755-01bdfdb521aa",
+                "e32be118-75b3-4894-9e5f-7c1b6cd77565"
+              ],
+              "pep_pois": [
+                "91d737e5-b6a2-4be9-84bc-3a71dc1fceb4",
+                "11a074a6-6a1f-43f8-9213-fb4342a9cc56",
+                "4dfa7197-8f53-4c27-b61d-350aa40ec5cc",
+                "186a9350-1d9f-43c8-9db6-94d5d5ef504a",
+                "5043741f-e800-4d7c-9014-a414314318bc",
+                "3066c49b-5eef-4fae-9002-23f60096f843",
+                "5e9e7c6c-ac52-4429-8755-01bdfdb521aa",
+                "e32be118-75b3-4894-9e5f-7c1b6cd77565"
+              ],
+              "pep_relations": [],
+              "sanctioned": [],
+              "terrorist": [],
+              "media": [],
+              "adverse_info": [],
+              "high_risk": []
+            },
+            "is_pep": true,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": false,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "created_at": {
+            "date": "2020-12-15 17:30:51.000000",
+            "timezone_type": 3,
+            "timezone": "Etc/GMT-1"
+          }
+        }
+      }
+    ],
+    "discarded_matches": []
+  },
+  "meta": {
+    "total_count": 1,
+    "count": 1,
+    "page": 1,
+    "page_size": 10,
+    "add": false,
+    "query": {
+      "pois": [
+        {
+          "type": "name.full",
+          "content": "Giorgia Meloni"
+        }
+      ],
+      "threshold": 0.85,
+      "match_config": {
+        "default": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 2,
+          "max_allowed_blanks_name": 2,
+          "max_allowed_blanks_surname": 2,
+          "allow_extra_words": true
+        },
+        "scoring.pep": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 100,
+          "max_allowed_blanks_name": 100,
+          "max_allowed_blanks_surname": 100,
+          "allow_extra_words": true
+        }
+      }
+    },
+    "version": "v2",
+    "time": "2025-02-25T12:03:17+01:00"
+  }
+}

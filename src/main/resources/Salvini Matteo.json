@@ -1,0 +1,3339 @@
+{
+  "data": {
+    "search_result": {
+      "uuid": "e7aea05e-8f61-462b-94b5-d5495348b612",
+      "performed_at": "2025-02-25T12:09:53+01:00",
+      "threshold": 0.85,
+      "status": "processed",
+      "pois": [
+        {
+          "type": "name.full",
+          "content": "Salvini Matteo"
+        }
+      ],
+      "matches": [
+        {
+          "subject": "96075343-6782-432c-86ee-3559f40a99e9",
+          "similarity": 0.99,
+          "cardinality": 0.5,
+          "similarity_vector": {
+            "id": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "name": {
+              "fuzzy": "eq",
+              "exact": 0.99,
+              "poi_uuids_1": [],
+              "poi_uuids_2": [
+                "d47074f0-e349-4d92-b76f-71b3f64720af"
+              ]
+            },
+            "birth.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "death.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "person": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#country": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#scope": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.birth": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.death": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            }
+          }
+        },
+        {
+          "subject": "ea815f36-4a7e-4e66-ba15-c28b50bc9990",
+          "similarity": 0.948,
+          "cardinality": 0.5,
+          "similarity_vector": {
+            "id": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "name": {
+              "fuzzy": "cl",
+              "exact": 0.948,
+              "poi_uuids_1": [],
+              "poi_uuids_2": [
+                "9e358df2-f76a-421f-9d63-f0bc77ae83c9"
+              ]
+            },
+            "birth.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "death.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "person": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#country": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#scope": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.birth": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.death": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            }
+          }
+        }
+      ],
+      "discarded_matches": [],
+      "account_uuid": "870b24d8-a9b3-41d6-8e01-762d33d9c5c4",
+      "name_comparison_configs": {
+        "default": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 2,
+          "max_allowed_blanks_name": 2,
+          "max_allowed_blanks_surname": 2,
+          "allow_extra_words": true
+        },
+        "scoring.pep": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 100,
+          "max_allowed_blanks_name": 100,
+          "max_allowed_blanks_surname": 100,
+          "allow_extra_words": true
+        }
+      },
+      "full_matches": []
+    },
+    "matches": [
+      {
+        "uuid": "96075343-6782-432c-86ee-3559f40a99e9",
+        "info": [
+          {
+            "group": null,
+            "uuid": "b7768e61-ca91-4b0e-95da-695ed213da9d",
+            "type": "person",
+            "content": "P"
+          },
+          {
+            "group": null,
+            "uuid": "d47074f0-e349-4d92-b76f-71b3f64720af",
+            "type": "name.full",
+            "content": "matteo salvini"
+          },
+          {
+            "group": null,
+            "uuid": "4aa658c9-45ff-41f8-9341-f0e0ef17331e",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/e131300ef9d9b95b_1608115555.jpg"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "0a3c3640-3556-4537-b033-25e1ee1d8b83",
+            "type": "birth.date",
+            "content": "1973-03-09"
+          },
+          {
+            "group": null,
+            "uuid": "6c1a6cbb-8d0b-4069-9b80-e8c2e3833a5c",
+            "type": "birth.place",
+            "content": {
+              "city": "Milano"
+            }
+          },
+          {
+            "group": 1,
+            "uuid": "eacd6365-4599-42cc-a3c5-2c156d489d80",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XVI",
+              "from": "2008-04-29",
+              "to": "2013-03-14"
+            }
+          },
+          {
+            "group": 2,
+            "uuid": "f5b1b715-aaaf-494b-9064-161d283e785a",
+            "type": "function.public",
+            "content": {
+              "charge": "deputato",
+              "organization": "camera dei deputati",
+              "scope": "ITA",
+              "period": "XVII",
+              "from": "2013-03-15",
+              "to": "2018-03-22"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "c824c85b-5afa-438c-8e9e-fa61fa4c4677",
+            "type": "gender",
+            "content": "M"
+          },
+          {
+            "group": null,
+            "uuid": "8b760c78-9af7-4c0f-9334-5cf485538213",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/be70367b01f2c6f7_1619512371.jpg"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "12e57e5f-c432-4046-8431-77d89da4e4c6",
+            "type": "platform",
+            "content": {
+              "number": "matteo.salvini@senato.it",
+              "platform": "email"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "4776952a-e187-4c0f-80c6-b939bcc3c303",
+            "type": "id.platform",
+            "content": {
+              "number": "https://www.facebook.com/salviniofficial/",
+              "platform": "facebook"
+            }
+          },
+          {
+            "group": 3,
+            "uuid": "0373d984-7b33-40bc-84a4-bbef0b2ce37b",
+            "type": "function.public",
+            "content": {
+              "charge": "senatore",
+              "organization": "senato della repubblica",
+              "scope": "ITA",
+              "period": "XVIII Legislatura",
+              "from": "2018-03-16"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "858ff78d-ef11-4365-9403-6ecb8bae3365",
+            "type": "function.public",
+            "content": {
+              "charge": "vicepresidente del consiglio e ministro delle infrastrutture e della mobilità sostenibili",
+              "organization": "governo italiano",
+              "scope": "ITA"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "00c38e75-d818-49f1-bdec-3abacc67bd06",
+            "type": "function.public",
+            "content": {
+              "charge": "vicepresidente del consiglio e ministro delle infrastrutture e dei trasporti",
+              "organization": "governo italiano",
+              "scope": "ITA"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "77be4a8d-0955-4aef-acbc-650229567b04",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/dec462d4b73380ee_1679048921.jpg"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "476b6a8f-19cb-4428-9dbe-a4f43808564f",
+            "type": "id.platform",
+            "content": {
+              "number": "https://www.instagram.com/matteosalviniofficial/",
+              "platform": "instagram"
+            }
+          },
+          {
+            "group": 4,
+            "uuid": "c74624eb-fb9b-4db2-b6c2-064356a30a69",
+            "type": "function.public",
+            "content": {
+              "charge": "senatore",
+              "organization": "senato della repubblica",
+              "scope": "ITA",
+              "period": "XIX Legislatura",
+              "from": "2022-10-13"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "22f9b2c2-2d4c-4a01-8636-a1f174c1bdfd",
+            "type": "name.first",
+            "content": "matteo"
+          },
+          {
+            "group": null,
+            "uuid": "f7d79eb8-6c67-4e3a-81a8-f5e59b900670",
+            "type": "name.last",
+            "content": "salvini"
+          },
+          {
+            "group": null,
+            "uuid": "230c5afd-b2a0-4c99-b37b-26e51a2ade73",
+            "type": "function.public",
+            "content": {
+              "charge": "vice presidente del consiglio e ministro delle infrastrutture e dei trasporti",
+              "organization": "governo italiano",
+              "scope": "ITA"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "08de1d2e-84e5-4ed4-9cdb-8c1aaa90bd2a",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/c1f3870c3c2bb2e0_1716804856.jpg"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "2fb8aa12-b144-4009-a7d3-c791c82b52ff",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/a8b403bfd88d8ae4_1721500936.jpg"
+            }
+          },
+          {
+            "group": 3,
+            "uuid": "5ba3fcab-5971-4d73-984a-c7d65e440924",
+            "type": "function.public",
+            "content": {
+              "charge": "senatore",
+              "organization": "senato della repubblica",
+              "scope": "ITA",
+              "period": "XVIII Legislatura",
+              "from": "2018-03-16",
+              "to": "2022-10-13"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "1b3eec76-6cc4-491e-999d-970be4368dc5",
+            "type": "media",
+            "content": {
+              "url": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+              "action": "indicted",
+              "issue": "corruption",
+              "from": "2019-10-01"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "4b25fa80-b168-45e0-8c70-4fb78a455431",
+            "type": "photo",
+            "content": {
+              "url": "https://api.pibisi.com/docs/76deb32b33113757_1733154322.webp"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "5e7991cf-bc6f-4b67-ab9b-f158119c5b48",
+            "type": "function.political",
+            "content": {
+              "charge": "membro",
+              "organization": "lega per salvini premier",
+              "scope": "ITA"
+            }
+          }
+        ],
+        "similarity": 0.99,
+        "cardinality": 0.5,
+        "similarity_vector": {
+          "id": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "name": {
+            "fuzzy": "eq",
+            "exact": 0.99,
+            "poi_uuids_1": [],
+            "poi_uuids_2": [
+              "d47074f0-e349-4d92-b76f-71b3f64720af"
+            ]
+          },
+          "birth.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "death.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "person": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#country": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#scope": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.birth": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.death": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          }
+        },
+        "scoring": {
+          "value": 10,
+          "flags": {
+            "is_pep": true,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": true,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "info": {
+            "pep": [
+              "eacd6365-4599-42cc-a3c5-2c156d489d80",
+              "f5b1b715-aaaf-494b-9064-161d283e785a",
+              "0373d984-7b33-40bc-84a4-bbef0b2ce37b",
+              "858ff78d-ef11-4365-9403-6ecb8bae3365",
+              "00c38e75-d818-49f1-bdec-3abacc67bd06",
+              "c74624eb-fb9b-4db2-b6c2-064356a30a69",
+              "230c5afd-b2a0-4c99-b37b-26e51a2ade73",
+              "5ba3fcab-5971-4d73-984a-c7d65e440924",
+              "5e7991cf-bc6f-4b67-ab9b-f158119c5b48"
+            ],
+            "pep_pois": [
+              "eacd6365-4599-42cc-a3c5-2c156d489d80",
+              "f5b1b715-aaaf-494b-9064-161d283e785a",
+              "0373d984-7b33-40bc-84a4-bbef0b2ce37b",
+              "858ff78d-ef11-4365-9403-6ecb8bae3365",
+              "00c38e75-d818-49f1-bdec-3abacc67bd06",
+              "c74624eb-fb9b-4db2-b6c2-064356a30a69",
+              "230c5afd-b2a0-4c99-b37b-26e51a2ade73",
+              "5ba3fcab-5971-4d73-984a-c7d65e440924",
+              "5e7991cf-bc6f-4b67-ab9b-f158119c5b48"
+            ],
+            "pep_relations": [],
+            "sanctioned": [],
+            "terrorist": [],
+            "media": [
+              "1b3eec76-6cc4-491e-999d-970be4368dc5"
+            ],
+            "adverse_info": [],
+            "high_risk": []
+          },
+          "is_pep": true,
+          "was_pep": false,
+          "was_pep_date": 0,
+          "is_sanctioned": false,
+          "was_sanctioned": false,
+          "was_sanctioned_date": "",
+          "is_terrorist": false,
+          "has_media": true,
+          "has_adverse_info": false,
+          "is_high_risk": false
+        },
+        "subject": {
+          "uuid": "96075343-6782-432c-86ee-3559f40a99e9",
+          "info": [
+            {
+              "group": null,
+              "uuid": "b7768e61-ca91-4b0e-95da-695ed213da9d",
+              "type": "person",
+              "content": "P",
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2020-12-16T11:45:55+01:00"
+                },
+                {
+                  "uuid": "53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "version": "bd0478d074c78cc33c7c2a0309a618b7",
+                  "reliability": 1,
+                  "gathered_at": "2022-11-18T00:45:28+01:00",
+                  "published_at": "2022-11-18T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "rel_date": "2022-11-18T02:30:42+01:00"
+                },
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "45e474c0bf9fb6a510a171bef6537d9f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T19:53:00+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "rel_date": "2024-07-20T20:42:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                },
+                {
+                  "uuid": "416eae48-3316-4cac-9582-b4c6ae6a2989",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/vice-presidente/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/vice-presidente/matteo-salvini",
+                  "version": "b2efb07cfe9e868e2c912ec6194e41aa",
+                  "reliability": 1,
+                  "gathered_at": "2023-05-25T11:33:30+01:00",
+                  "published_at": "2023-05-25T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=416eae48-3316-4cac-9582-b4c6ae6a2989",
+                  "rel_date": "2024-08-06T16:20:20+01:00"
+                },
+                {
+                  "uuid": "0797de66-f5fb-4183-a15b-53d93693f238",
+                  "status": "active",
+                  "uri": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+                  "internal_uri": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+                  "version": "2019-10-01",
+                  "reliability": 1,
+                  "gathered_at": "2024-06-14T05:34:02+01:00",
+                  "published_at": "2019-10-01T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0797de66-f5fb-4183-a15b-53d93693f238",
+                  "rel_date": "2024-08-06T16:20:37+01:00"
+                },
+                {
+                  "uuid": "9f6d0334-c133-4552-b553-061848d9d041",
+                  "status": "active",
+                  "uri": "https://legaonline.it/organigramma/",
+                  "internal_uri": "https://legaonline.it/organigramma/",
+                  "version": "c490aa4ccc605cfa3738522fc986e4cd",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-19T08:37:21+01:00",
+                  "published_at": "2025-02-19T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                  "scope": "ITA",
+                  "description": "Web del Partido Político Liga",
+                  "soi_group": {
+                    "uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                    "scope": "ITA",
+                    "title": "Web del Partido Político Liga",
+                    "description": "Web del Partido Político Liga",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=9f6d0334-c133-4552-b553-061848d9d041",
+                  "rel_date": "2025-02-19T10:03:23+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "d47074f0-e349-4d92-b76f-71b3f64720af",
+              "type": "name.full",
+              "content": "matteo salvini",
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2020-12-16T11:45:55+01:00"
+                },
+                {
+                  "uuid": "53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "version": "bd0478d074c78cc33c7c2a0309a618b7",
+                  "reliability": 1,
+                  "gathered_at": "2022-11-18T00:45:28+01:00",
+                  "published_at": "2022-11-18T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "rel_date": "2022-11-18T02:30:42+01:00"
+                },
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "45e474c0bf9fb6a510a171bef6537d9f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T19:53:00+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "rel_date": "2024-07-20T20:42:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                },
+                {
+                  "uuid": "416eae48-3316-4cac-9582-b4c6ae6a2989",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/vice-presidente/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/vice-presidente/matteo-salvini",
+                  "version": "b2efb07cfe9e868e2c912ec6194e41aa",
+                  "reliability": 1,
+                  "gathered_at": "2023-05-25T11:33:30+01:00",
+                  "published_at": "2023-05-25T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=416eae48-3316-4cac-9582-b4c6ae6a2989",
+                  "rel_date": "2024-08-06T16:20:20+01:00"
+                },
+                {
+                  "uuid": "0797de66-f5fb-4183-a15b-53d93693f238",
+                  "status": "active",
+                  "uri": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+                  "internal_uri": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+                  "version": "2019-10-01",
+                  "reliability": 1,
+                  "gathered_at": "2024-06-14T05:34:02+01:00",
+                  "published_at": "2019-10-01T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0797de66-f5fb-4183-a15b-53d93693f238",
+                  "rel_date": "2024-08-06T16:20:37+01:00"
+                },
+                {
+                  "uuid": "9f6d0334-c133-4552-b553-061848d9d041",
+                  "status": "active",
+                  "uri": "https://legaonline.it/organigramma/",
+                  "internal_uri": "https://legaonline.it/organigramma/",
+                  "version": "c490aa4ccc605cfa3738522fc986e4cd",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-19T08:37:21+01:00",
+                  "published_at": "2025-02-19T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                  "scope": "ITA",
+                  "description": "Web del Partido Político Liga",
+                  "soi_group": {
+                    "uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                    "scope": "ITA",
+                    "title": "Web del Partido Político Liga",
+                    "description": "Web del Partido Político Liga",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=9f6d0334-c133-4552-b553-061848d9d041",
+                  "rel_date": "2025-02-19T10:03:23+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "4aa658c9-45ff-41f8-9341-f0e0ef17331e",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/e131300ef9d9b95b_1608115555.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2020-12-16T11:45:55+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "0a3c3640-3556-4537-b033-25e1ee1d8b83",
+              "type": "birth.date",
+              "content": "1973-03-09",
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2020-12-16T11:45:55+01:00"
+                },
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "45e474c0bf9fb6a510a171bef6537d9f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T19:53:00+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "rel_date": "2024-07-20T20:42:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "6c1a6cbb-8d0b-4069-9b80-e8c2e3833a5c",
+              "type": "birth.place",
+              "content": {
+                "city": "Milano"
+              },
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2020-12-16T11:45:55+01:00"
+                },
+                {
+                  "uuid": "4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "d5c506210b26800bc5ba9c54993f448a",
+                  "reliability": 1,
+                  "gathered_at": "2022-12-19T10:35:20+01:00",
+                  "published_at": "2022-12-19T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "rel_date": "2023-03-15T09:46:44+01:00"
+                },
+                {
+                  "uuid": "d85151f1-4677-4ec3-b697-0c1a38fb08f0",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "7fe261fa995d53e7eec281382d9bd56a",
+                  "reliability": 1,
+                  "gathered_at": "2023-07-04T09:13:07+01:00",
+                  "published_at": "2023-07-04T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=d85151f1-4677-4ec3-b697-0c1a38fb08f0",
+                  "rel_date": "2023-07-04T11:50:13+01:00"
+                }
+              ]
+            },
+            {
+              "group": 1,
+              "uuid": "eacd6365-4599-42cc-a3c5-2c156d489d80",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XVI",
+                "from": "2008-04-29",
+                "to": "2013-03-14"
+              },
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2020-12-16T11:45:55+01:00"
+                }
+              ]
+            },
+            {
+              "group": 2,
+              "uuid": "f5b1b715-aaaf-494b-9064-161d283e785a",
+              "type": "function.public",
+              "content": {
+                "charge": "deputato",
+                "organization": "camera dei deputati",
+                "scope": "ITA",
+                "period": "XVII",
+                "from": "2013-03-15",
+                "to": "2018-03-22"
+              },
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2020-12-16T11:45:55+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "c824c85b-5afa-438c-8e9e-fa61fa4c4677",
+              "type": "gender",
+              "content": "M",
+              "sois": [
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "45e474c0bf9fb6a510a171bef6537d9f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T19:53:00+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "rel_date": "2024-07-20T20:42:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "8b760c78-9af7-4c0f-9334-5cf485538213",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/be70367b01f2c6f7_1619512371.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "d5c506210b26800bc5ba9c54993f448a",
+                  "reliability": 1,
+                  "gathered_at": "2022-12-19T10:35:20+01:00",
+                  "published_at": "2022-12-19T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "rel_date": "2023-03-15T09:46:44+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "12e57e5f-c432-4046-8431-77d89da4e4c6",
+              "type": "platform",
+              "content": {
+                "number": "matteo.salvini@senato.it",
+                "platform": "email"
+              },
+              "sois": [
+                {
+                  "uuid": "f777309a-d909-4f0c-a22e-4f8d05f3c224",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "14acf004adc824ddd0970e80686eb0dc",
+                  "reliability": 1,
+                  "gathered_at": "2022-02-16T00:44:08+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=f777309a-d909-4f0c-a22e-4f8d05f3c224",
+                  "rel_date": "2022-02-16T03:41:54+01:00"
+                },
+                {
+                  "uuid": "d85151f1-4677-4ec3-b697-0c1a38fb08f0",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "7fe261fa995d53e7eec281382d9bd56a",
+                  "reliability": 1,
+                  "gathered_at": "2023-07-04T09:13:07+01:00",
+                  "published_at": "2023-07-04T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=d85151f1-4677-4ec3-b697-0c1a38fb08f0",
+                  "rel_date": "2023-07-04T11:50:13+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "4776952a-e187-4c0f-80c6-b939bcc3c303",
+              "type": "id.platform",
+              "content": {
+                "number": "https://www.facebook.com/salviniofficial/",
+                "platform": "facebook"
+              },
+              "sois": [
+                {
+                  "uuid": "f777309a-d909-4f0c-a22e-4f8d05f3c224",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "14acf004adc824ddd0970e80686eb0dc",
+                  "reliability": 1,
+                  "gathered_at": "2022-02-16T00:44:08+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=f777309a-d909-4f0c-a22e-4f8d05f3c224",
+                  "rel_date": "2022-02-16T03:41:54+01:00"
+                },
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                }
+              ]
+            },
+            {
+              "group": 3,
+              "uuid": "0373d984-7b33-40bc-84a4-bbef0b2ce37b",
+              "type": "function.public",
+              "content": {
+                "charge": "senatore",
+                "organization": "senato della repubblica",
+                "scope": "ITA",
+                "period": "XVIII Legislatura",
+                "from": "2018-03-16"
+              },
+              "sois": [
+                {
+                  "uuid": "4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "d5c506210b26800bc5ba9c54993f448a",
+                  "reliability": 1,
+                  "gathered_at": "2022-12-19T10:35:20+01:00",
+                  "published_at": "2022-12-19T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "rel_date": "2023-03-15T09:46:44+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "858ff78d-ef11-4365-9403-6ecb8bae3365",
+              "type": "function.public",
+              "content": {
+                "charge": "vicepresidente del consiglio e ministro delle infrastrutture e della mobilità sostenibili",
+                "organization": "governo italiano",
+                "scope": "ITA"
+              },
+              "sois": [
+                {
+                  "uuid": "0a4843c9-d4b1-4585-8269-3e09982cd7d4",
+                  "status": "inactive",
+                  "uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "version": "060a1fa4b49feaf1813c9819bbc76c60",
+                  "reliability": 1,
+                  "gathered_at": "2022-10-24T00:10:01+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0a4843c9-d4b1-4585-8269-3e09982cd7d4",
+                  "rel_date": "2022-10-24T09:01:58+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "00c38e75-d818-49f1-bdec-3abacc67bd06",
+              "type": "function.public",
+              "content": {
+                "charge": "vicepresidente del consiglio e ministro delle infrastrutture e dei trasporti",
+                "organization": "governo italiano",
+                "scope": "ITA"
+              },
+              "sois": [
+                {
+                  "uuid": "53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "version": "bd0478d074c78cc33c7c2a0309a618b7",
+                  "reliability": 1,
+                  "gathered_at": "2022-11-18T00:45:28+01:00",
+                  "published_at": "2022-11-18T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "rel_date": "2022-11-18T02:30:42+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "77be4a8d-0955-4aef-acbc-650229567b04",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/dec462d4b73380ee_1679048921.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "d85151f1-4677-4ec3-b697-0c1a38fb08f0",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "7fe261fa995d53e7eec281382d9bd56a",
+                  "reliability": 1,
+                  "gathered_at": "2023-07-04T09:13:07+01:00",
+                  "published_at": "2023-07-04T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=d85151f1-4677-4ec3-b697-0c1a38fb08f0",
+                  "rel_date": "2023-07-04T11:50:13+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "476b6a8f-19cb-4428-9dbe-a4f43808564f",
+              "type": "id.platform",
+              "content": {
+                "number": "https://www.instagram.com/matteosalviniofficial/",
+                "platform": "instagram"
+              },
+              "sois": [
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                }
+              ]
+            },
+            {
+              "group": 4,
+              "uuid": "c74624eb-fb9b-4db2-b6c2-064356a30a69",
+              "type": "function.public",
+              "content": {
+                "charge": "senatore",
+                "organization": "senato della repubblica",
+                "scope": "ITA",
+                "period": "XIX Legislatura",
+                "from": "2022-10-13"
+              },
+              "sois": [
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "22f9b2c2-2d4c-4a01-8636-a1f174c1bdfd",
+              "type": "name.first",
+              "content": "matteo",
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                },
+                {
+                  "uuid": "53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "version": "bd0478d074c78cc33c7c2a0309a618b7",
+                  "reliability": 1,
+                  "gathered_at": "2022-11-18T00:45:28+01:00",
+                  "published_at": "2022-11-18T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                },
+                {
+                  "uuid": "4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "d5c506210b26800bc5ba9c54993f448a",
+                  "reliability": 1,
+                  "gathered_at": "2022-12-19T10:35:20+01:00",
+                  "published_at": "2022-12-19T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                },
+                {
+                  "uuid": "0559ad07-eeaf-4eba-8cd0-96526f3c2250",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "249ae9a0ab3bfc24963fed0954ad5fdb",
+                  "reliability": 1,
+                  "gathered_at": "2023-03-15T09:40:53+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0559ad07-eeaf-4eba-8cd0-96526f3c2250",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "f7d79eb8-6c67-4e3a-81a8-f5e59b900670",
+              "type": "name.last",
+              "content": "salvini",
+              "sois": [
+                {
+                  "uuid": "05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "status": "active",
+                  "uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "internal_uri": "https://storia.camera.it/deputato/matteo-salvini-19730309",
+                  "version": "906accced56f74a55180e38aec5aa51e",
+                  "reliability": 1,
+                  "gathered_at": "2020-12-15T09:39:38+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                  "scope": "ITA",
+                  "description": "Camera dei deputati - Portale Storico",
+                  "soi_group": {
+                    "uuid": "17a1fc2d-5edb-4701-a27b-d2f307a9a6db",
+                    "scope": "ITA",
+                    "title": "Camera dei deputati - Portale Storico",
+                    "description": "Camera dei deputati - Portale Storico",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=05c6b73e-dbcb-43fa-9103-ca8d225d9daf",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                },
+                {
+                  "uuid": "53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/ministro/matteo-salvini",
+                  "version": "bd0478d074c78cc33c7c2a0309a618b7",
+                  "reliability": 1,
+                  "gathered_at": "2022-11-18T00:45:28+01:00",
+                  "published_at": "2022-11-18T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=53ab985f-dd6d-4fb9-aef3-73b7f6ac629c",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                },
+                {
+                  "uuid": "4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "d5c506210b26800bc5ba9c54993f448a",
+                  "reliability": 1,
+                  "gathered_at": "2022-12-19T10:35:20+01:00",
+                  "published_at": "2022-12-19T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4a39fcaa-7b97-4c9a-aa82-f70fd8a96fec",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                },
+                {
+                  "uuid": "0559ad07-eeaf-4eba-8cd0-96526f3c2250",
+                  "status": "inactive",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "249ae9a0ab3bfc24963fed0954ad5fdb",
+                  "reliability": 1,
+                  "gathered_at": "2023-03-15T09:40:53+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0559ad07-eeaf-4eba-8cd0-96526f3c2250",
+                  "rel_date": "2023-05-01T23:08:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "230c5afd-b2a0-4c99-b37b-26e51a2ade73",
+              "type": "function.public",
+              "content": {
+                "charge": "vice presidente del consiglio e ministro delle infrastrutture e dei trasporti",
+                "organization": "governo italiano",
+                "scope": "ITA"
+              },
+              "sois": [
+                {
+                  "uuid": "416eae48-3316-4cac-9582-b4c6ae6a2989",
+                  "status": "active",
+                  "uri": "https://www.governo.it/it/governo/meloni/vice-presidente/matteo-salvini",
+                  "internal_uri": "https://www.governo.it/it/governo/meloni/vice-presidente/matteo-salvini",
+                  "version": "b2efb07cfe9e868e2c912ec6194e41aa",
+                  "reliability": 1,
+                  "gathered_at": "2023-05-25T11:33:30+01:00",
+                  "published_at": "2023-05-25T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web Oficial del Gobierno Italiano",
+                  "soi_group": {
+                    "uuid": "627f1110-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web Oficial del Gobierno Italiano",
+                    "description": "Web Oficial del Gobierno Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=416eae48-3316-4cac-9582-b4c6ae6a2989",
+                  "rel_date": "2023-05-25T14:02:26+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "08de1d2e-84e5-4ed4-9cdb-8c1aaa90bd2a",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/c1f3870c3c2bb2e0_1716804856.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "status": "active",
+                  "uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "internal_uri": "https://www.senato.it/composizione/senatori/elenco-alfabetico/scheda-attivita?did=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-05-20T16:35:13+01:00",
+                  "published_at": null,
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=82ac1d4e-d556-45a5-bb35-03bb0f2e7110",
+                  "rel_date": "2024-05-27T12:14:16+01:00"
+                },
+                {
+                  "uuid": "6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=19&id=25407",
+                  "version": "8a16194260f5486721d07a68dbafd85f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T21:16:54+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6bf44b2b-ff29-4340-98aa-241c21b968da",
+                  "rel_date": "2024-07-20T22:36:05+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "2fb8aa12-b144-4009-a7d3-c791c82b52ff",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/a8b403bfd88d8ae4_1721500936.jpg"
+              },
+              "sois": [
+                {
+                  "uuid": "5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "45e474c0bf9fb6a510a171bef6537d9f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T19:53:00+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "rel_date": "2024-07-20T20:42:16+01:00"
+                }
+              ]
+            },
+            {
+              "group": 3,
+              "uuid": "5ba3fcab-5971-4d73-984a-c7d65e440924",
+              "type": "function.public",
+              "content": {
+                "charge": "senatore",
+                "organization": "senato della repubblica",
+                "scope": "ITA",
+                "period": "XVIII Legislatura",
+                "from": "2018-03-16",
+                "to": "2022-10-13"
+              },
+              "sois": [
+                {
+                  "uuid": "5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "status": "active",
+                  "uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "internal_uri": "http://www.senato.it/loc/link.asp?tipodoc=sattsen&leg=18&id=25407",
+                  "version": "45e474c0bf9fb6a510a171bef6537d9f",
+                  "reliability": 1,
+                  "gathered_at": "2024-07-20T19:53:00+01:00",
+                  "published_at": "2024-07-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "ita",
+                  "description": "Web del Senado Italiano",
+                  "soi_group": {
+                    "uuid": "627f1598-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "ita",
+                    "title": "Web del Senado Italiano",
+                    "description": "Web del Senado Italiano",
+                    "issuer": "ITA",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=5b95efe7-6ef2-4067-9c55-502bb373c833",
+                  "rel_date": "2024-07-20T20:42:16+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "1b3eec76-6cc4-491e-999d-970be4368dc5",
+              "type": "media",
+              "content": {
+                "url": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+                "action": "indicted",
+                "issue": "corruption",
+                "from": "2019-10-01"
+              },
+              "sois": [
+                {
+                  "uuid": "0797de66-f5fb-4183-a15b-53d93693f238",
+                  "status": "active",
+                  "uri": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+                  "internal_uri": "https://www.ilfattoquotidiano.it/2019/10/01/mafia-il-re-delleolico-vito-nicastri-condannato-a-9-anni-per-concorso-esterno/5490558/",
+                  "version": "2019-10-01",
+                  "reliability": 1,
+                  "gathered_at": "2024-06-14T05:34:02+01:00",
+                  "published_at": "2019-10-01T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=0797de66-f5fb-4183-a15b-53d93693f238",
+                  "rel_date": "2024-08-06T16:20:37+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "4b25fa80-b168-45e0-8c70-4fb78a455431",
+              "type": "photo",
+              "content": {
+                "url": "https://api.pibisi.com/docs/76deb32b33113757_1733154322.webp"
+              },
+              "sois": [
+                {
+                  "uuid": "9f6d0334-c133-4552-b553-061848d9d041",
+                  "status": "active",
+                  "uri": "https://legaonline.it/organigramma/",
+                  "internal_uri": "https://legaonline.it/organigramma/",
+                  "version": "c490aa4ccc605cfa3738522fc986e4cd",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-19T08:37:21+01:00",
+                  "published_at": "2025-02-19T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                  "scope": "ITA",
+                  "description": "Web del Partido Político Liga",
+                  "soi_group": {
+                    "uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                    "scope": "ITA",
+                    "title": "Web del Partido Político Liga",
+                    "description": "Web del Partido Político Liga",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=9f6d0334-c133-4552-b553-061848d9d041",
+                  "rel_date": "2025-02-19T10:03:23+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "5e7991cf-bc6f-4b67-ab9b-f158119c5b48",
+              "type": "function.political",
+              "content": {
+                "charge": "membro",
+                "organization": "lega per salvini premier",
+                "scope": "ITA"
+              },
+              "sois": [
+                {
+                  "uuid": "9f6d0334-c133-4552-b553-061848d9d041",
+                  "status": "active",
+                  "uri": "https://legaonline.it/organigramma/",
+                  "internal_uri": "https://legaonline.it/organigramma/",
+                  "version": "c490aa4ccc605cfa3738522fc986e4cd",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-19T08:37:21+01:00",
+                  "published_at": "2025-02-19T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                  "scope": "ITA",
+                  "description": "Web del Partido Político Liga",
+                  "soi_group": {
+                    "uuid": "e79ec474-e17e-424e-8b46-024ab01b0f3b",
+                    "scope": "ITA",
+                    "title": "Web del Partido Político Liga",
+                    "description": "Web del Partido Político Liga",
+                    "issuer": "ita",
+                    "info": "pep",
+                    "group_set_code": "ita.pep"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=9f6d0334-c133-4552-b553-061848d9d041",
+                  "rel_date": "2025-02-19T10:03:23+01:00"
+                }
+              ]
+            }
+          ],
+          "scoring": {
+            "value": 10,
+            "flags": {
+              "is_pep": true,
+              "was_pep": false,
+              "was_pep_date": 0,
+              "is_sanctioned": false,
+              "was_sanctioned": false,
+              "was_sanctioned_date": "",
+              "is_terrorist": false,
+              "has_media": true,
+              "has_adverse_info": false,
+              "is_high_risk": false
+            },
+            "info": {
+              "pep": [
+                "eacd6365-4599-42cc-a3c5-2c156d489d80",
+                "f5b1b715-aaaf-494b-9064-161d283e785a",
+                "0373d984-7b33-40bc-84a4-bbef0b2ce37b",
+                "858ff78d-ef11-4365-9403-6ecb8bae3365",
+                "00c38e75-d818-49f1-bdec-3abacc67bd06",
+                "c74624eb-fb9b-4db2-b6c2-064356a30a69",
+                "230c5afd-b2a0-4c99-b37b-26e51a2ade73",
+                "5ba3fcab-5971-4d73-984a-c7d65e440924",
+                "5e7991cf-bc6f-4b67-ab9b-f158119c5b48"
+              ],
+              "pep_pois": [
+                "eacd6365-4599-42cc-a3c5-2c156d489d80",
+                "f5b1b715-aaaf-494b-9064-161d283e785a",
+                "0373d984-7b33-40bc-84a4-bbef0b2ce37b",
+                "858ff78d-ef11-4365-9403-6ecb8bae3365",
+                "00c38e75-d818-49f1-bdec-3abacc67bd06",
+                "c74624eb-fb9b-4db2-b6c2-064356a30a69",
+                "230c5afd-b2a0-4c99-b37b-26e51a2ade73",
+                "5ba3fcab-5971-4d73-984a-c7d65e440924",
+                "5e7991cf-bc6f-4b67-ab9b-f158119c5b48"
+              ],
+              "pep_relations": [],
+              "sanctioned": [],
+              "terrorist": [],
+              "media": [
+                "1b3eec76-6cc4-491e-999d-970be4368dc5"
+              ],
+              "adverse_info": [],
+              "high_risk": []
+            },
+            "is_pep": true,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": true,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "created_at": {
+            "date": "2020-12-16 11:45:55.000000",
+            "timezone_type": 3,
+            "timezone": "Etc/GMT-1"
+          }
+        }
+      },
+      {
+        "uuid": "ea815f36-4a7e-4e66-ba15-c28b50bc9990",
+        "info": [
+          {
+            "group": null,
+            "uuid": "2349ede5-f417-49de-8059-c55069b1f101",
+            "type": "person",
+            "content": "P"
+          },
+          {
+            "group": null,
+            "uuid": "17d8bfd3-f709-47c5-9dec-61b8ac4e5f01",
+            "type": "illegal",
+            "content": "sanctioned"
+          },
+          {
+            "group": null,
+            "uuid": "ae407332-b064-46e5-9264-cc6c64a68118",
+            "type": "name.full",
+            "content": "carlos arturo arredondo ortiz"
+          },
+          {
+            "group": null,
+            "uuid": "3f711d1e-8650-4468-b7d8-254053e02630",
+            "type": "id.platform",
+            "content": {
+              "number": "17119",
+              "platform": "OFAC_SDN_List"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "e68be0ac-7e0b-435d-8f5d-6432688124ac",
+            "type": "birth.date",
+            "content": "1966-11-22"
+          },
+          {
+            "group": null,
+            "uuid": "cf27a32d-89d7-4893-a00f-6718378ea48b",
+            "type": "birth.place",
+            "content": {
+              "country": "COL"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "9e358df2-f76a-421f-9d63-f0bc77ae83c9",
+            "type": "name.alias",
+            "content": "mateo"
+          },
+          {
+            "group": null,
+            "uuid": "c8888e15-e636-4c8c-9652-4a36bc9316b4",
+            "type": "sanction",
+            "content": {
+              "reason": "Program SDNTK",
+              "issuer": "OFAC",
+              "program": "OFAC.SDNTK",
+              "program_description": "Counter Narcotics Trafficking Sanctions",
+              "program_source": "https://ofac.treasury.gov/sanctions-programs-and-country-information/counter-narcotics-trafficking-sanctions",
+              "types": [
+                "FOA",
+                "FFT"
+              ]
+            }
+          },
+          {
+            "group": null,
+            "uuid": "40df8a69-f9d3-436d-b52e-331c879b5514",
+            "type": "name.partial",
+            "content": "mateo"
+          },
+          {
+            "group": null,
+            "uuid": "5ee3704a-ceef-4da3-8f9e-692378296b6d",
+            "type": "name.first",
+            "content": "carlos arturo"
+          },
+          {
+            "group": null,
+            "uuid": "aaf658f2-1087-4232-941c-65fad12c44f4",
+            "type": "name.last",
+            "content": "arredondo ortiz"
+          },
+          {
+            "group": null,
+            "uuid": "cba260d0-9daf-4a0b-8cda-9c62e39cab2f",
+            "type": "gender",
+            "content": "M"
+          }
+        ],
+        "similarity": 0.948,
+        "cardinality": 0.5,
+        "similarity_vector": {
+          "id": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "name": {
+            "fuzzy": "cl",
+            "exact": 0.948,
+            "poi_uuids_1": [],
+            "poi_uuids_2": [
+              "9e358df2-f76a-421f-9d63-f0bc77ae83c9"
+            ]
+          },
+          "birth.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "death.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "person": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#country": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#scope": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.birth": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.death": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          }
+        },
+        "scoring": {
+          "value": 10,
+          "flags": {
+            "is_pep": false,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": true,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": false,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "info": {
+            "pep": [],
+            "pep_pois": [],
+            "pep_relations": [],
+            "sanctioned": [
+              "17d8bfd3-f709-47c5-9dec-61b8ac4e5f01",
+              "c8888e15-e636-4c8c-9652-4a36bc9316b4"
+            ],
+            "terrorist": [],
+            "media": [],
+            "adverse_info": [],
+            "high_risk": []
+          },
+          "is_pep": false,
+          "was_pep": false,
+          "was_pep_date": 0,
+          "is_sanctioned": true,
+          "was_sanctioned": false,
+          "was_sanctioned_date": "",
+          "is_terrorist": false,
+          "has_media": false,
+          "has_adverse_info": false,
+          "is_high_risk": false
+        },
+        "subject": {
+          "uuid": "ea815f36-4a7e-4e66-ba15-c28b50bc9990",
+          "info": [
+            {
+              "group": null,
+              "uuid": "2349ede5-f417-49de-8059-c55069b1f101",
+              "type": "person",
+              "content": "P",
+              "sois": [
+                {
+                  "uuid": "71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "status": "inactive",
+                  "uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "internal_uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "version": "20181128",
+                  "reliability": 1,
+                  "gathered_at": "2018-11-30T11:25:48+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "rel_date": "2019-03-11T16:29:46+01:00"
+                },
+                {
+                  "uuid": "14470f07-67dc-4f35-b574-868bad5bde3d",
+                  "status": "active",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "02/20/2025",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-20T17:00:44+01:00",
+                  "published_at": "2025-02-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=14470f07-67dc-4f35-b574-868bad5bde3d&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2025-02-24T05:54:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "17d8bfd3-f709-47c5-9dec-61b8ac4e5f01",
+              "type": "illegal",
+              "content": "sanctioned",
+              "sois": [
+                {
+                  "uuid": "14470f07-67dc-4f35-b574-868bad5bde3d",
+                  "status": "active",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "02/20/2025",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-20T17:00:44+01:00",
+                  "published_at": "2025-02-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=14470f07-67dc-4f35-b574-868bad5bde3d&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2025-02-24T05:54:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "ae407332-b064-46e5-9264-cc6c64a68118",
+              "type": "name.full",
+              "content": "carlos arturo arredondo ortiz",
+              "sois": [
+                {
+                  "uuid": "71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "status": "inactive",
+                  "uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "internal_uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "version": "20181128",
+                  "reliability": 1,
+                  "gathered_at": "2018-11-30T11:25:48+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "rel_date": "2019-03-11T16:29:46+01:00"
+                },
+                {
+                  "uuid": "14470f07-67dc-4f35-b574-868bad5bde3d",
+                  "status": "active",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "02/20/2025",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-20T17:00:44+01:00",
+                  "published_at": "2025-02-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=14470f07-67dc-4f35-b574-868bad5bde3d&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2025-02-24T05:54:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "3f711d1e-8650-4468-b7d8-254053e02630",
+              "type": "id.platform",
+              "content": {
+                "number": "17119",
+                "platform": "OFAC_SDN_List"
+              },
+              "sois": [
+                {
+                  "uuid": "14470f07-67dc-4f35-b574-868bad5bde3d",
+                  "status": "active",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "02/20/2025",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-20T17:00:44+01:00",
+                  "published_at": "2025-02-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=14470f07-67dc-4f35-b574-868bad5bde3d&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2025-02-24T05:54:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "e68be0ac-7e0b-435d-8f5d-6432688124ac",
+              "type": "birth.date",
+              "content": "1966-11-22",
+              "sois": [
+                {
+                  "uuid": "71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "status": "inactive",
+                  "uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "internal_uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "version": "20181128",
+                  "reliability": 1,
+                  "gathered_at": "2018-11-30T11:25:48+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "rel_date": "2019-03-11T16:29:46+01:00"
+                },
+                {
+                  "uuid": "14470f07-67dc-4f35-b574-868bad5bde3d",
+                  "status": "active",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "02/20/2025",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-20T17:00:44+01:00",
+                  "published_at": "2025-02-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=14470f07-67dc-4f35-b574-868bad5bde3d&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2025-02-24T05:54:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "cf27a32d-89d7-4893-a00f-6718378ea48b",
+              "type": "birth.place",
+              "content": {
+                "country": "COL"
+              },
+              "sois": [
+                {
+                  "uuid": "71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "status": "inactive",
+                  "uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "internal_uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "version": "20181128",
+                  "reliability": 1,
+                  "gathered_at": "2018-11-30T11:25:48+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "rel_date": "2019-03-11T16:29:46+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "9e358df2-f76a-421f-9d63-f0bc77ae83c9",
+              "type": "name.alias",
+              "content": "mateo",
+              "sois": [
+                {
+                  "uuid": "55efe915-d938-44a7-975f-30051f46b7b8",
+                  "status": "inactive",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "10/26/2021",
+                  "reliability": 1,
+                  "gathered_at": "2021-10-27T00:00:09+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=55efe915-d938-44a7-975f-30051f46b7b8&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2021-10-27T05:03:42+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "c8888e15-e636-4c8c-9652-4a36bc9316b4",
+              "type": "sanction",
+              "content": {
+                "reason": "Program SDNTK",
+                "issuer": "OFAC",
+                "program": "OFAC.SDNTK",
+                "program_description": "Counter Narcotics Trafficking Sanctions",
+                "program_source": "https://ofac.treasury.gov/sanctions-programs-and-country-information/counter-narcotics-trafficking-sanctions",
+                "types": [
+                  "FOA",
+                  "FFT"
+                ]
+              },
+              "sois": [
+                {
+                  "uuid": "14470f07-67dc-4f35-b574-868bad5bde3d",
+                  "status": "active",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "02/20/2025",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-20T17:00:44+01:00",
+                  "published_at": "2025-02-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=14470f07-67dc-4f35-b574-868bad5bde3d&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2025-02-24T05:54:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "40df8a69-f9d3-436d-b52e-331c879b5514",
+              "type": "name.partial",
+              "content": "mateo",
+              "sois": [
+                {
+                  "uuid": "14470f07-67dc-4f35-b574-868bad5bde3d",
+                  "status": "active",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "02/20/2025",
+                  "reliability": 1,
+                  "gathered_at": "2025-02-20T17:00:44+01:00",
+                  "published_at": "2025-02-20T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=14470f07-67dc-4f35-b574-868bad5bde3d&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2025-02-24T05:54:21+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "5ee3704a-ceef-4da3-8f9e-692378296b6d",
+              "type": "name.first",
+              "content": "carlos arturo",
+              "sois": [
+                {
+                  "uuid": "71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "status": "inactive",
+                  "uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "internal_uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "version": "20181128",
+                  "reliability": 1,
+                  "gathered_at": "2018-11-30T11:25:48+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "rel_date": "2023-05-01T12:11:40+01:00"
+                },
+                {
+                  "uuid": "6b300bda-84f0-4775-9ed2-5b11e45ed8c2",
+                  "status": "inactive",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "04/27/2023",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-28T01:08:30+01:00",
+                  "published_at": "2023-04-28T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6b300bda-84f0-4775-9ed2-5b11e45ed8c2&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2023-05-01T12:11:40+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "aaf658f2-1087-4232-941c-65fad12c44f4",
+              "type": "name.last",
+              "content": "arredondo ortiz",
+              "sois": [
+                {
+                  "uuid": "71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "status": "inactive",
+                  "uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "internal_uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "version": "20181128",
+                  "reliability": 1,
+                  "gathered_at": "2018-11-30T11:25:48+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "rel_date": "2023-05-01T12:11:40+01:00"
+                },
+                {
+                  "uuid": "6b300bda-84f0-4775-9ed2-5b11e45ed8c2",
+                  "status": "inactive",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "04/27/2023",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-28T01:08:30+01:00",
+                  "published_at": "2023-04-28T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6b300bda-84f0-4775-9ed2-5b11e45ed8c2&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2023-05-01T12:11:40+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "cba260d0-9daf-4a0b-8cda-9c62e39cab2f",
+              "type": "gender",
+              "content": "M",
+              "sois": [
+                {
+                  "uuid": "71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "status": "inactive",
+                  "uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "internal_uri": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/sdn_data.aspx",
+                  "version": "20181128",
+                  "reliability": 1,
+                  "gathered_at": "2018-11-30T11:25:48+01:00",
+                  "published_at": null,
+                  "active": false,
+                  "has_screenshot": false,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=71801ce9-0880-4a53-a19b-4e033ac1d00e",
+                  "rel_date": "2023-05-01T12:11:40+01:00"
+                },
+                {
+                  "uuid": "6b300bda-84f0-4775-9ed2-5b11e45ed8c2",
+                  "status": "inactive",
+                  "uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "internal_uri": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+                  "version": "04/27/2023",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-28T01:08:30+01:00",
+                  "published_at": "2023-04-28T00:00:00+01:00",
+                  "active": false,
+                  "has_screenshot": true,
+                  "has_content_body": false,
+                  "group_uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "usa",
+                  "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                  "soi_group": {
+                    "uuid": "627c2670-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "usa",
+                    "title": "Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "description": "Office of Foreign Assets Control (OFAC) - Specially Designated Nationals And Blocked Persons List (SDN)",
+                    "issuer": "usa-ofac",
+                    "info": "sanctioned",
+                    "group_set_code": "usa.sanctioned"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=6b300bda-84f0-4775-9ed2-5b11e45ed8c2&uri=https://sanctionssearch.ofac.treas.gov/Details.aspx?id=17119",
+                  "rel_date": "2023-05-01T12:11:40+01:00"
+                }
+              ]
+            }
+          ],
+          "scoring": {
+            "value": 10,
+            "flags": {
+              "is_pep": false,
+              "was_pep": false,
+              "was_pep_date": 0,
+              "is_sanctioned": true,
+              "was_sanctioned": false,
+              "was_sanctioned_date": "",
+              "is_terrorist": false,
+              "has_media": false,
+              "has_adverse_info": false,
+              "is_high_risk": false
+            },
+            "info": {
+              "pep": [],
+              "pep_pois": [],
+              "pep_relations": [],
+              "sanctioned": [
+                "17d8bfd3-f709-47c5-9dec-61b8ac4e5f01",
+                "c8888e15-e636-4c8c-9652-4a36bc9316b4"
+              ],
+              "terrorist": [],
+              "media": [],
+              "adverse_info": [],
+              "high_risk": []
+            },
+            "is_pep": false,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": true,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": false,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "created_at": {
+            "date": "2018-11-30 13:18:41.000000",
+            "timezone_type": 3,
+            "timezone": "Etc/GMT-1"
+          }
+        }
+      }
+    ],
+    "discarded_matches": []
+  },
+  "meta": {
+    "total_count": 2,
+    "count": 2,
+    "page": 1,
+    "page_size": 10,
+    "add": false,
+    "query": {
+      "pois": [
+        {
+          "type": "name.full",
+          "content": "Salvini Matteo"
+        }
+      ],
+      "threshold": 0.85,
+      "match_config": {
+        "default": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 2,
+          "max_allowed_blanks_name": 2,
+          "max_allowed_blanks_surname": 2,
+          "allow_extra_words": true
+        },
+        "scoring.pep": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 100,
+          "max_allowed_blanks_name": 100,
+          "max_allowed_blanks_surname": 100,
+          "allow_extra_words": true
+        }
+      }
+    },
+    "version": "v2",
+    "time": "2025-02-25T12:09:53+01:00"
+  }
+}

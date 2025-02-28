@@ -1,0 +1,995 @@
+{
+  "data": {
+    "search_result": {
+      "uuid": "67c2f5c4-b69f-401d-849f-a982a076d01d",
+      "performed_at": "2025-02-25T12:10:58+01:00",
+      "threshold": 0.85,
+      "status": "processed",
+      "pois": [
+        {
+          "type": "name.full",
+          "content": "Casamonica Guerrino"
+        }
+      ],
+      "matches": [
+        {
+          "subject": "071d0af6-08f7-4c54-bde4-66db6b498adc",
+          "similarity": 0.99,
+          "cardinality": 0.5,
+          "similarity_vector": {
+            "id": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "name": {
+              "fuzzy": "eq",
+              "exact": 0.99,
+              "poi_uuids_1": [],
+              "poi_uuids_2": [
+                "e6b68762-fea3-41f7-afb2-4605d7ee31db"
+              ]
+            },
+            "birth.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "death.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "person": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#country": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#scope": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.birth": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.death": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            }
+          }
+        },
+        {
+          "subject": "14816c8b-e296-4255-8573-fb27b9016129",
+          "similarity": 0.98,
+          "cardinality": 0.5,
+          "similarity_vector": {
+            "id": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "name": {
+              "fuzzy": "cl",
+              "exact": 0.98,
+              "poi_uuids_1": [],
+              "poi_uuids_2": [
+                "9d6310df-5165-4b4e-847b-fa083cbd8f20"
+              ]
+            },
+            "birth.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "death.date": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "person": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#country": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "function.current#scope": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.birth": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            },
+            "life_interval.death": {
+              "fuzzy": "bk",
+              "exact": 0,
+              "poi_uuids_1": [],
+              "poi_uuids_2": []
+            }
+          }
+        }
+      ],
+      "discarded_matches": [],
+      "account_uuid": "870b24d8-a9b3-41d6-8e01-762d33d9c5c4",
+      "name_comparison_configs": {
+        "default": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 2,
+          "max_allowed_blanks_name": 2,
+          "max_allowed_blanks_surname": 2,
+          "allow_extra_words": true
+        },
+        "scoring.pep": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 100,
+          "max_allowed_blanks_name": 100,
+          "max_allowed_blanks_surname": 100,
+          "allow_extra_words": true
+        }
+      },
+      "full_matches": []
+    },
+    "matches": [
+      {
+        "uuid": "071d0af6-08f7-4c54-bde4-66db6b498adc",
+        "info": [
+          {
+            "group": null,
+            "uuid": "37fe1f72-9714-4ced-974c-f6d8527a1f15",
+            "type": "person",
+            "content": "P"
+          },
+          {
+            "group": null,
+            "uuid": "e6b68762-fea3-41f7-afb2-4605d7ee31db",
+            "type": "name.full",
+            "content": "guerrino casamónica"
+          },
+          {
+            "group": null,
+            "uuid": "307b2afa-93ad-4806-843e-1f7ae5fc4368",
+            "type": "media",
+            "content": {
+              "url": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+              "action": "indicted",
+              "issue": "organized_crime",
+              "from": "2023-04-13"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "c9b326f6-59f6-43b8-a929-aab9f9e24e50",
+            "type": "media",
+            "content": {
+              "url": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+              "action": "indicted",
+              "issue": "drug_trafficking",
+              "from": "2023-04-13"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "2a061c9c-9726-4340-af2a-22a77afa2524",
+            "type": "name.full",
+            "content": "guerino casamonica"
+          },
+          {
+            "group": null,
+            "uuid": "4756d427-c3b1-4da6-a7d9-3f335cde004a",
+            "type": "media",
+            "content": {
+              "url": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+              "action": "convicted",
+              "issue": "organized_crime",
+              "from": "2021-11-10"
+            }
+          }
+        ],
+        "similarity": 0.99,
+        "cardinality": 0.5,
+        "similarity_vector": {
+          "id": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "name": {
+            "fuzzy": "eq",
+            "exact": 0.99,
+            "poi_uuids_1": [],
+            "poi_uuids_2": [
+              "e6b68762-fea3-41f7-afb2-4605d7ee31db"
+            ]
+          },
+          "birth.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "death.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "person": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#country": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#scope": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.birth": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.death": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          }
+        },
+        "scoring": {
+          "value": 10,
+          "flags": {
+            "is_pep": false,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": true,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "info": {
+            "pep": [],
+            "pep_pois": [],
+            "pep_relations": [],
+            "sanctioned": [],
+            "terrorist": [],
+            "media": [
+              "307b2afa-93ad-4806-843e-1f7ae5fc4368",
+              "c9b326f6-59f6-43b8-a929-aab9f9e24e50",
+              "4756d427-c3b1-4da6-a7d9-3f335cde004a"
+            ],
+            "adverse_info": [],
+            "high_risk": []
+          },
+          "is_pep": false,
+          "was_pep": false,
+          "was_pep_date": 0,
+          "is_sanctioned": false,
+          "was_sanctioned": false,
+          "was_sanctioned_date": "",
+          "is_terrorist": false,
+          "has_media": true,
+          "has_adverse_info": false,
+          "is_high_risk": false
+        },
+        "subject": {
+          "uuid": "071d0af6-08f7-4c54-bde4-66db6b498adc",
+          "info": [
+            {
+              "group": null,
+              "uuid": "37fe1f72-9714-4ced-974c-f6d8527a1f15",
+              "type": "person",
+              "content": "P",
+              "sois": [
+                {
+                  "uuid": "4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "status": "active",
+                  "uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "internal_uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "version": "2023-04-13",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-14T00:07:36+01:00",
+                  "published_at": "2023-04-13T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "rel_date": "2023-04-26T21:30:04+01:00"
+                },
+                {
+                  "uuid": "cae28187-9618-46e7-a5b2-2479c8eb7afb",
+                  "status": "active",
+                  "uri": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+                  "internal_uri": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+                  "version": "2021-11-10",
+                  "reliability": 1,
+                  "gathered_at": "2024-01-15T02:07:36+01:00",
+                  "published_at": "2021-11-10T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=cae28187-9618-46e7-a5b2-2479c8eb7afb",
+                  "rel_date": "2024-01-17T00:11:40+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "e6b68762-fea3-41f7-afb2-4605d7ee31db",
+              "type": "name.full",
+              "content": "guerrino casamónica",
+              "sois": [
+                {
+                  "uuid": "4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "status": "active",
+                  "uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "internal_uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "version": "2023-04-13",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-14T00:07:36+01:00",
+                  "published_at": "2023-04-13T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "rel_date": "2023-04-26T21:30:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "307b2afa-93ad-4806-843e-1f7ae5fc4368",
+              "type": "media",
+              "content": {
+                "url": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                "action": "indicted",
+                "issue": "organized_crime",
+                "from": "2023-04-13"
+              },
+              "sois": [
+                {
+                  "uuid": "4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "status": "active",
+                  "uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "internal_uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "version": "2023-04-13",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-14T00:07:36+01:00",
+                  "published_at": "2023-04-13T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "rel_date": "2023-04-26T21:30:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "c9b326f6-59f6-43b8-a929-aab9f9e24e50",
+              "type": "media",
+              "content": {
+                "url": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                "action": "indicted",
+                "issue": "drug_trafficking",
+                "from": "2023-04-13"
+              },
+              "sois": [
+                {
+                  "uuid": "4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "status": "active",
+                  "uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "internal_uri": "https://www.ilsannioquotidiano.it/2023/04/13/casamonica-giudici-appello-clan-esteso-e-coeso-vittime-assoggettate-e-impotenti/",
+                  "version": "2023-04-13",
+                  "reliability": 1,
+                  "gathered_at": "2023-04-14T00:07:36+01:00",
+                  "published_at": "2023-04-13T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=4f3b4c2f-8833-4310-936b-becade485f1b",
+                  "rel_date": "2023-04-26T21:30:04+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "2a061c9c-9726-4340-af2a-22a77afa2524",
+              "type": "name.full",
+              "content": "guerino casamonica",
+              "sois": [
+                {
+                  "uuid": "cae28187-9618-46e7-a5b2-2479c8eb7afb",
+                  "status": "active",
+                  "uri": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+                  "internal_uri": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+                  "version": "2021-11-10",
+                  "reliability": 1,
+                  "gathered_at": "2024-01-15T02:07:36+01:00",
+                  "published_at": "2021-11-10T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=cae28187-9618-46e7-a5b2-2479c8eb7afb",
+                  "rel_date": "2024-01-17T00:11:40+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "4756d427-c3b1-4da6-a7d9-3f335cde004a",
+              "type": "media",
+              "content": {
+                "url": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+                "action": "convicted",
+                "issue": "organized_crime",
+                "from": "2021-11-10"
+              },
+              "sois": [
+                {
+                  "uuid": "cae28187-9618-46e7-a5b2-2479c8eb7afb",
+                  "status": "active",
+                  "uri": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+                  "internal_uri": "https://www.fanpage.it/roma/casamonica-condannati-per-mafia-le-motivazioni-della-sentenza-il-clan-si-sostituiva-allo-stato/",
+                  "version": "2021-11-10",
+                  "reliability": 1,
+                  "gathered_at": "2024-01-15T02:07:36+01:00",
+                  "published_at": "2021-11-10T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=cae28187-9618-46e7-a5b2-2479c8eb7afb",
+                  "rel_date": "2024-01-17T00:11:40+01:00"
+                }
+              ]
+            }
+          ],
+          "scoring": {
+            "value": 10,
+            "flags": {
+              "is_pep": false,
+              "was_pep": false,
+              "was_pep_date": 0,
+              "is_sanctioned": false,
+              "was_sanctioned": false,
+              "was_sanctioned_date": "",
+              "is_terrorist": false,
+              "has_media": true,
+              "has_adverse_info": false,
+              "is_high_risk": false
+            },
+            "info": {
+              "pep": [],
+              "pep_pois": [],
+              "pep_relations": [],
+              "sanctioned": [],
+              "terrorist": [],
+              "media": [
+                "307b2afa-93ad-4806-843e-1f7ae5fc4368",
+                "c9b326f6-59f6-43b8-a929-aab9f9e24e50",
+                "4756d427-c3b1-4da6-a7d9-3f335cde004a"
+              ],
+              "adverse_info": [],
+              "high_risk": []
+            },
+            "is_pep": false,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": true,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "created_at": {
+            "date": "2023-04-26 21:30:04.000000",
+            "timezone_type": 3,
+            "timezone": "Etc/GMT-1"
+          }
+        }
+      },
+      {
+        "uuid": "14816c8b-e296-4255-8573-fb27b9016129",
+        "info": [
+          {
+            "group": null,
+            "uuid": "7359fd0f-9f1d-4428-a1a0-761a7a49c43d",
+            "type": "person",
+            "content": "P"
+          },
+          {
+            "group": null,
+            "uuid": "9d6310df-5165-4b4e-847b-fa083cbd8f20",
+            "type": "name.full",
+            "content": "guerrino casamonica pele"
+          },
+          {
+            "group": null,
+            "uuid": "8122f585-3f03-49b8-ad95-60f4455188f0",
+            "type": "media",
+            "content": {
+              "url": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+              "action": "convicted",
+              "issue": "extortion",
+              "from": "2022-02-11"
+            }
+          },
+          {
+            "group": null,
+            "uuid": "69495d36-4639-42f3-9191-4657127a583f",
+            "type": "media",
+            "content": {
+              "url": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+              "action": "convicted",
+              "issue": "organized_crime",
+              "from": "2022-02-11"
+            }
+          }
+        ],
+        "similarity": 0.98,
+        "cardinality": 0.5,
+        "similarity_vector": {
+          "id": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "name": {
+            "fuzzy": "cl",
+            "exact": 0.98,
+            "poi_uuids_1": [],
+            "poi_uuids_2": [
+              "9d6310df-5165-4b4e-847b-fa083cbd8f20"
+            ]
+          },
+          "birth.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "death.date": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "person": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#country": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "function.current#scope": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.birth": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          },
+          "life_interval.death": {
+            "fuzzy": "bk",
+            "exact": 0,
+            "poi_uuids_1": [],
+            "poi_uuids_2": []
+          }
+        },
+        "scoring": {
+          "value": 10,
+          "flags": {
+            "is_pep": false,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": true,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "info": {
+            "pep": [],
+            "pep_pois": [],
+            "pep_relations": [],
+            "sanctioned": [],
+            "terrorist": [],
+            "media": [
+              "8122f585-3f03-49b8-ad95-60f4455188f0",
+              "69495d36-4639-42f3-9191-4657127a583f"
+            ],
+            "adverse_info": [],
+            "high_risk": []
+          },
+          "is_pep": false,
+          "was_pep": false,
+          "was_pep_date": 0,
+          "is_sanctioned": false,
+          "was_sanctioned": false,
+          "was_sanctioned_date": "",
+          "is_terrorist": false,
+          "has_media": true,
+          "has_adverse_info": false,
+          "is_high_risk": false
+        },
+        "subject": {
+          "uuid": "14816c8b-e296-4255-8573-fb27b9016129",
+          "info": [
+            {
+              "group": null,
+              "uuid": "7359fd0f-9f1d-4428-a1a0-761a7a49c43d",
+              "type": "person",
+              "content": "P",
+              "sois": [
+                {
+                  "uuid": "e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "status": "active",
+                  "uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "internal_uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "version": "2022-02-11",
+                  "reliability": 1,
+                  "gathered_at": "2023-12-21T00:17:50+01:00",
+                  "published_at": "2022-02-11T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "rel_date": "2023-12-22T22:40:03+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "9d6310df-5165-4b4e-847b-fa083cbd8f20",
+              "type": "name.full",
+              "content": "guerrino casamonica pele",
+              "sois": [
+                {
+                  "uuid": "e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "status": "active",
+                  "uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "internal_uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "version": "2022-02-11",
+                  "reliability": 1,
+                  "gathered_at": "2023-12-21T00:17:50+01:00",
+                  "published_at": "2022-02-11T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "rel_date": "2023-12-22T22:40:03+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "8122f585-3f03-49b8-ad95-60f4455188f0",
+              "type": "media",
+              "content": {
+                "url": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                "action": "convicted",
+                "issue": "extortion",
+                "from": "2022-02-11"
+              },
+              "sois": [
+                {
+                  "uuid": "e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "status": "active",
+                  "uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "internal_uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "version": "2022-02-11",
+                  "reliability": 1,
+                  "gathered_at": "2023-12-21T00:17:50+01:00",
+                  "published_at": "2022-02-11T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "rel_date": "2023-12-22T22:40:03+01:00"
+                }
+              ]
+            },
+            {
+              "group": null,
+              "uuid": "69495d36-4639-42f3-9191-4657127a583f",
+              "type": "media",
+              "content": {
+                "url": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                "action": "convicted",
+                "issue": "organized_crime",
+                "from": "2022-02-11"
+              },
+              "sois": [
+                {
+                  "uuid": "e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "status": "active",
+                  "uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "internal_uri": "http://newsrnd.com/life/2022-02-11-assets-confiscated-from-casamonica-for-over-20-million.Hkf1Nt2mkc.html",
+                  "version": "2022-02-11",
+                  "reliability": 1,
+                  "gathered_at": "2023-12-21T00:17:50+01:00",
+                  "published_at": "2022-02-11T00:00:00+01:00",
+                  "active": true,
+                  "has_screenshot": true,
+                  "has_content_body": true,
+                  "group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                  "scope": "global",
+                  "description": "Public sources of adverse media",
+                  "soi_group": {
+                    "uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+                    "scope": "global",
+                    "title": "Public sources of adverse media",
+                    "description": "Public sources of adverse media",
+                    "issuer": "",
+                    "info": "adverse_media",
+                    "group_set_code": "found_adverse_media"
+                  },
+                  "pibisi_uri": "https://pibisi.com/es/resources/soi?soi=e4135046-d36a-4bc7-84da-c5ef6e0d0f52",
+                  "rel_date": "2023-12-22T22:40:03+01:00"
+                }
+              ]
+            }
+          ],
+          "scoring": {
+            "value": 10,
+            "flags": {
+              "is_pep": false,
+              "was_pep": false,
+              "was_pep_date": 0,
+              "is_sanctioned": false,
+              "was_sanctioned": false,
+              "was_sanctioned_date": "",
+              "is_terrorist": false,
+              "has_media": true,
+              "has_adverse_info": false,
+              "is_high_risk": false
+            },
+            "info": {
+              "pep": [],
+              "pep_pois": [],
+              "pep_relations": [],
+              "sanctioned": [],
+              "terrorist": [],
+              "media": [
+                "8122f585-3f03-49b8-ad95-60f4455188f0",
+                "69495d36-4639-42f3-9191-4657127a583f"
+              ],
+              "adverse_info": [],
+              "high_risk": []
+            },
+            "is_pep": false,
+            "was_pep": false,
+            "was_pep_date": 0,
+            "is_sanctioned": false,
+            "was_sanctioned": false,
+            "was_sanctioned_date": "",
+            "is_terrorist": false,
+            "has_media": true,
+            "has_adverse_info": false,
+            "is_high_risk": false
+          },
+          "created_at": {
+            "date": "2023-12-22 22:40:03.000000",
+            "timezone_type": 3,
+            "timezone": "Etc/GMT-1"
+          }
+        }
+      }
+    ],
+    "discarded_matches": []
+  },
+  "meta": {
+    "total_count": 2,
+    "count": 2,
+    "page": 1,
+    "page_size": 10,
+    "add": false,
+    "query": {
+      "pois": [
+        {
+          "type": "name.full",
+          "content": "Casamonica Guerrino"
+        }
+      ],
+      "threshold": 0.85,
+      "match_config": {
+        "default": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 2,
+          "max_allowed_blanks_name": 2,
+          "max_allowed_blanks_surname": 2,
+          "allow_extra_words": true
+        },
+        "scoring.pep": {
+          "search_type": "advanced",
+          "threshold": "0.85",
+          "max_allowed_blanks": 100,
+          "max_allowed_blanks_name": 100,
+          "max_allowed_blanks_surname": 100,
+          "allow_extra_words": true
+        }
+      }
+    },
+    "version": "v2",
+    "time": "2025-02-25T12:10:58+01:00"
+  }
+}
