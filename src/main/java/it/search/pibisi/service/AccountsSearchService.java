@@ -22,6 +22,7 @@ import it.search.pibisi.bean.PoiBean;
 import it.search.pibisi.bean.SoiBean;
 import it.search.pibisi.bean.SubjectBean;
 import it.search.pibisi.bean.SubjectInfoBean;
+import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.controller.pojo.PibisiPojo;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
@@ -109,21 +110,133 @@ public class AccountsSearchService extends BaseService {
 				matchBean.setInfoMap(new HashMap<>());
 				matchBean.setNews(new ArrayList<>());
 
-				if (match.getInfo() != null)
-					readInfo(match.getInfo(), matchBean);
-
 				if (match.getScoring() != null)
 					readScoringAndCategory(match.getScoring(), matchBean);
 
 				if (match.getSubject() != null)
 					readSubjectBean(match.getSubject(), matchBean);
 
+				if (match.getInfo() != null)
+					readInfo(match.getInfo(), matchBean);
+
 				readDate(match, matchBean);
+
+				if (match.getSubject() != null)
+					readNewSubjectBean(match.getSubject(), matchBean);
 
 				matchListBean.addMatchBean(matchBean);
 			}
 		}
 		return matchListBean;
+	}
+
+	// Start read info in data -> matches
+	private void readNewSubjectBean(Subject subject, MatchBean matchBean) throws IOException {
+		matchBean.setSubjectBean(new SubjectBean());
+		if (subject.getCreatedAt() != null)
+			matchBean.getSubjectBean().setCreatedAt(subject.getCreatedAt().getDate());
+		if (subject.getUuid() != null)
+			matchBean.getSubjectBean().setUuid(subject.getUuid());
+
+		matchBean.getSubjectBean().setSubjectInfoMap(new HashMap<>());
+		if (subject.getInfo() != null)
+			readSubjectInfo(matchBean.getSubjectBean().getSubjectInfoMap(), subject.getInfo());
+
+		for (Info__2 info : subject.getInfo()) {
+			SubjectPoiBean subjectPoiBean = new SubjectPoiBean();
+			if (info.getContent() != null)
+				subjectPoiBean.setContent(info.getContent().toString());
+			if (info.getGroup() != null)
+				subjectPoiBean.setGroup(info.getGroup().toString());
+			subjectPoiBean.setUuid(info.getUuid());
+			subjectPoiBean.setType(info.getType());
+			subjectPoiBean.setSoiBean(new ArrayList<>());
+
+			if (info.getSois() != null) {
+				for (Soi soi : info.getSois()) {
+					if (Boolean.TRUE.equals(soi.getActive())) {
+						ObjectMapper objectMapper = new ObjectMapper();
+						objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+						// Deserializza il JSON in un oggetto SoiWrapper
+						SoiWrapper soiWrapper = objectMapper.readValue(objectMapper.writeValueAsBytes(soi),
+								SoiWrapper.class);
+
+						SoiBean soiBean = new SoiBean();
+						BeanUtils.copyProperties(soiWrapper, soiBean);
+
+						subjectPoiBean.getSoiBean().add(soiBean);
+					}
+				}
+
+				switch (info.getType()) {
+				case "name.full":
+					matchBean.addSubjectNameFull(subjectPoiBean);
+					break;
+				case "person":
+					matchBean.addSubjectPerson(subjectPoiBean);
+					break;
+				case "gender":
+					matchBean.addSubjectGender(subjectPoiBean);
+					break;
+				case "birth.date":
+					matchBean.addSubjectBirthDate(subjectPoiBean);
+					break;
+				case "birth.place":
+					matchBean.addSubjectBirthPlace(subjectPoiBean);
+					break;
+				case "nationality":
+					matchBean.addSubjectNationality(subjectPoiBean);
+					break;
+				case "illegal":
+					matchBean.addSubjectIllegal(subjectPoiBean);
+					break;
+				case "id.platform":
+					matchBean.addSubjectIdPlatform(subjectPoiBean);
+					break;
+				case "platform":
+					matchBean.addSubjectPlatform(subjectPoiBean);
+					break;
+				case "name.first":
+					matchBean.addSubjectNameFirst(subjectPoiBean);
+					break;
+				case "name.last":
+					matchBean.addSubjectNameLast(subjectPoiBean);
+					break;
+				case "id.passport":
+					matchBean.addSubjectIdPassport(subjectPoiBean);
+					break;
+				case "photo":
+					matchBean.addSubjectPhoto(subjectPoiBean);
+					break;
+				case "function":
+					matchBean.addSubjectFunction(subjectPoiBean);
+					break;
+				case "function.public":
+					matchBean.addSubjectFunctionPublic(subjectPoiBean);
+					break;
+				case "function.political":
+					matchBean.addSubjectFunctionPolitical(subjectPoiBean);
+					break;
+				case "sanction":
+					matchBean.addSubjectSanction(subjectPoiBean);
+					break;
+				case "media":
+					matchBean.addSubjectMedia(subjectPoiBean);
+					break;
+				case "dead":
+					matchBean.addSubjectDead(subjectPoiBean);
+					break;
+				case "relation.relative":
+					matchBean.addSubjectRelationRelative(subjectPoiBean);
+					break;
+
+				default:
+					logUnknownInfo2(info);
+					break;
+				}
+			}
+		}
+
 	}
 
 	// Start read info in data -> matches
@@ -134,8 +247,8 @@ public class AccountsSearchService extends BaseService {
 			case "name.full":
 				addNameFullBean(matchBean, info);
 				break;
-			case "person", "gender", "birth.date", "birth.place", "nationality",  "illegal", "id.platform",
-					"name.first", "name.last",  "id.passport", "photo":
+			case "person", "gender", "birth.date", "birth.place", "nationality", "illegal", "id.platform", "name.first",
+					"name.last", "id.passport", "photo":
 				setMapInfo(matchBean, info, info.getType());
 				break;
 			case "function":
@@ -146,11 +259,11 @@ public class AccountsSearchService extends BaseService {
 				break;
 			case "function.political":
 				addPoisBean(matchBean.getFunctionPolitical(), info);
-				break;																
+				break;
 			case "sanction":
 				addPoisBean(matchBean.getSanction(), info);
 				break;
-				
+
 			case "media":
 				addPoisBean(matchBean.getNews(), info);
 				break;
@@ -261,8 +374,7 @@ public class AccountsSearchService extends BaseService {
 //
 //		matchList.getNews().add(newsBean);
 //	}
-	
-	
+
 	private void addPoisBean(List<PoiBean> listPois, it.search.pibisi.pojo.accounts.subjects.find.Info info)
 			throws IOException {
 		// Crea un'istanza dell'ObjectMapper
@@ -283,7 +395,7 @@ public class AccountsSearchService extends BaseService {
 		newsBean.setCountry(wrapper.getCountry());
 		newsBean.setFrom(wrapper.getFrom());
 		newsBean.setUrl(wrapper.getUrl());
-		
+
 		newsBean.setReason(wrapper.getReason());
 		newsBean.setProgram(wrapper.getProgram());
 		newsBean.setProgramDescription(wrapper.getProgramDescription());
@@ -293,6 +405,17 @@ public class AccountsSearchService extends BaseService {
 	}
 
 	private void logUnknownInfo(it.search.pibisi.pojo.accounts.subjects.find.Info info) {
+		System.out.println("Uuid    --> " + info.getUuid());
+		System.out.println("Content --> " + info.getContent());
+		System.out.println("Type    --> " + info.getType());
+		System.out.println("Class   --> " + info.getClass());
+		System.out.println("tGroup  --> " + info.getGroup());
+		System.out.println("-----------------------------------");
+		System.out.println("ERROR: " + info.getType());
+		System.out.println("-----------------------------------");
+	}
+
+	private void logUnknownInfo2(it.search.pibisi.pojo.accounts.subjects.find.Info__2 info) {
 		System.out.println("Uuid    --> " + info.getUuid());
 		System.out.println("Content --> " + info.getContent());
 		System.out.println("Type    --> " + info.getType());
