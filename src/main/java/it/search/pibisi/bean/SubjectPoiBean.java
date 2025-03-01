@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SubjectPoiBean {
 
-	private String content;
+	private Object content;
 
 	private String group;
 
@@ -19,11 +19,11 @@ public class SubjectPoiBean {
 		return group;
 	}
 
-	public String getContent() {
+	public Object getContent() {
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(Object content) {
 		this.content = content;
 	}
 

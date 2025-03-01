@@ -145,7 +145,7 @@ public class AccountsSearchService extends BaseService {
 		for (Info__2 info : subject.getInfo()) {
 			SubjectPoiBean subjectPoiBean = new SubjectPoiBean();
 			if (info.getContent() != null)
-				subjectPoiBean.setContent(info.getContent().toString());
+				subjectPoiBean.setContent(info.getContent());
 			if (info.getGroup() != null)
 				subjectPoiBean.setGroup(info.getGroup().toString());
 			subjectPoiBean.setUuid(info.getUuid());
