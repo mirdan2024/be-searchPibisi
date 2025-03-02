@@ -229,11 +229,11 @@ public class AccountsService extends BaseService {
 						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("José Ignacio Encinas - detail.json");
 				}
-				if ("c".equalsIgnoreCase(requestJson.getSubjectId())
+				if ("c".equalsIgnoreCase(requestJson.getSubjectId()) 
 						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Mohamed Jabir - detail.json");
 				}
-				if ("d".equalsIgnoreCase(requestJson.getSubjectId())
+				if ("d".equalsIgnoreCase(requestJson.getSubjectId())|| "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc".equalsIgnoreCase(requestJson.getSubjectId()) 
 						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Rabah Naami Abou - detail.json");
 				}

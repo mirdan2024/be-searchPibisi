@@ -1,11 +1,6 @@
 package it.search.pibisi.service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.List;
+import java.io.ByteArrayOutputStream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,7 +10,6 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 
 @Service
@@ -24,27 +18,29 @@ public class PdfService extends BaseService {
 	@Autowired
 	private AccountsDetailService detailService;
 
-	public void createPdf(AccountsSearchPojo requestJson) {
+	public byte[] createPdf(AccountsSearchPojo requestJson) {
 
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		try {
 			// Converte l'oggetto in una stringa JSON
-			//requestJson.setSubjectId("d");
+			// requestJson.setSubjectId("d");
 			String json = objectMapper.writeValueAsString(detailService.detail(requestJson));
 
 			// Stampa il risultato
 			System.out.println(json);
 
 			// Crea il PDF dal Json
-			createPdfFromJson(new JSONObject(json));
+			return createPdfFromJson(new JSONObject(json));
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return null;
 	}
 
-	private static void createPdfFromJson(JSONObject jsonObject) {
+	private byte[] createPdfFromJson(JSONObject jsonObject) {
 		try {
 
 			// SubjectPoiBean
@@ -115,35 +111,46 @@ public class PdfService extends BaseService {
 			builder.append("<html><head><style>body { font-family: Arial, sans-serif; }</style></head><body>");
 
 			getInformazioniPrincipali(jsonObject, subjectNameFull, subjectBirthDate, subjectNationality, builder);
-			
-		    // Crea l'inizio della tabella per ogni subject
-		    builder.append("<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"background-color: #00587A;color: #FFFFFF;border-color:#E7E7DE\">\n");
-		    builder.append("<thead>\n");
-		    builder.append("<tr>\n");
-		    builder.append("<th style=\"padding: 10px; background-color: #008891\">Carica</th>\n");
-		    builder.append("<th style=\"padding: 10px; background-color: #008891\">Organizzazione</th>\n");
-		    builder.append("<th style=\"padding: 10px; background-color: #008891\">Dal</th>\n");
-		    builder.append("<th style=\"padding: 10px; background-color: #008891\">Al</th>\n");
-		    builder.append("</tr>\n");
-		    builder.append("</thead>\n");
-		    builder.append("<tbody>\n");
-		    // Itera sull'array "subjectFunction"
-			for (int i = 0; i < subjectFunction.length(); i++) {
-			    JSONObject subject = subjectFunction.getJSONObject(i);
 
+			// Crea l'inizio della tabella per ogni subject
+			builder.append(
+					"<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"background-color: #00587A;color: #FFFFFF;border-color:#E7E7DE\">\n");
+			builder.append("<thead>\n");
+			builder.append("<tr>\n");
+			builder.append("<th style=\"padding: 10px; background-color: #008891\">Carica</th>\n");
+			builder.append("<th style=\"padding: 10px; background-color: #008891\">Organizzazione</th>\n");
+			builder.append("<th style=\"padding: 10px; background-color: #008891\">Dal</th>\n");
+			builder.append("<th style=\"padding: 10px; background-color: #008891\">Al</th>\n");
+			builder.append("</tr>\n");
+			builder.append("</thead>\n");
+			builder.append("<tbody>\n");
+			// Itera sull'array "subjectFunction"
+			if (subjectFunction != null) {
+				for (int i = 0; i < subjectFunction.length(); i++) {
+					JSONObject subject = subjectFunction.getJSONObject(i);
 
-			    // Aggiungi il contenuto "content"
-			    builder.append("<tr>");
-			    builder.append("<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("charge")?subject.getJSONObject("content").getString("charge"):"") + "</td>");
-			    builder.append("<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("organization")?subject.getJSONObject("content").getString("organization"):"") + "</td>");
-			    builder.append("<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("from")?subject.getJSONObject("content").getString("from"):"") + "</td>");
-			    builder.append("<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("to")?subject.getJSONObject("content").getString("to"):"") + "</td>");
-			    builder.append("</tr>\n");
+					// Aggiungi il contenuto "content"
+					builder.append("<tr>");
+					builder.append("<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("charge")
+							? subject.getJSONObject("content").getString("charge")
+							: "") + "</td>");
+					builder.append(
+							"<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("organization")
+									? subject.getJSONObject("content").getString("organization")
+									: "") + "</td>");
+					builder.append("<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("from")
+							? subject.getJSONObject("content").getString("from")
+							: "") + "</td>");
+					builder.append("<td style=\"padding: 10px;\">" + (!subject.getJSONObject("content").isNull("to")
+							? subject.getJSONObject("content").getString("to")
+							: "") + "</td>");
+					builder.append("</tr>\n");
+				}
 			}
-		    builder.append("</tbody>\n");
-		    builder.append("</table>\n");
+			builder.append("</tbody>\n");
+			builder.append("</table>\n");
 
-		    builder.append("<hr>");
+			builder.append("<hr>");
 
 			JSONArray contentArray = jsonObject.getJSONArray("subjectNameFull");
 			for (int i = 0; i < contentArray.length(); i++) {
@@ -153,18 +160,24 @@ public class PdfService extends BaseService {
 			builder.append("</hr></body></html>");
 
 			// Usa Flying Saucer per generare il PDF
-			OutputStream os = new FileOutputStream("C:\\Gestore\\pdf\\output_flying_saucer.pdf");
+			byte[] filePdf = null;
+			ByteArrayOutputStream os = new ByteArrayOutputStream();
 			ITextRenderer renderer = new ITextRenderer();
 			renderer.setDocumentFromString(builder.toString());
 			renderer.layout();
 			renderer.createPDF(os);
+			renderer.finishPDF();
+			filePdf = os.toByteArray();
 			os.close();
 
 			System.out.println("PDF creato con successo!");
 
+			return filePdf;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return null;
 	}
 
 	private static void getInformazioniPrincipali(JSONObject jsonObject, JSONArray subjectNameFull,
@@ -180,9 +193,11 @@ public class PdfService extends BaseService {
 		builder.append("<tr><td><strong>Nominativo:</strong></td><td>"
 				+ subjectNameFull.getJSONObject(0).getString("content") + "</td></tr>\n");
 		builder.append("<tr><td><strong>Data Nascita:</strong></td><td>"
-				+ subjectBirthDate.getJSONObject(0).getString("content") + "</td></tr>\n");
+				+ (subjectBirthDate != null ? subjectBirthDate.getJSONObject(0).getString("content") : "")
+				+ "</td></tr>\n");
 		builder.append("<tr><td><strong>Nazionalità:</strong></td><td>"
-				+ subjectNationality.getJSONObject(0).getString("content") + "</td></tr>\n");
+				+ (subjectNationality != null ? subjectNationality.getJSONObject(0).getString("content") : "")
+				+ "</td></tr>\n");
 		builder.append("</table>");
 	}
 }

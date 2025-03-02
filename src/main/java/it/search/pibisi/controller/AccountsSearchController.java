@@ -1,12 +1,14 @@
 package it.search.pibisi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.MatchListBean;
+import it.search.pibisi.bean.PdfResponse;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.service.AccountsDetailService;
 import it.search.pibisi.service.AccountsSearchService;
@@ -39,7 +41,12 @@ public class AccountsSearchController {
 
 	// Endpoint per il dettaglio di un nominativo trovato liste
 	@PostMapping("/accounts/pdf")
-	public void createPdf(@RequestBody AccountsSearchPojo requestJson) {
-		pdfService.createPdf(requestJson);
+	public PdfResponse createPdf(@RequestBody AccountsSearchPojo requestJson) {
+		byte[] pdfBytes =  pdfService.createPdf(requestJson);
+		
+		PdfResponse pdfResponse = new PdfResponse();
+		pdfResponse.setPdf(pdfBytes);
+		
+		return pdfResponse;
 	}
 }
