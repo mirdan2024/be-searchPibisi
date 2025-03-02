@@ -1,21 +1,14 @@
 package it.search.pibisi.bean;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class MatchBean {
 
-	private List<NameFullBean> nameFull;
-	private HashMap<String, InfoBean> infoMap;
-	private List<PoiBean> news;
-	private List<PoiBean> function;
-	private List<PoiBean> functionPublic;
-	private List<PoiBean> functionPolitical;
-	private List<PoiBean> sanction;
-	private SubjectBean subjectBean;
-	
-	//SubjectPoiBean
+	private String subjectUuid;
+	private String createdAtDate;
+
+	// SubjectPoiBean
 	List<SubjectPoiBean> subjectNameFull;
 	List<SubjectPoiBean> subjectPerson;
 	List<SubjectPoiBean> subjectGender;
@@ -36,9 +29,7 @@ public class MatchBean {
 	List<SubjectPoiBean> subjectMedia;
 	List<SubjectPoiBean> subjectDead;
 	List<SubjectPoiBean> subjectRelationRelative;
-	
-	
-	
+
 	// Scoring Category HighRisk
 	private Integer scoring;
 	String typeCategory;
@@ -56,75 +47,20 @@ public class MatchBean {
 	private boolean hasAdverseInfo;
 	private boolean isHighRisk;
 
-	// record created
-	private String createdAt;
-
-	public List<PoiBean> getFunction() {
-		if (function==null) {
-			function = new ArrayList<PoiBean>();
-		}
-		return function;
+	public String getSubjectUuid() {
+		return subjectUuid;
 	}
 
-	public void setFunction(List<PoiBean> function) {
-		this.function = function;
+	public void setSubjectUuid(String subjectUuid) {
+		this.subjectUuid = subjectUuid;
 	}
 
-	public List<PoiBean> getFunctionPublic() {
-		if (functionPublic==null) {
-			functionPublic = new ArrayList<PoiBean>();
-		}
-		return functionPublic;
+	public String getCreatedAtDate() {
+		return createdAtDate;
 	}
 
-	public void setFunctionPublic(List<PoiBean> functionPublic) {
-		this.functionPublic = functionPublic;
-	}
-
-	public List<PoiBean> getFunctionPolitical() {
-		if (functionPolitical==null) {
-			functionPolitical = new ArrayList<PoiBean>();
-		}
-		return functionPolitical;
-	}
-
-	public void setFunctionPolitical(List<PoiBean> functionPolitical) {
-		this.functionPolitical = functionPolitical;
-	}
-
-	public List<PoiBean> getSanction() {
-		if (sanction==null) {
-			sanction = new ArrayList<PoiBean>();
-		}
-		return sanction;
-	}
-
-	public void setSanction(List<PoiBean> sanction) {
-		this.sanction = sanction;
-	}
-
-	public HashMap<String, InfoBean> getInfoMap() {
-		return infoMap;
-	}
-
-	public void setInfoMap(HashMap<String, InfoBean> infoMap) {
-		this.infoMap = infoMap;
-	}
-
-	public List<NameFullBean> getNameFull() {
-		return nameFull;
-	}
-
-	public void setNameFull(List<NameFullBean> nameFull) {
-		this.nameFull = nameFull;
-	}
-
-	public List<PoiBean> getNews() {
-		return news;
-	}
-
-	public void setNews(List<PoiBean> news) {
-		this.news = news;
+	public void setCreatedAtDate(String createdAtDate) {
+		this.createdAtDate = createdAtDate;
 	}
 
 	public Integer getScoring() {
@@ -213,22 +149,6 @@ public class MatchBean {
 
 	public void setHighRisk(boolean isHighRisk) {
 		this.isHighRisk = isHighRisk;
-	}
-
-	public String getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public SubjectBean getSubjectBean() {
-		return subjectBean;
-	}
-
-	public void setSubjectBean(SubjectBean subjectBean) {
-		this.subjectBean = subjectBean;
 	}
 
 	public String getTypeCategory() {
@@ -406,171 +326,145 @@ public class MatchBean {
 	public void setSubjectRelationRelative(List<SubjectPoiBean> subjectRelationRelative) {
 		this.subjectRelationRelative = subjectRelationRelative;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public void addSubjectNameFull(SubjectPoiBean subjectNameFull) {
-		if(getSubjectNameFull()==null)
-			this.subjectNameFull=new ArrayList<>();
-		
+		if (getSubjectNameFull() == null)
+			this.subjectNameFull = new ArrayList<>();
+
 		getSubjectNameFull().add(subjectNameFull);
 	}
 
 	public void addSubjectPerson(SubjectPoiBean subjectPerson) {
-		if(getSubjectPerson()==null)
-			this.subjectPerson=new ArrayList<>();
-		
+		if (getSubjectPerson() == null)
+			this.subjectPerson = new ArrayList<>();
+
 		getSubjectPerson().add(subjectPerson);
 	}
 
 	public void addSubjectGender(SubjectPoiBean subjectGender) {
-		if(getSubjectGender()==null)
-			this.subjectGender=new ArrayList<>();
-		
+		if (getSubjectGender() == null)
+			this.subjectGender = new ArrayList<>();
+
 		getSubjectGender().add(subjectGender);
 	}
 
 	public void addSubjectBirthDate(SubjectPoiBean subjectBirthDate) {
-		if(getSubjectBirthDate()==null)
-			this.subjectBirthDate=new ArrayList<>();
-		
+		if (getSubjectBirthDate() == null)
+			this.subjectBirthDate = new ArrayList<>();
+
 		getSubjectBirthDate().add(subjectBirthDate);
 	}
 
-
-
-
 	public void addSubjectBirthPlace(SubjectPoiBean subjectBirthPlace) {
-		if(getSubjectBirthPlace()==null)
-			this.subjectBirthPlace=new ArrayList<>();
-		
+		if (getSubjectBirthPlace() == null)
+			this.subjectBirthPlace = new ArrayList<>();
+
 		getSubjectBirthPlace().add(subjectBirthPlace);
 	}
 
 	public void addSubjectNationality(SubjectPoiBean subjectNationality) {
-		if(getSubjectNationality()==null)
-			this.subjectNationality=new ArrayList<>();
-		
+		if (getSubjectNationality() == null)
+			this.subjectNationality = new ArrayList<>();
+
 		getSubjectNationality().add(subjectNationality);
 	}
 
-
 	public void addSubjectIllegal(SubjectPoiBean subjectIllegal) {
-		if(getSubjectIllegal()==null)
-			this.subjectIllegal=new ArrayList<>();
-		
+		if (getSubjectIllegal() == null)
+			this.subjectIllegal = new ArrayList<>();
+
 		getSubjectIllegal().add(subjectIllegal);
 	}
 
 	public void addSubjectIdPlatform(SubjectPoiBean subjectIdPlatform) {
-		if(getSubjectIdPlatform()==null)
-			this.subjectIdPlatform=new ArrayList<>();
-		
+		if (getSubjectIdPlatform() == null)
+			this.subjectIdPlatform = new ArrayList<>();
+
 		getSubjectIdPlatform().add(subjectIdPlatform);
 	}
 
 	public void addSubjectPlatform(SubjectPoiBean subjectPlatform) {
-		if(getSubjectPlatform()==null)
-			this.subjectPlatform=new ArrayList<>();
-		
+		if (getSubjectPlatform() == null)
+			this.subjectPlatform = new ArrayList<>();
+
 		getSubjectPlatform().add(subjectPlatform);
 	}
 
 	public void addSubjectDead(SubjectPoiBean subjectDead) {
-		if(getSubjectDead()==null)
-			this.subjectDead=new ArrayList<>();
-		
+		if (getSubjectDead() == null)
+			this.subjectDead = new ArrayList<>();
+
 		getSubjectDead().add(subjectDead);
 	}
 
 	public void addSubjectNameFirst(SubjectPoiBean subjectNameFirst) {
-		if(getSubjectNameFirst()==null)
-			this.subjectNameFirst=new ArrayList<>();
-		
+		if (getSubjectNameFirst() == null)
+			this.subjectNameFirst = new ArrayList<>();
+
 		getSubjectNameFirst().add(subjectNameFirst);
 	}
 
-
 	public void addSubjectNameLast(SubjectPoiBean subjectNameLast) {
-		if(getSubjectNameLast()==null)
-			this.subjectNameLast=new ArrayList<>();
-		
+		if (getSubjectNameLast() == null)
+			this.subjectNameLast = new ArrayList<>();
+
 		getSubjectNameLast().add(subjectNameLast);
 	}
 
-
-
 	public void addSubjectIdPassport(SubjectPoiBean subjectIdPassport) {
-		if(getSubjectIdPassport()==null)
-			this.subjectIdPassport=new ArrayList<>();
-		
+		if (getSubjectIdPassport() == null)
+			this.subjectIdPassport = new ArrayList<>();
+
 		getSubjectIdPassport().add(subjectIdPassport);
 	}
 
-
-
 	public void addSubjectPhoto(SubjectPoiBean subjectPhoto) {
-		if(getSubjectPhoto()==null)
-			this.subjectPhoto=new ArrayList<>();
-		
+		if (getSubjectPhoto() == null)
+			this.subjectPhoto = new ArrayList<>();
+
 		getSubjectPhoto().add(subjectPhoto);
 	}
 
-
 	public void addSubjectFunction(SubjectPoiBean subjectFunction) {
-		if(getSubjectFunction()==null)
-			this.subjectFunction=new ArrayList<>();
-		
+		if (getSubjectFunction() == null)
+			this.subjectFunction = new ArrayList<>();
+
 		getSubjectFunction().add(subjectFunction);
 	}
 
-
-
 	public void addSubjectFunctionPublic(SubjectPoiBean subjectFunctionPublic) {
-		if(getSubjectFunctionPublic()==null)
-			this.subjectFunctionPublic=new ArrayList<>();
-		
+		if (getSubjectFunctionPublic() == null)
+			this.subjectFunctionPublic = new ArrayList<>();
+
 		getSubjectFunctionPublic().add(subjectFunctionPublic);
 	}
 
 	public void addSubjectFunctionPolitical(SubjectPoiBean subjectFunctionPolitical) {
-		if(getSubjectFunctionPolitical()==null)
-			this.subjectFunctionPolitical=new ArrayList<>();
-		
+		if (getSubjectFunctionPolitical() == null)
+			this.subjectFunctionPolitical = new ArrayList<>();
+
 		getSubjectFunctionPolitical().add(subjectFunctionPolitical);
 	}
 
-
 	public void addSubjectSanction(SubjectPoiBean subjectSanction) {
-		if(getSubjectSanction()==null)
-			this.subjectSanction=new ArrayList<>();
-		
+		if (getSubjectSanction() == null)
+			this.subjectSanction = new ArrayList<>();
+
 		getSubjectSanction().add(subjectSanction);
 	}
 
-
 	public void addSubjectMedia(SubjectPoiBean subjectMedia) {
-		if(getSubjectMedia()==null)
-			this.subjectMedia=new ArrayList<>();
-		
+		if (getSubjectMedia() == null)
+			this.subjectMedia = new ArrayList<>();
+
 		getSubjectMedia().add(subjectMedia);
 	}
 
 	public void addSubjectRelationRelative(SubjectPoiBean subjectRelationRelative) {
-		if(getSubjectRelationRelative()==null)
-			this.subjectRelationRelative=new ArrayList<>();
-		
+		if (getSubjectRelationRelative() == null)
+			this.subjectRelationRelative = new ArrayList<>();
+
 		getSubjectRelationRelative().add(subjectRelationRelative);
 	}
 
-	
 }

@@ -2,8 +2,6 @@ package it.search.pibisi.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +13,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.SoiBean;
-import it.search.pibisi.bean.SubjectBean;
-import it.search.pibisi.bean.SubjectInfoBean;
+import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.controller.pojo.PibisiPojo;
 import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
+import it.search.pibisi.pojo.accounts.subjects.Data;
 import it.search.pibisi.pojo.accounts.subjects.Info;
+import it.search.pibisi.pojo.accounts.subjects.Soi;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.wrapper.SoiWrapper;
 
@@ -42,37 +41,36 @@ public class AccountsDetailService extends BaseService {
 
 	private MatchBean readMatchDetail(AccountsSubjectsResponse accountsSubjectsResponse) throws IOException {
 		MatchBean matchBean = new MatchBean();
-		matchBean.setNameFull(new ArrayList<>());
-		matchBean.setInfoMap(new HashMap<>());
-		matchBean.setNews(new ArrayList<>());
-		matchBean.setSubjectBean(new SubjectBean());
 
 		if (accountsSubjectsResponse != null && accountsSubjectsResponse.getData() != null) {
 			if (accountsSubjectsResponse.getData().getScoring() != null)
 				readScoringAndCategory(accountsSubjectsResponse.getData().getScoring(), matchBean);
 
-			matchBean.getSubjectBean().setSubjectInfoMap(new HashMap<>());
 			if (accountsSubjectsResponse.getData().getInfo() != null)
-				readSubjectInfo(matchBean.getSubjectBean().getSubjectInfoMap(),
-						accountsSubjectsResponse.getData().getInfo());
+				readSubjectBean(accountsSubjectsResponse.getData(), matchBean);
 		}
 		return matchBean;
 	}
 
-	private void readSubjectInfo(HashMap<String, SubjectInfoBean> subjectInfoMap, List<Info> infoList)
-			throws IOException {
-		for (Info info : infoList) {
-			SubjectInfoBean subjectInfoBean = new SubjectInfoBean();
+	// Start read info in data -> matches
+	private void readSubjectBean(Data data, MatchBean matchBean) throws IOException {
+		if (data.getCreatedAt() != null)
+			matchBean.setCreatedAtDate(data.getCreatedAt().getDate());
+		if (data.getUuid() != null)
+			matchBean.setSubjectUuid(data.getUuid());
+
+		for (Info info : data.getInfo()) {
+			SubjectPoiBean subjectPoiBean = new SubjectPoiBean();
 			if (info.getContent() != null)
-				subjectInfoBean.setContent(info.getContent().toString());
+				subjectPoiBean.setContent(info.getContent());
 			if (info.getGroup() != null)
-				subjectInfoBean.setGroup(info.getGroup().toString());
-			subjectInfoBean.setUuid(info.getUuid());
-			subjectInfoBean.setType(info.getType());
-			subjectInfoBean.setSoiBean(new ArrayList<>());
+				subjectPoiBean.setGroup(info.getGroup().toString());
+			subjectPoiBean.setUuid(info.getUuid());
+			subjectPoiBean.setType(info.getType());
+			subjectPoiBean.setSoiBean(new ArrayList<>());
 
 			if (info.getSois() != null) {
-				for (it.search.pibisi.pojo.accounts.subjects.Soi soi : info.getSois()) {
+				for (Soi soi : info.getSois()) {
 					if (Boolean.TRUE.equals(soi.getActive())) {
 						ObjectMapper objectMapper = new ObjectMapper();
 						objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -83,13 +81,92 @@ public class AccountsDetailService extends BaseService {
 						SoiBean soiBean = new SoiBean();
 						BeanUtils.copyProperties(soiWrapper, soiBean);
 
-						subjectInfoBean.getSoiBean().add(soiBean);
+						subjectPoiBean.getSoiBean().add(soiBean);
 					}
 				}
-				subjectInfoMap.put(info.getType(), subjectInfoBean);
+
+				switch (info.getType()) {
+				case "name.full":
+					matchBean.addSubjectNameFull(subjectPoiBean);
+					break;
+				case "person":
+					matchBean.addSubjectPerson(subjectPoiBean);
+					break;
+				case "gender":
+					matchBean.addSubjectGender(subjectPoiBean);
+					break;
+				case "birth.date":
+					matchBean.addSubjectBirthDate(subjectPoiBean);
+					break;
+				case "birth.place":
+					matchBean.addSubjectBirthPlace(subjectPoiBean);
+					break;
+				case "nationality":
+					matchBean.addSubjectNationality(subjectPoiBean);
+					break;
+				case "illegal":
+					matchBean.addSubjectIllegal(subjectPoiBean);
+					break;
+				case "id.platform":
+					matchBean.addSubjectIdPlatform(subjectPoiBean);
+					break;
+				case "platform":
+					matchBean.addSubjectPlatform(subjectPoiBean);
+					break;
+				case "name.first":
+					matchBean.addSubjectNameFirst(subjectPoiBean);
+					break;
+				case "name.last":
+					matchBean.addSubjectNameLast(subjectPoiBean);
+					break;
+				case "id.passport":
+					matchBean.addSubjectIdPassport(subjectPoiBean);
+					break;
+				case "photo":
+					matchBean.addSubjectPhoto(subjectPoiBean);
+					break;
+				case "function":
+					matchBean.addSubjectFunction(subjectPoiBean);
+					break;
+				case "function.public":
+					matchBean.addSubjectFunctionPublic(subjectPoiBean);
+					break;
+				case "function.political":
+					matchBean.addSubjectFunctionPolitical(subjectPoiBean);
+					break;
+				case "sanction":
+					matchBean.addSubjectSanction(subjectPoiBean);
+					break;
+				case "media":
+					matchBean.addSubjectMedia(subjectPoiBean);
+					break;
+				case "dead":
+					matchBean.addSubjectDead(subjectPoiBean);
+					break;
+				case "relation.relative":
+					matchBean.addSubjectRelationRelative(subjectPoiBean);
+					break;
+
+				default:
+					logUnknownInfo(info);
+					break;
+				}
 			}
 		}
+
 	}
+
+	private void logUnknownInfo(Info info) {
+		System.out.println("Uuid    --> " + info.getUuid());
+		System.out.println("Content --> " + info.getContent());
+		System.out.println("Type    --> " + info.getType());
+		System.out.println("Class   --> " + info.getClass());
+		System.out.println("tGroup  --> " + info.getGroup());
+		System.out.println("-----------------------------------");
+		System.out.println("ERROR: " + info.getType());
+		System.out.println("-----------------------------------");
+	}
+	// End read info in data -> matches
 
 	private void readScoringAndCategory(it.search.pibisi.pojo.accounts.subjects.Scoring scoring, MatchBean matchBean) {
 		matchBean.setScoring(scoring.getValue());
