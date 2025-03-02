@@ -218,13 +218,29 @@ public class AccountsService extends BaseService {
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("X-AUTH-TOKEN", token);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-
-			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
 			ObjectMapper objectMapper = new ObjectMapper();
 			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			
+			HttpEntity<String> entity = new HttpEntity<>(headers);
+			if (mockResponseSearch) {
+				String responseBodyMock = "";
+				if ("a".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getSubjectId())) {
+					responseBodyMock = readFile("José Ignacio Encinas - detail.json");
+				}
+				if ("c".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getSubjectId())) {
+					responseBodyMock = readFile("Mohamed Jabir - detail.json");
+				}
+				if ("d".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getSubjectId())) {
+					responseBodyMock = readFile("Rabah Naami Abou - detail.json");
+				}
+				return objectMapper.readValue(responseBodyMock, AccountsSubjectsResponse.class);
+			}
+
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 
 			return objectMapper.readValue(response.getBody(), AccountsSubjectsResponse.class);
 		} catch (Exception e) {

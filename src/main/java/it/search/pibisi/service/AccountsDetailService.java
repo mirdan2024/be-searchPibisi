@@ -248,15 +248,6 @@ public class AccountsDetailService extends BaseService {
 		return highRisk;
 	}
 
-	private AccountsSubjectsFindResponse searchMatch(AccountsSearchPojo requestJson) {
-		PibisiPojo pibisiPojo = new PibisiPojo();
-		pibisiPojo.setAccountId(accountsService.getAccountId());
-		pibisiPojo.setType(requestJson.getType());
-		pibisiPojo.setContent(requestJson.getContent());
-		pibisiPojo.setThreshold(requestJson.getThreshold());
-		return accountsService.accountsSubjectsFind(pibisiPojo);
-	}
-
 	private AccountsSubjectsResponse detailMatch(AccountsSearchPojo requestJson) {
 		PibisiPojo pibisiPojo = new PibisiPojo();
 		pibisiPojo.setAccountId(accountsService.getAccountId());
