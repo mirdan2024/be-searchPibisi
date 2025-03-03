@@ -203,15 +203,14 @@ public class PdfService extends BaseService {
 
 			builder.append("</body></html>");
 
-//			OutputStream outputFile = new FileOutputStream("C:\\Gestore\\pdf\\output_flying_saucer.pdf");
-//
-//			HtmlConverter.convertToPdf(builder.toString(), outputFile);
-//			System.out.println("PDF creato con successo.");
+			OutputStream outputFile = new FileOutputStream("C:\\Gestore\\pdf\\output_flying_saucer.pdf");
+			HtmlConverter.convertToPdf(builder.toString(), outputFile);
+			System.out.println("PDF creato con successo.");
 
-	        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-	        HtmlConverter.convertToPdf(builder.toString(), byteArrayOutputStream);
-	        byteArrayOutputStream.close();
-	        return byteArrayOutputStream.toByteArray();
+			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+			HtmlConverter.convertToPdf(builder.toString(), byteArrayOutputStream);
+			byteArrayOutputStream.close();
+			return byteArrayOutputStream.toByteArray();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -242,10 +241,12 @@ public class PdfService extends BaseService {
 			subjectFunction = jsonObject.getJSONArray(SUBJECT_FUNCTION);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Funzione</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colpan=\"4\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "FUNZIONE" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Carica" + TH_CLOSE);
 			builder.append(TH_OPEN + "Organizzazione" + TH_CLOSE);
@@ -291,10 +292,12 @@ public class PdfService extends BaseService {
 			subjectMedia = jsonObject.getJSONArray(SUBJECT_MEDIA);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Media</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colspan=\"4\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "MEDIA" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Data Pubblicazione" + TH_CLOSE);
 			builder.append(TH_OPEN + "Tipologia" + TH_CLOSE);
@@ -346,10 +349,12 @@ public class PdfService extends BaseService {
 			subjectFunctionPublic = jsonObject.getJSONArray(SUBJECT_FUNCTION_PUBLIC);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Funzione Pubblica</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colspan=\"5\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "FUNZIONE PUBBLICA" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Organizzaione" + TH_CLOSE);
 			builder.append(TH_OPEN + "Ruolo" + TH_CLOSE);
@@ -401,10 +406,12 @@ public class PdfService extends BaseService {
 			subjectRelationRelative = jsonObject.getJSONArray(SUBJECT_RELATION_RELATIVE);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Relazioni</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colspan=\"3\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "RELAZIONI" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Relazione" + TH_CLOSE);
 			builder.append(TH_OPEN + "Tipo" + TH_CLOSE);
@@ -446,10 +453,12 @@ public class PdfService extends BaseService {
 			subjectFunctionPolitical = jsonObject.getJSONArray(SUBJECT_FUNCTION_POLITICAL);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Funzione Politica</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colspan=\"3\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "FUNZIONE POLITICA" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Organizzazione" + TH_CLOSE);
 			builder.append(TH_OPEN + "Ruolo" + TH_CLOSE);
@@ -490,10 +499,12 @@ public class PdfService extends BaseService {
 			subjectSanction = jsonObject.getJSONArray(SUBJECT_SANCTION);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Sanzioni</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colspan=\"4\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "SANZIONI" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Emittente" + TH_CLOSE);
 			builder.append(TH_OPEN + "Motivo" + TH_CLOSE);
@@ -539,10 +550,12 @@ public class PdfService extends BaseService {
 			subjectIllegal = jsonObject.getJSONArray(SUBJECT_ILLEGAL);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Illegale</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colspan=\"2\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "ILLEGALE" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Tipo" + TH_CLOSE);
 			builder.append(TH_OPEN + "Contenuto" + TH_CLOSE);
@@ -577,10 +590,12 @@ public class PdfService extends BaseService {
 			subjectPlatform = jsonObject.getJSONArray(SUBJECT_PLATFORM);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Piattaforma</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th colspan=\"2\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "PIATTAFORMA" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Piattaforma" + TH_CLOSE);
 			builder.append(TH_OPEN + "Valore" + TH_CLOSE);
@@ -616,10 +631,12 @@ public class PdfService extends BaseService {
 			subjectNameFull = jsonObject.getJSONArray(SUBJECT_NAME_FULL);
 
 			builder.append(BR_BR_BR);
-			builder.append("<h3>Altri Nomi</h3>");
 			// Crea l'inizio della tabella per ogni subject
 			builder.append(TABLE_OPEN);
 			builder.append(THEAD_OPEN);
+			builder.append(TR_OPEN);
+			builder.append("<th style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "ALTRI NOMI" + "</th>");
+			builder.append(TR_CLOSE);
 			builder.append(TR_OPEN);
 			builder.append(TH_OPEN + "Nominativo" + TH_CLOSE);
 			builder.append(TR_CLOSE);
@@ -644,7 +661,7 @@ public class PdfService extends BaseService {
 		String strgTypeCategory = "-";
 		String strCreatedAtDate = "-";
 		String strTypePerson = "-";
-		String strGender = "-";
+		String strGender = null;
 		String urlPhoto = null;
 		String contentNameFull = "-";
 		String contentBirthDate = null;
@@ -746,8 +763,9 @@ public class PdfService extends BaseService {
 				+ TD_CLOSE + TR_CLOSE);
 		builder.append(TR_OPEN + TD_OPEN_NORMAL + "Data Creazione Profilo:" + TD_CLOSE + TD_OPEN_NORMAL
 				+ strCreatedAtDate + TD_CLOSE + TR_CLOSE);
-		builder.append(
-				TR_OPEN + TD_OPEN_NORMAL + "Genere:" + TD_CLOSE + TD_OPEN_NORMAL + strGender + TD_CLOSE + TR_CLOSE);
+		if (StringUtils.hasLength(strGender))
+			builder.append(
+					TR_OPEN + TD_OPEN_NORMAL + "Genere:" + TD_CLOSE + TD_OPEN_NORMAL + strGender + TD_CLOSE + TR_CLOSE);
 		if (StringUtils.hasLength(contentBirthDate))
 			builder.append(TR_OPEN + TD_OPEN_NORMAL + "Data Nascita:" + TD_CLOSE + TD_OPEN_NORMAL + contentBirthDate
 					+ TD_CLOSE + TR_CLOSE);
@@ -771,9 +789,11 @@ public class PdfService extends BaseService {
 
 		// Crea l'inizio della tabella Notizie
 		builder.append(BR_BR_BR);
-		builder.append("<h3>Notizie</h3>");
 		builder.append(TABLE_OPEN);
 		builder.append(THEAD_OPEN);
+		builder.append(TR_OPEN);
+		builder.append("<th colspan=\"5\" style=\"text-align: left; font-size: 12px; padding: 5px; background-color: #008891;\">" + "NOTIZIE" + "</th>");
+		builder.append(TR_CLOSE);
 		builder.append(TR_OPEN);
 		builder.append(TH_OPEN + "Ambito" + TH_CLOSE);
 		builder.append(TH_OPEN + "Info" + TH_CLOSE);
