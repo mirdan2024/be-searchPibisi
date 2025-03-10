@@ -225,15 +225,15 @@ public class AccountsService extends BaseService {
 			HttpEntity<String> entity = new HttpEntity<>(headers);
 			if (mockResponseSearch) {
 				String responseBodyMock = "";
-				if ("a".equalsIgnoreCase(requestJson.getSubjectId())
+				if ("a".equalsIgnoreCase(requestJson.getSubjectId()) ||  "e709f2d3-3f59-4724-992c-1030158276bf".equalsIgnoreCase(requestJson.getSubjectId())
 						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("José Ignacio Encinas - detail.json");
 				}
-				if ("c".equalsIgnoreCase(requestJson.getSubjectId()) 
+				if ("c".equalsIgnoreCase(requestJson.getSubjectId()) || "b764362a-d0d2-4282-b82c-9e98cf3de9a0".equalsIgnoreCase(requestJson.getSubjectId())
 						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Mohamed Jabir - detail.json");
 				}
-				if ("d".equalsIgnoreCase(requestJson.getSubjectId())|| "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc".equalsIgnoreCase(requestJson.getSubjectId()) 
+				if ("d".equalsIgnoreCase(requestJson.getSubjectId()) || "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc".equalsIgnoreCase(requestJson.getSubjectId())
 						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Rabah Naami Abou - detail.json");
 				}
