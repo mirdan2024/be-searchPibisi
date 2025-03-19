@@ -3,8 +3,8 @@ package it.search.pibisi.pojo.users.me.accounts;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Risk {
+
 
 	@JsonProperty("auto")
 	private Boolean auto;
