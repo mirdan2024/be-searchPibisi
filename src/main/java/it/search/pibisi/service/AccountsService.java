@@ -190,6 +190,10 @@ public class AccountsService extends BaseService {
 						|| "Salvini Matteo".equalsIgnoreCase(requestJson.getContent())) {
 					responseBodyMock = readFile("Salvini Matteo.json");
 				}
+				if ("s".equalsIgnoreCase(requestJson.getContent())
+						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Berlusconi Silvio.json");
+				}
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
 			}
 
@@ -236,6 +240,10 @@ public class AccountsService extends BaseService {
 				if ("d".equalsIgnoreCase(requestJson.getSubjectId())|| "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc".equalsIgnoreCase(requestJson.getSubjectId()) 
 						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Rabah Naami Abou - detail.json");
+				}
+				if ("s".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Berlusconi Silvio - detail.json");
 				}
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsResponse.class);
 			}
@@ -302,15 +310,54 @@ public class AccountsService extends BaseService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-
 			ObjectMapper objectMapper = new ObjectMapper();
 			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+			if (mockResponseSearch) {
+				String responseBodyMock = "";
+				if ("a".equalsIgnoreCase(requestJson.getContent())
+						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("José Ignacio Encinas.json");
+				}
+				if ("b".equalsIgnoreCase(requestJson.getContent())
+						|| "José Jerónimo Enrile de Cárdenas".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("José Jerónimo Enrile de Cárdenas.json");
+				}
+				if ("c".equalsIgnoreCase(requestJson.getContent())
+						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Mohamed Jabir.json");
+				}
+				if ("d".equalsIgnoreCase(requestJson.getContent())
+						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Rabah Naami Abou.json");
+				}
+				if ("e".equalsIgnoreCase(requestJson.getContent())
+						|| "Battisti Cesare".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Battisti Cesare.json");
+				}
+				if ("f".equalsIgnoreCase(requestJson.getContent())
+						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Berlusconi Pier Silvio.json");
+				}
+				if ("g".equalsIgnoreCase(requestJson.getContent())
+						|| "Casamonica Guerrino".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Casamonica Guerrino.json");
+				}
+				if ("h".equalsIgnoreCase(requestJson.getContent())
+						|| "Giorgia Meloni".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Giorgia Meloni.json");
+				}
+				if ("i".equalsIgnoreCase(requestJson.getContent())
+						|| "Salvini Matteo".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Salvini Matteo.json");
+				}
+			
+				return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
+			}
+
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 			return objectMapper.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
 		} catch (Exception e) {
 			e.printStackTrace();
