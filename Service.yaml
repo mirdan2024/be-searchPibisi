@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pibisi-service
+spec:	
+  selector:
+    app: pibisi  # Deve corrispondere alla label nel Deployment
+  ports:
+    - protocol: TCP
+      port: 8080  # Porta esposta dal Service
+      targetPort: 8080  # Porta del container
+  type: LoadBalancer  # Cambia in NodePort se vuoi testare da fuori il cluster

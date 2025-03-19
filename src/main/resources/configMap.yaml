@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pibisi-configmap
+data:
+  APP_MODE: "production"
+  LOG_LEVEL: "debug"
+  MOCK_RESPONSE: "true"
+  API_BASE_LISTA_CATEGORIE: "http://www.google.it"

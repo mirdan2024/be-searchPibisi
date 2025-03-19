@@ -1,0 +1,18 @@
+credenziali db aruba
+admin: aegisxdb
+pass: isuDr!TGsVe3wkh
+Siti
+admin.dc1.computing.cloud.it
+admin.services.cloud.it
+credenziali 
+aru-323040
+-CuFQq%.6UQs6DU
+
+
+mkdir $env:USERPROFILE\.kube
+Copy-Item "C:\percorso\del\file\kubeconfig" "$env:USERPROFILE\.kube\config"
+ha il menu contestuale
+
+git@github.com:mirdan2024/fe-antiriciclaggio.git
+
+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
