@@ -194,6 +194,10 @@ public class AccountsService extends BaseService {
 						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getContent())) {
 					responseBodyMock = readFile("Berlusconi Silvio.json");
 				}
+				if ("p".equalsIgnoreCase(requestJson.getContent())
+						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Berlusconi Pier Silvio.json");
+				}
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
 			}
 
@@ -244,6 +248,10 @@ public class AccountsService extends BaseService {
 				if ("s".equalsIgnoreCase(requestJson.getSubjectId())
 						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getContent())) {
 					responseBodyMock = readFile("Berlusconi Silvio - detail.json");
+				}
+				if ("p".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getContent())) {
+					responseBodyMock = readFile("Berlusconi Pier Silvio - detail.json");
 				}
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsResponse.class);
 			}

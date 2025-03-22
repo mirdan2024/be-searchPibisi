@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +19,7 @@ import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.Data;
 import it.search.pibisi.pojo.accounts.subjects.Info;
 import it.search.pibisi.pojo.accounts.subjects.Soi;
-import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
+import it.search.pibisi.utils.Category;
 import it.search.pibisi.wrapper.SoiWrapper;
 
 @Service
@@ -71,18 +70,16 @@ public class AccountsDetailService extends BaseService {
 
 			if (info.getSois() != null) {
 				for (Soi soi : info.getSois()) {
-					if (Boolean.TRUE.equals(soi.getActive())) {
-						ObjectMapper objectMapper = new ObjectMapper();
-						objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-						// Deserializza il JSON in un oggetto SoiWrapper
-						SoiWrapper soiWrapper = objectMapper.readValue(objectMapper.writeValueAsBytes(soi),
-								SoiWrapper.class);
+					ObjectMapper objectMapper = new ObjectMapper();
+					objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+					// Deserializza il JSON in un oggetto SoiWrapper
+					SoiWrapper soiWrapper = objectMapper.readValue(objectMapper.writeValueAsBytes(soi),
+							SoiWrapper.class);
 
-						SoiBean soiBean = new SoiBean();
-						BeanUtils.copyProperties(soiWrapper, soiBean);
+					SoiBean soiBean = new SoiBean();
+					BeanUtils.copyProperties(soiWrapper, soiBean);
 
-						subjectPoiBean.getSoiBean().add(soiBean);
-					}
+					subjectPoiBean.getSoiBean().add(soiBean);
 				}
 
 				switch (info.getType()) {
@@ -174,78 +171,18 @@ public class AccountsDetailService extends BaseService {
 		if (scoring.getFlags() != null) {
 			StringBuilder category = new StringBuilder();
 
-			categoryPep(scoring.getFlags().getIsPep(), scoring.getFlags().getWasPep(),
+			Category.categoryPep(scoring.getFlags().getIsPep(), scoring.getFlags().getWasPep(),
 					scoring.getFlags().getWasPepDate(), matchBean, category);
-			categorySanction(scoring.getFlags().getIsSanctioned(), scoring.getFlags().getWasSanctioned(),
+			Category.categorySanction(scoring.getFlags().getIsSanctioned(), scoring.getFlags().getWasSanctioned(),
 					scoring.getFlags().getWasSanctionedDate(), matchBean, category);
-			categoryTerrorist(scoring.getFlags().getIsTerrorist(), matchBean, category);
-			categoryHasMedia(scoring.getFlags().getHasMedia(), matchBean, category);
-			categoryHasAdverseInfo(scoring.getFlags().getHasAdverseInfo(), matchBean, category);
-			String highRisk = readHighRisk(scoring.getFlags().getIsHighRisk(), matchBean);
+			Category.categoryTerrorist(scoring.getFlags().getIsTerrorist(), matchBean, category);
+			Category.categoryHasMedia(scoring.getFlags().getHasMedia(), matchBean, category);
+			Category.categoryHasAdverseInfo(scoring.getFlags().getHasAdverseInfo(), matchBean, category);
+			String highRisk = Category.readHighRisk(scoring.getFlags().getIsHighRisk(), matchBean);
 
 			matchBean.setTypeCategory(category.toString());
 			matchBean.setTypeRisk(highRisk);
 		}
-	}
-
-	private void categoryPep(Boolean isPep, Boolean wasPep, String wasPepDate, MatchBean matchBean,
-			StringBuilder category) {
-		if (Boolean.TRUE.equals(isPep)) {
-			matchBean.setPep(isPep);
-			category.append("  PEP");
-		} else if (Boolean.TRUE.equals(wasPep)) {
-			matchBean.setWasPep(wasPep);
-			category.append("  EX_PEP");
-			if (StringUtils.hasLength(wasPepDate)) {
-				matchBean.setWasPepDate(wasPepDate);
-				category.append(" (" + wasPepDate + ")");
-			}
-		}
-	}
-
-	private void categorySanction(Boolean isSanctioned, Boolean wasSanctioned, String wasSanctionedDate,
-			MatchBean matchBean, StringBuilder category) {
-		if (Boolean.TRUE.equals(isSanctioned)) {
-			matchBean.setSanctioned(isSanctioned);
-			category.append("  SANTION");
-		} else if (Boolean.TRUE.equals(wasSanctioned)) {
-			matchBean.setWasSanctioned(wasSanctioned);
-			category.append("  EX_SANTION");
-			if (StringUtils.hasLength(wasSanctionedDate)) {
-				matchBean.setWasSanctionedDate(wasSanctionedDate);
-				category.append(" (" + wasSanctionedDate + ")");
-			}
-		}
-	}
-
-	private void categoryTerrorist(Boolean isTerrorist, MatchBean matchBean, StringBuilder category) {
-		if (Boolean.TRUE.equals(isTerrorist)) {
-			matchBean.setTerrorist(isTerrorist);
-			category.append("  TERRORIST");
-		}
-	}
-
-	private void categoryHasMedia(Boolean hasMedia, MatchBean matchBean, StringBuilder category) {
-		if (Boolean.TRUE.equals(hasMedia)) {
-			matchBean.setHasMedia(hasMedia);
-			category.append("  MEDIA");
-		}
-	}
-
-	private void categoryHasAdverseInfo(Boolean hasAdverseInfo, MatchBean matchBean, StringBuilder category) {
-		if (Boolean.TRUE.equals(hasAdverseInfo)) {
-			matchBean.setHasAdverseInfo(hasAdverseInfo);
-			category.append("  ADVERSE INFO");
-		}
-	}
-
-	private String readHighRisk(Boolean isHighRisk, MatchBean matchBean) {
-		String highRisk = "Low Risk";
-		if (Boolean.TRUE.equals(isHighRisk)) {
-			matchBean.setHighRisk(isHighRisk);
-			highRisk = "High Risk";
-		}
-		return highRisk;
 	}
 
 	private AccountsSubjectsResponse detailMatch(AccountsSearchPojo requestJson) {

@@ -1,0 +1,406 @@
+{
+	"data": {
+		"uuid": "5e0f263c-b8bf-44f8-bc47-48af4c4f209c",
+		"info": [
+			{
+				"group": null,
+				"uuid": "e1d9509c-62f2-409e-8b9e-d6677d13f68c",
+				"type": "person",
+				"content": "P",
+				"sois": [
+					{
+						"uuid": "309cef6d-43ba-41fa-8374-962f1f40fc03",
+						"status": "active",
+						"uri": "https://www.lavanguardia.com/television/20160318/40527638826/silvio-berlusconi-hijo-condenado-caso-mediatrade-mediaset.html",
+						"internal_uri": "https://www.lavanguardia.com/television/20160318/40527638826/silvio-berlusconi-hijo-condenado-caso-mediatrade-mediaset.html",
+						"version": "2016-03-18",
+						"reliability": 1,
+						"gathered_at": "2024-08-26T00:26:34+01:00",
+						"published_at": "2016-03-18T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=309cef6d-43ba-41fa-8374-962f1f40fc03",
+						"rel_date": "2024-09-27T09:15:27+01:00"
+					},
+					{
+						"uuid": "b6b80746-94a4-4d2d-b631-3e15a91d3edb",
+						"status": "active",
+						"uri": "https://www.scmp.com/news/hong-kong/article/1317863/envoys-letter-be-key-evidence-trial-linked-silvio-berlusconi",
+						"internal_uri": "https://www.scmp.com/news/hong-kong/article/1317863/envoys-letter-be-key-evidence-trial-linked-silvio-berlusconi",
+						"version": "2013-09-26",
+						"reliability": 1,
+						"gathered_at": "2025-01-26T02:16:45+01:00",
+						"published_at": "2013-09-26T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=b6b80746-94a4-4d2d-b631-3e15a91d3edb",
+						"rel_date": "2025-02-17T15:01:56+01:00"
+					},
+					{
+						"uuid": "a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"status": "active",
+						"uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"internal_uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"version": "2013-09-28",
+						"reliability": 1,
+						"gathered_at": "2025-01-25T01:31:42+01:00",
+						"published_at": "2013-09-28T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"rel_date": "2025-02-24T08:37:16+01:00"
+					}
+				]
+			},
+			{
+				"group": null,
+				"uuid": "60bfe3b9-23a4-4694-a5df-8bc06384afaa",
+				"type": "name.full",
+				"content": "pier silvio berlusconi",
+				"sois": [
+					{
+						"uuid": "309cef6d-43ba-41fa-8374-962f1f40fc03",
+						"status": "active",
+						"uri": "https://www.lavanguardia.com/television/20160318/40527638826/silvio-berlusconi-hijo-condenado-caso-mediatrade-mediaset.html",
+						"internal_uri": "https://www.lavanguardia.com/television/20160318/40527638826/silvio-berlusconi-hijo-condenado-caso-mediatrade-mediaset.html",
+						"version": "2016-03-18",
+						"reliability": 1,
+						"gathered_at": "2024-08-26T00:26:34+01:00",
+						"published_at": "2016-03-18T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=309cef6d-43ba-41fa-8374-962f1f40fc03",
+						"rel_date": "2024-09-27T09:15:27+01:00"
+					}
+				]
+			},
+			{
+				"group": null,
+				"uuid": "1ffcb688-8f18-4332-b1f7-14ca06b15f72",
+				"type": "media",
+				"content": {
+					"url": "https://www.lavanguardia.com/television/20160318/40527638826/silvio-berlusconi-hijo-condenado-caso-mediatrade-mediaset.html",
+					"action": "convicted",
+					"issue": "tax_evasion",
+					"from": "2016-03-18"
+				},
+				"sois": [
+					{
+						"uuid": "309cef6d-43ba-41fa-8374-962f1f40fc03",
+						"status": "active",
+						"uri": "https://www.lavanguardia.com/television/20160318/40527638826/silvio-berlusconi-hijo-condenado-caso-mediatrade-mediaset.html",
+						"internal_uri": "https://www.lavanguardia.com/television/20160318/40527638826/silvio-berlusconi-hijo-condenado-caso-mediatrade-mediaset.html",
+						"version": "2016-03-18",
+						"reliability": 1,
+						"gathered_at": "2024-08-26T00:26:34+01:00",
+						"published_at": "2016-03-18T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=309cef6d-43ba-41fa-8374-962f1f40fc03",
+						"rel_date": "2024-09-27T09:15:27+01:00"
+					}
+				]
+			},
+			{
+				"group": null,
+				"uuid": "576e8678-6abd-40f6-a244-33f6865ba206",
+				"type": "name.full",
+				"content": "pier silvio",
+				"sois": [
+					{
+						"uuid": "b6b80746-94a4-4d2d-b631-3e15a91d3edb",
+						"status": "active",
+						"uri": "https://www.scmp.com/news/hong-kong/article/1317863/envoys-letter-be-key-evidence-trial-linked-silvio-berlusconi",
+						"internal_uri": "https://www.scmp.com/news/hong-kong/article/1317863/envoys-letter-be-key-evidence-trial-linked-silvio-berlusconi",
+						"version": "2013-09-26",
+						"reliability": 1,
+						"gathered_at": "2025-01-26T02:16:45+01:00",
+						"published_at": "2013-09-26T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=b6b80746-94a4-4d2d-b631-3e15a91d3edb",
+						"rel_date": "2025-02-04T14:14:04+01:00"
+					},
+					{
+						"uuid": "a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"status": "active",
+						"uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"internal_uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"version": "2013-09-28",
+						"reliability": 1,
+						"gathered_at": "2025-01-25T01:31:42+01:00",
+						"published_at": "2013-09-28T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"rel_date": "2025-02-24T08:37:16+01:00"
+					}
+				]
+			},
+			{
+				"group": null,
+				"uuid": "afd06136-ae4b-48b1-ac76-57bbfae6e62e",
+				"type": "media",
+				"content": {
+					"url": "https://www.scmp.com/news/hong-kong/article/1317863/envoys-letter-be-key-evidence-trial-linked-silvio-berlusconi",
+					"action": "indicted",
+					"issue": "corruption",
+					"from": "2013-09-26"
+				},
+				"sois": [
+					{
+						"uuid": "b6b80746-94a4-4d2d-b631-3e15a91d3edb",
+						"status": "active",
+						"uri": "https://www.scmp.com/news/hong-kong/article/1317863/envoys-letter-be-key-evidence-trial-linked-silvio-berlusconi",
+						"internal_uri": "https://www.scmp.com/news/hong-kong/article/1317863/envoys-letter-be-key-evidence-trial-linked-silvio-berlusconi",
+						"version": "2013-09-26",
+						"reliability": 1,
+						"gathered_at": "2025-01-26T02:16:45+01:00",
+						"published_at": "2013-09-26T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=b6b80746-94a4-4d2d-b631-3e15a91d3edb",
+						"rel_date": "2025-02-04T14:14:04+01:00"
+					}
+				]
+			},
+			{
+				"group": null,
+				"uuid": "76214d7a-dcfd-4f3c-9b2f-f701ba02bd3c",
+				"type": "media",
+				"content": {
+					"url": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+					"action": "indicted",
+					"issue": "fraud",
+					"from": "2013-09-28"
+				},
+				"sois": [
+					{
+						"uuid": "a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"status": "active",
+						"uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"internal_uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"version": "2013-09-28",
+						"reliability": 1,
+						"gathered_at": "2025-01-25T01:31:42+01:00",
+						"published_at": "2013-09-28T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"rel_date": "2025-02-24T08:37:16+01:00"
+					}
+				]
+			},
+			{
+				"group": null,
+				"uuid": "993ffed4-0564-4660-8c47-82849bf2189c",
+				"type": "media",
+				"content": {
+					"url": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+					"action": "indicted",
+					"issue": "money_laundering",
+					"from": "2013-09-28"
+				},
+				"sois": [
+					{
+						"uuid": "a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"status": "active",
+						"uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"internal_uri": "https://www.scmp.com/news/hong-kong/article/1319554/hong-kong-evidence-may-be-key-linking-berlusconi-fraud-case",
+						"version": "2013-09-28",
+						"reliability": 1,
+						"gathered_at": "2025-01-25T01:31:42+01:00",
+						"published_at": "2013-09-28T00:00:00+01:00",
+						"active": true,
+						"has_screenshot": true,
+						"has_content_body": true,
+						"group_uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+						"scope": "global",
+						"description": "Public sources of adverse media",
+						"soi_group": {
+							"uuid": "627e3c91-a819-11eb-bc95-ea5a984cc8a9",
+							"scope": "global",
+							"title": "Public sources of adverse media",
+							"description": "Public sources of adverse media",
+							"issuer": "",
+							"info": "adverse_media",
+							"group_set_code": "found_adverse_media"
+						},
+						"pibisi_uri": "https://pibisi.com/es/resources/soi?soi=a4a7654f-4f0f-4c59-8d38-a1dc87844a89",
+						"rel_date": "2025-02-24T08:37:16+01:00"
+					}
+				]
+			}
+		],
+		"scoring": {
+			"value": 10,
+			"flags": {
+				"is_pep": true,
+				"was_pep": false,
+				"was_pep_date": 0,
+				"is_sanctioned": false,
+				"was_sanctioned": false,
+				"was_sanctioned_date": "",
+				"is_terrorist": false,
+				"has_media": true,
+				"has_adverse_info": false,
+				"is_high_risk": false
+			},
+			"info": {
+				"pep": [
+					"60a4ad92-2321-48f1-b178-172e14a6e6ad"
+				],
+				"pep_pois": [],
+				"pep_relations": [
+					"60a4ad92-2321-48f1-b178-172e14a6e6ad"
+				],
+				"sanctioned": [],
+				"terrorist": [],
+				"media": [
+					"1ffcb688-8f18-4332-b1f7-14ca06b15f72",
+					"afd06136-ae4b-48b1-ac76-57bbfae6e62e",
+					"76214d7a-dcfd-4f3c-9b2f-f701ba02bd3c",
+					"993ffed4-0564-4660-8c47-82849bf2189c"
+				],
+				"adverse_info": [],
+				"high_risk": []
+			},
+			"is_pep": true,
+			"was_pep": false,
+			"was_pep_date": 0,
+			"is_sanctioned": false,
+			"was_sanctioned": false,
+			"was_sanctioned_date": "",
+			"is_terrorist": false,
+			"has_media": true,
+			"has_adverse_info": false,
+			"is_high_risk": false
+		},
+		"created_at": {
+			"date": "2024-09-27 09:15:27.000000",
+			"timezone_type": 3,
+			"timezone": "Etc/GMT-1"
+		}
+	},
+	"meta": {
+		"version": "v2",
+		"time": "2025-03-22T11:47:43+01:00"
+	}
+}
