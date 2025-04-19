@@ -68,8 +68,8 @@ public class UtilsService {
 	}
 
 	@Cacheable("callGetListaCategorie")
-	public ListaCategorieGruppoPojo callGetListaCategorie(AccountsSearchPojo requestJson, HttpServletRequest request)
-			throws JsonProcessingException {
+	public ListaCategorieGruppoPojo callGetListaCategorie(AccountsSearchPojo requestJson, HttpServletRequest request,
+			String idIntermediario) throws JsonProcessingException {
 		RestTemplate restTemplate = new RestTemplate(new SimpleClientHttpRequestFactory());
 
 		HttpHeaders headers = new HttpHeaders();
@@ -84,9 +84,8 @@ public class UtilsService {
 		}
 
 		HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
-		ResponseEntity<String> response = restTemplate.exchange(
-				urlApiBaseListaCategorie + requestJson.getIdIntermediario(), HttpMethod.GET, requestEntity,
-				String.class);
+		ResponseEntity<String> response = restTemplate.exchange(urlApiBaseListaCategorie + idIntermediario,
+				HttpMethod.GET, requestEntity, String.class);
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);

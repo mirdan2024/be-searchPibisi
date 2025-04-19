@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import it.search.pibisi.controller.pojo.PibisiPojo;
+import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 
 @Service
 public class CustomersService {
@@ -74,7 +74,7 @@ public class CustomersService {
 	private RestTemplate restTemplate = new RestTemplate();
 
 	// Metodo GET per ottenere i clienti di un account
-	public ResponseEntity<String> getCustomersByAccountId(PibisiPojo requestJson) {
+	public ResponseEntity<String> getCustomersByAccountId(AccountsSearchPojo requestJson) {
 		try {
 			String url = getCustomersEndpoint.replace("{accountId}", requestJson.getAccountId());
 
@@ -91,7 +91,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per creare un cliente in monitoraggio
-	public ResponseEntity<String> createCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> createCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = postCustomersEndpoint.replace("{accountId}", requestJson.getAccountId());
 
@@ -99,9 +99,9 @@ public class CustomersService {
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			String requestBody = "[{\"type\": \"" + requestJson.getType() + "\", \"content\": \""
-					+ requestJson.getContent() + "\"},{\"type\": \"" + requestJson.getTypePerson()
-					+ "\", \"content\": \"" + requestJson.getContentPerson() + "\"}]";
+			String requestBody = "[{\"type\": \"" + requestJson.getNameFullType() + "\", \"content\": \""
+					+ requestJson.getNameFull() + "\"},{\"type\": \"" + requestJson.getPersonType()
+					+ "\", \"content\": \"" + requestJson.getPerson() + "\"}]";
 
 			Map<Object, Object> data = new HashMap<>();
 			data.put("pois", requestBody);
@@ -122,7 +122,7 @@ public class CustomersService {
 		}
 	}
 
-	public ResponseEntity<String> findCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> findCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = findCustomerEndpoint.replace("{accountId}", requestJson.getAccountId());
 
@@ -149,7 +149,7 @@ public class CustomersService {
 		}
 	}
 
-	public ResponseEntity<String> getCustomersByCustomerId(PibisiPojo requestJson) {
+	public ResponseEntity<String> getCustomersByCustomerId(AccountsSearchPojo requestJson) {
 		try {
 			String url = customersEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 					requestJson.getCustomerId());
@@ -167,7 +167,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per attivare un cliente
-	public ResponseEntity<String> activateCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> activateCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = activateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId());
@@ -184,7 +184,7 @@ public class CustomersService {
 		}
 	}
 
-	public ResponseEntity<String> alertCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> alertCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = alertCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId());
@@ -202,7 +202,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per cambiare il rischio di un cliente
-	public ResponseEntity<String> changeCustomerRisk(PibisiPojo requestJson) {
+	public ResponseEntity<String> changeCustomerRisk(AccountsSearchPojo requestJson) {
 		try {
 			String url = changeRiskEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 					requestJson.getCustomerId());
@@ -231,7 +231,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per disattivare un cliente
-	public ResponseEntity<String> deactivateCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> deactivateCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = deactivateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId());
@@ -249,7 +249,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per eliminare un cliente
-	public ResponseEntity<String> deleteCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> deleteCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = deleteCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId());
@@ -266,7 +266,7 @@ public class CustomersService {
 		}
 	}
 
-	public ResponseEntity<String> documentCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> documentCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = documentEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 					requestJson.getCustomerId());
@@ -283,7 +283,7 @@ public class CustomersService {
 		}
 	}
 
-	public ResponseEntity<String> matchesCustomer(PibisiPojo requestJson) {
+	public ResponseEntity<String> matchesCustomer(AccountsSearchPojo requestJson) {
 		try {
 			String url = matchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 					requestJson.getCustomerId());
@@ -301,7 +301,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per rifiutare tutti i match di un cliente
-	public ResponseEntity<String> rejectAllMatches(PibisiPojo requestJson) {
+	public ResponseEntity<String> rejectAllMatches(AccountsSearchPojo requestJson) {
 		try {
 			String url = rejectAllMatchesEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId());
@@ -319,7 +319,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per accettare un match del cliente
-	public ResponseEntity<String> acceptMatch(PibisiPojo requestJson) {
+	public ResponseEntity<String> acceptMatch(AccountsSearchPojo requestJson) {
 		try {
 			String url = acceptMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId())
@@ -349,7 +349,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per rifiutare un match del cliente
-	public ResponseEntity<String> rejectMatch(PibisiPojo requestJson) {
+	public ResponseEntity<String> rejectMatch(AccountsSearchPojo requestJson) {
 		try {
 			String url = rejectMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId())
@@ -379,7 +379,7 @@ public class CustomersService {
 	}
 
 	// Metodo POST per aggiungere i points of information (pois)
-	public ResponseEntity<String> addCustomerPois(PibisiPojo requestJson) {
+	public ResponseEntity<String> addCustomerPois(AccountsSearchPojo requestJson) {
 		try {
 			String url = addPoisEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 					requestJson.getCustomerId());
@@ -407,7 +407,7 @@ public class CustomersService {
 		}
 	}
 
-	public ResponseEntity<byte[]> getCustomerReport(PibisiPojo requestJson) {
+	public ResponseEntity<byte[]> getCustomerReport(AccountsSearchPojo requestJson) {
 		try {
 			String url = getCustomerReportEndpoint.replace("{accountId}", requestJson.getAccountId())
 					.replace("{customerId}", requestJson.getCustomerId());

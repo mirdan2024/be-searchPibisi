@@ -23,14 +23,14 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.search.pibisi.controller.pojo.PibisiPojo;
+import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.pojo.users.me.UsersMeResponse;
 import it.search.pibisi.pojo.users.me.accounts.UsersMeAccountsResponse;
 
 @Service
-public class AccountsService extends BaseService {
+public class AccountsService {
 
 	@Value("${mock.response.search}")
 	private Boolean mockResponseSearch;
@@ -116,27 +116,29 @@ public class AccountsService extends BaseService {
 	}
 
 	// Metodo per fare una richiesta di ricerca
-	public AccountsSubjectsFindResponse accountsSubjectsFind(PibisiPojo requestJson) {
+	public AccountsSubjectsFindResponse accountsSubjectsFind(AccountsSearchPojo requestJson) {
 		try {
 
-			String accountId = getAccountId(requestJson);
-
-			String url = findSubjectsUrl.replace("{accountId}", accountId);
+			String url = findSubjectsUrl.replace("{accountId}", requestJson.getAccountId());
 
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
 			StringBuilder sb = new StringBuilder();
-			sb.append("[{");
-			sb.append("\"type\": \"" + requestJson.getType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getContent() + "\"");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
+			sb.append("[");
+			if (!StringUtils.hasLength(requestJson.getNameFull())) {
+				sb.append("{");
+				sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
 				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+				sb.append("\"content\": \"" + requestJson.getNameFull() + "\"");
+				if (StringUtils.hasLength(requestJson.getThreshold())) {
+					sb.append(", ");
+					sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+				}
+				sb.append("}");
 			}
-			sb.append("}]");
+			sb.append("]");
 
 			Map<Object, Object> data = new HashMap<>();
 			data.put("pois", sb.toString());
@@ -154,48 +156,48 @@ public class AccountsService extends BaseService {
 			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
 			if (mockResponseSearch) {
 				String responseBodyMock = "";
-				if ("a".equalsIgnoreCase(requestJson.getContent())
-						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getContent())) {
+				if ("a".equalsIgnoreCase(requestJson.getNameFull())
+						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Josee_Ignacio_Encinas.json");
 				}
-				if ("b".equalsIgnoreCase(requestJson.getContent())
-						|| "José Jerónimo Enrile de Cárdenas".equalsIgnoreCase(requestJson.getContent())) {
+				if ("b".equalsIgnoreCase(requestJson.getNameFull())
+						|| "José Jerónimo Enrile de Cárdenas".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Jose_Jeronimo_Enrile_de_Cardenas.json");
 				}
-				if ("c".equalsIgnoreCase(requestJson.getContent())
-						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getContent())) {
+				if ("c".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Mohamed_Jabir.json");
 				}
-				if ("d".equalsIgnoreCase(requestJson.getContent())
-						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getContent())) {
+				if ("d".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Rabah_Naami_Abou.json");
 				}
-				if ("e".equalsIgnoreCase(requestJson.getContent())
-						|| "Battisti Cesare".equalsIgnoreCase(requestJson.getContent())) {
+				if ("e".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Battisti Cesare".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Battisti_Cesare.json");
 				}
-				if ("f".equalsIgnoreCase(requestJson.getContent())
-						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getContent())) {
+				if ("f".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Pier_Silvio.json");
 				}
-				if ("g".equalsIgnoreCase(requestJson.getContent())
-						|| "Casamonica Guerrino".equalsIgnoreCase(requestJson.getContent())) {
+				if ("g".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Casamonica Guerrino".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Casamonica_Guerrino.json");
 				}
-				if ("h".equalsIgnoreCase(requestJson.getContent())
-						|| "Giorgia Meloni".equalsIgnoreCase(requestJson.getContent())) {
+				if ("h".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Giorgia Meloni".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Giorgia_Meloni.json");
 				}
-				if ("i".equalsIgnoreCase(requestJson.getContent())
-						|| "Salvini Matteo".equalsIgnoreCase(requestJson.getContent())) {
+				if ("i".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Salvini Matteo".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Salvini_Matteo.json");
 				}
-				if ("s".equalsIgnoreCase(requestJson.getContent())
-						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getContent())) {
+				if ("s".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Silvio.json");
 				}
-				if ("p".equalsIgnoreCase(requestJson.getContent())
-						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getContent())) {
+				if ("p".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Pier_Silvio.json");
 				}
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
@@ -218,7 +220,7 @@ public class AccountsService extends BaseService {
 	}
 
 	// Metodo per ottenere i dettagli di un soggetto
-	public AccountsSubjectsResponse accountsSubjects(PibisiPojo requestJson) {
+	public AccountsSubjectsResponse accountsSubjects(AccountsSearchPojo requestJson) {
 		try {
 			String url = subjectDetailsUrl.replace("{accountId}", requestJson.getAccountId()).replace("{subjectId}",
 					requestJson.getSubjectId());
@@ -229,28 +231,31 @@ public class AccountsService extends BaseService {
 			ObjectMapper objectMapper = new ObjectMapper();
 			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-			
+
 			HttpEntity<String> entity = new HttpEntity<>(headers);
 			if (mockResponseSearch) {
 				String responseBodyMock = "";
-				if ("a".equalsIgnoreCase(requestJson.getSubjectId()) ||  "e709f2d3-3f59-4724-992c-1030158276bf".equalsIgnoreCase(requestJson.getSubjectId())
+				if ("a".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "e709f2d3-3f59-4724-992c-1030158276bf".equalsIgnoreCase(requestJson.getSubjectId())
 						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Josee_Ignacio_Encinas - detail.json");
 				}
-				if ("c".equalsIgnoreCase(requestJson.getSubjectId()) || "b764362a-d0d2-4282-b82c-9e98cf3de9a0".equalsIgnoreCase(requestJson.getSubjectId())
+				if ("c".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "b764362a-d0d2-4282-b82c-9e98cf3de9a0".equalsIgnoreCase(requestJson.getSubjectId())
 						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Mohamed_Jabir_detail.json");
 				}
-				if ("d".equalsIgnoreCase(requestJson.getSubjectId()) || "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc".equalsIgnoreCase(requestJson.getSubjectId())
+				if ("d".equalsIgnoreCase(requestJson.getSubjectId())
+						|| "2900cbbe-0af4-4ca8-ac34-0c3321dc67fc".equalsIgnoreCase(requestJson.getSubjectId())
 						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getSubjectId())) {
 					responseBodyMock = readFile("Rabah_Naami_Abou_detail.json");
 				}
 				if ("s".equalsIgnoreCase(requestJson.getSubjectId())
-						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getContent())) {
+						|| "Berlusconi Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Silvio_detail.json");
 				}
 				if ("p".equalsIgnoreCase(requestJson.getSubjectId())
-						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getContent())) {
+						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Pier_Silvio_detail.json");
 				}
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsResponse.class);
@@ -266,7 +271,7 @@ public class AccountsService extends BaseService {
 	}
 
 	// Metodo per ottenere i dettagli di un soggetto
-	public String accountsSubjectsJson(PibisiPojo requestJson) {
+	public String accountsSubjectsJson(AccountsSearchPojo requestJson) {
 		try {
 			String url = subjectDetailsUrl.replace("{accountId}", requestJson.getAccountId()).replace("{subjectId}",
 					requestJson.getSubjectId());
@@ -290,7 +295,7 @@ public class AccountsService extends BaseService {
 	}
 
 	// Metodo per fare una richiesta POST all'endpoint
-	public AccountsSubjectsFindResponse accountsSubjectsFindBlocked(PibisiPojo requestJson) {
+	public AccountsSubjectsFindResponse accountsSubjectsFindBlocked(AccountsSearchPojo requestJson) {
 		try {
 			String url = findBlockedSubjectsUrl.replace("{accountId}", requestJson.getAccountId());
 
@@ -299,15 +304,19 @@ public class AccountsService extends BaseService {
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
 			StringBuilder sb = new StringBuilder();
-			sb.append("[{");
-			sb.append("\"type\": \"" + requestJson.getType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getContent() + "\"");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
+			sb.append("[");
+			if (!StringUtils.hasLength(requestJson.getNameFull())) {
+				sb.append("{");
+				sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
 				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+				sb.append("\"content\": \"" + requestJson.getNameFull() + "\"");
+				if (StringUtils.hasLength(requestJson.getThreshold())) {
+					sb.append(", ");
+					sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+				}
+				sb.append("}");
 			}
-			sb.append("}]");
+			sb.append("]");
 
 			Map<Object, Object> data = new HashMap<>();
 			data.put("pois", sb.toString());
@@ -325,43 +334,43 @@ public class AccountsService extends BaseService {
 			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
 			if (mockResponseSearch) {
 				String responseBodyMock = "";
-				if ("a".equalsIgnoreCase(requestJson.getContent())
-						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getContent())) {
+				if ("a".equalsIgnoreCase(requestJson.getNameFull())
+						|| "José Ignacio Encinas".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("José Ignacio Encinas.json");
 				}
-				if ("b".equalsIgnoreCase(requestJson.getContent())
-						|| "José Jerónimo Enrile de Cárdenas".equalsIgnoreCase(requestJson.getContent())) {
+				if ("b".equalsIgnoreCase(requestJson.getNameFull())
+						|| "José Jerónimo Enrile de Cárdenas".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Josee_Jeronimo_Enrile_de_Cardenas.json");
 				}
-				if ("c".equalsIgnoreCase(requestJson.getContent())
-						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getContent())) {
+				if ("c".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Mohamed Jabir".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Mohamed_Jabir.json");
 				}
-				if ("d".equalsIgnoreCase(requestJson.getContent())
-						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getContent())) {
+				if ("d".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Rabah Naami Abou".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Rabah_Naami_Abou.json");
 				}
-				if ("e".equalsIgnoreCase(requestJson.getContent())
-						|| "Battisti Cesare".equalsIgnoreCase(requestJson.getContent())) {
+				if ("e".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Battisti Cesare".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Battisti_Cesare.json");
 				}
-				if ("f".equalsIgnoreCase(requestJson.getContent())
-						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getContent())) {
+				if ("f".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Pier_Silvio.json");
 				}
-				if ("g".equalsIgnoreCase(requestJson.getContent())
-						|| "Casamonica Guerrino".equalsIgnoreCase(requestJson.getContent())) {
+				if ("g".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Casamonica Guerrino".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Casamonica_Guerrino.json");
 				}
-				if ("h".equalsIgnoreCase(requestJson.getContent())
-						|| "Giorgia Meloni".equalsIgnoreCase(requestJson.getContent())) {
+				if ("h".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Giorgia Meloni".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Giorgia_Meloni.json");
 				}
-				if ("i".equalsIgnoreCase(requestJson.getContent())
-						|| "Salvini Matteo".equalsIgnoreCase(requestJson.getContent())) {
+				if ("i".equalsIgnoreCase(requestJson.getNameFull())
+						|| "Salvini Matteo".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Salvini_Matteo.json");
 				}
-			
+
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
 			}
 
@@ -374,7 +383,7 @@ public class AccountsService extends BaseService {
 	}
 
 	// Metodo per ottenere un report di un soggetto
-	public ResponseEntity<byte[]> accountsSubjectsReport(PibisiPojo requestJson) {
+	public ResponseEntity<byte[]> accountsSubjectsReport(AccountsSearchPojo requestJson) {
 		try {
 			String url = subjectReportUrl.replace("{accountId}", requestJson.getAccountId()).replace("{subjectId}",
 					requestJson.getSubjectId());

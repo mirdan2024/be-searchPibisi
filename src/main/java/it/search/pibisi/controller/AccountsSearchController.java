@@ -16,15 +16,15 @@ import it.search.pibisi.service.PdfService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping({"/accounts","/api/accounts"})
+@RequestMapping({ "/accounts", "/api/accounts" })
 public class AccountsSearchController {
 
 	@Autowired
 	private AccountsSearchService searchService;
-	
+
 	@Autowired
 	private AccountsDetailService detailService;
-	
+
 	@Autowired
 	private PdfService pdfService;
 
@@ -36,14 +36,14 @@ public class AccountsSearchController {
 
 	// Endpoint per il dettaglio di un nominativo trovato liste
 	@PostMapping("/detail")
-	public MatchBean detail(@RequestBody AccountsSearchPojo requestJson) {
-		return detailService.detail(requestJson);
+	public MatchBean detail(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return detailService.detail(requestJson, request);
 	}
 
 	// Endpoint per il dettaglio di un nominativo trovato liste
 	@PostMapping("/pdf")
-	public PdfResponse createPdf(@RequestBody AccountsSearchPojo requestJson) {
-		byte[] pdfBytes =  pdfService.createPdf(requestJson);
+	public PdfResponse createPdf(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		byte[] pdfBytes = pdfService.createPdf(requestJson, request);
 		PdfResponse pdfResponse = new PdfResponse();
 		pdfResponse.setPdf(pdfBytes);
 		return pdfResponse;

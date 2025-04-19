@@ -34,9 +34,10 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-public class PdfService extends BaseService {
+public class PdfService {
 
 	@Autowired
 	private AccountsDetailService detailService;
@@ -47,13 +48,13 @@ public class PdfService extends BaseService {
 		return now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 	}
 
-	public byte[] createPdf(AccountsSearchPojo requestJson) {
+	public byte[] createPdf(AccountsSearchPojo requestJson, HttpServletRequest request) {
 
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		try {
 			// Recupero il dettaglio
-			MatchBean matchBean = detailService.detail(requestJson);
+			MatchBean matchBean = detailService.detail(requestJson, request);
 
 			// Crea il PDF dal Json
 			return createPdfFromJson(matchBean);

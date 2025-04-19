@@ -2,6 +2,7 @@ package it.search.pibisi.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,24 +15,30 @@ import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.SoiBean;
 import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
-import it.search.pibisi.controller.pojo.PibisiPojo;
 import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.Data;
 import it.search.pibisi.pojo.accounts.subjects.Info;
 import it.search.pibisi.pojo.accounts.subjects.Soi;
 import it.search.pibisi.utils.Category;
+import it.search.pibisi.utils.JWTUtil;
 import it.search.pibisi.wrapper.SoiWrapper;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-public class AccountsDetailService extends BaseService {
+public class AccountsDetailService {
 
 	@Autowired
 	private AccountsService accountsService;
 
+	@Autowired
+	private JWTUtil jwtUtil;
+
 	// Metodo per fare una richiesta di dettaglio
-	public MatchBean detail(AccountsSearchPojo requestJson) {
+	public MatchBean detail(AccountsSearchPojo requestJson, HttpServletRequest request) {
 		try {
-			return readMatchDetail(detailMatch(requestJson));
+			HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+			requestJson.setAccountId(map.get("accountId"));
+			return readMatchDetail(accountsService.accountsSubjects(requestJson));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -185,10 +192,4 @@ public class AccountsDetailService extends BaseService {
 		}
 	}
 
-	private AccountsSubjectsResponse detailMatch(AccountsSearchPojo requestJson) {
-		PibisiPojo pibisiPojo = new PibisiPojo();
-		pibisiPojo.setAccountId(accountsService.getAccountId());
-		pibisiPojo.setSubjectId(requestJson.getSubjectId());
-		return accountsService.accountsSubjects(pibisiPojo);
-	}
 }

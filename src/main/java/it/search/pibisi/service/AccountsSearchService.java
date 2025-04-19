@@ -2,6 +2,7 @@ package it.search.pibisi.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -17,7 +18,6 @@ import it.search.pibisi.bean.MatchListBean;
 import it.search.pibisi.bean.SoiBean;
 import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
-import it.search.pibisi.controller.pojo.PibisiPojo;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.pojo.accounts.subjects.find.Info__2;
 import it.search.pibisi.pojo.accounts.subjects.find.Match__1;
@@ -25,11 +25,12 @@ import it.search.pibisi.pojo.accounts.subjects.find.Scoring;
 import it.search.pibisi.pojo.accounts.subjects.find.Soi;
 import it.search.pibisi.pojo.accounts.subjects.find.Subject;
 import it.search.pibisi.utils.Category;
+import it.search.pibisi.utils.JWTUtil;
 import it.search.pibisi.wrapper.SoiWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-public class AccountsSearchService extends BaseService {
+public class AccountsSearchService {
 
 	@Autowired
 	private AccountsService accountsService;
@@ -37,12 +38,16 @@ public class AccountsSearchService extends BaseService {
 	@Autowired
 	private UtilsService utilsService;
 
+	@Autowired
+	private JWTUtil jwtUtil;
+
 	// Metodo per fare una richiesta di ricerca
 	public MatchListBean search(AccountsSearchPojo requestJson, HttpServletRequest request) {
 
 		try {
-
-			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(requestJson, request);
+			HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(requestJson, request,
+					map.get("idIntermediario"));
 			List<String> listCategorie = new ArrayList<>();
 			lcgp.getCategorieGruppoPojo().forEach(e -> {
 				e.getListaCategorie().forEach(c -> {
@@ -51,12 +56,13 @@ public class AccountsSearchService extends BaseService {
 			});
 
 			// Esegue una query per trovare possibili corrispondenze.
-			MatchListBean matchListBean = readMatchSearch(searchMatch(requestJson));
+			requestJson.setAccountId(map.get("accountId"));
+			MatchListBean matchListBean = readMatchSearch(accountsService.accountsSubjectsFind(requestJson));
 
 			// Esegue una query per trovare possibili corrispondenze solo con gli elenchi di
 			// sanzioni e terroristi.
-			// MatchListBean matchListBean =
-			// readMatchSearch(searchMatchBlocked(requestJson));
+//			 MatchListBean matchListBean =
+//			 readMatchSearch(accountsService.accountsSubjectsFindBlocked(requestJson));
 
 			MatchListBean matchListBeanResponse = new MatchListBean();
 			matchListBean.getElencoMatch().forEach(e -> {
@@ -252,24 +258,6 @@ public class AccountsSearchService extends BaseService {
 			matchBean.setTypeCategory(category.toString());
 			matchBean.setTypeRisk(highRisk);
 		}
-	}
-
-	private AccountsSubjectsFindResponse searchMatch(AccountsSearchPojo requestJson) {
-		PibisiPojo pibisiPojo = new PibisiPojo();
-		pibisiPojo.setAccountId(accountsService.getAccountId());
-		pibisiPojo.setType(requestJson.getType());
-		pibisiPojo.setContent(requestJson.getContent());
-		pibisiPojo.setThreshold(requestJson.getThreshold());
-		return accountsService.accountsSubjectsFind(pibisiPojo);
-	}
-
-	private AccountsSubjectsFindResponse searchMatchBlocked(AccountsSearchPojo requestJson) {
-		PibisiPojo pibisiPojo = new PibisiPojo();
-		pibisiPojo.setAccountId(accountsService.getAccountId());
-		pibisiPojo.setType(requestJson.getType());
-		pibisiPojo.setContent(requestJson.getContent());
-		pibisiPojo.setThreshold(requestJson.getThreshold());
-		return accountsService.accountsSubjectsFindBlocked(pibisiPojo);
 	}
 
 }
