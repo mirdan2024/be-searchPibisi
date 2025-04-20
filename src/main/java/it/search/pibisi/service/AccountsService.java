@@ -407,7 +407,9 @@ public class AccountsService {
 			sb.append(",{");
 			sb.append("\"type\": \"" + requestJson.getBirthPlaceType() + "\"");
 			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getBirthPlace() + "\"");
+			sb.append("\"content\": {");
+			sb.append("\"country\": \"" + requestJson.getBirthPlace() + "\"");
+			sb.append("}");
 			if (StringUtils.hasLength(requestJson.getThreshold())) {
 				sb.append(", ");
 				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
