@@ -125,20 +125,11 @@ public class AccountsService {
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			StringBuilder sb = new StringBuilder();
-			sb.append("[");
 			if (!StringUtils.hasLength(requestJson.getNameFull())) {
-				sb.append("{");
-				sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
-				sb.append(", ");
-				sb.append("\"content\": \"" + requestJson.getNameFull() + "\"");
-				if (StringUtils.hasLength(requestJson.getThreshold())) {
-					sb.append(", ");
-					sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-				}
-				sb.append("}");
+				throw new IllegalArgumentException("Il campo 'nameFull' è obbligatorio.");
 			}
-			sb.append("]");
+
+			StringBuilder sb = setFilter(requestJson);
 
 			Map<Object, Object> data = new HashMap<>();
 			data.put("pois", sb.toString());
@@ -303,20 +294,7 @@ public class AccountsService {
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			StringBuilder sb = new StringBuilder();
-			sb.append("[");
-			if (!StringUtils.hasLength(requestJson.getNameFull())) {
-				sb.append("{");
-				sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
-				sb.append(", ");
-				sb.append("\"content\": \"" + requestJson.getNameFull() + "\"");
-				if (StringUtils.hasLength(requestJson.getThreshold())) {
-					sb.append(", ");
-					sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-				}
-				sb.append("}");
-			}
-			sb.append("]");
+			StringBuilder sb = setFilter(requestJson);
 
 			Map<Object, Object> data = new HashMap<>();
 			data.put("pois", sb.toString());
@@ -398,5 +376,78 @@ public class AccountsService {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	private StringBuilder setFilter(AccountsSearchPojo requestJson) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		if (!StringUtils.hasLength(requestJson.getNameFull())) {
+			sb.append("{");
+			sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getNameFull() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (!StringUtils.hasLength(requestJson.getBirthDate())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getBirthDateType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getBirthDate() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (!StringUtils.hasLength(requestJson.getBirthPlace())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getBirthPlaceType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getBirthPlace() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (!StringUtils.hasLength(requestJson.getGender())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getGenderType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getGender() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (!StringUtils.hasLength(requestJson.getNationality())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getNationalityType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getNationality() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (!StringUtils.hasLength(requestJson.getPerson())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getPersonType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getPerson() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		sb.append("]");
+		return sb;
 	}
 }

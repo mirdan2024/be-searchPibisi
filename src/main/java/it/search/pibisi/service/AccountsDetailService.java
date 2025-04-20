@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.common.base.util.JWTUtil;
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.SoiBean;
 import it.search.pibisi.bean.SubjectPoiBean;
@@ -20,7 +21,6 @@ import it.search.pibisi.pojo.accounts.subjects.Data;
 import it.search.pibisi.pojo.accounts.subjects.Info;
 import it.search.pibisi.pojo.accounts.subjects.Soi;
 import it.search.pibisi.utils.Category;
-import it.search.pibisi.utils.JWTUtil;
 import it.search.pibisi.wrapper.SoiWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 

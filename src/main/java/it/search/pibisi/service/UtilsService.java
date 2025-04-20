@@ -23,7 +23,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.base.ListaCategorieGruppoPojo;
+import it.common.base.ListaCategorieGruppoPojo;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
 

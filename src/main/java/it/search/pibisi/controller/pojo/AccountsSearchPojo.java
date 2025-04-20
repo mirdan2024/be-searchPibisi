@@ -106,8 +106,25 @@ public class AccountsSearchPojo {
 		this.threshold = threshold;
 	}
 
+	// PARAMETRI TYPE
 	public String getNameFullType() {
 		return "name.full";
+	}
+
+	public String getBirthDateType() {
+		return "birth.date";
+	}
+
+	public String getBirthPlaceType() {
+		return "birth.place";
+	}
+
+	public String getGenderType() {
+		return "gender";
+	}
+
+	public String getNationalityType() {
+		return "nationality";
 	}
 
 	public String getPersonType() {
