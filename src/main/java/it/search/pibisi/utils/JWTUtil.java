@@ -37,7 +37,7 @@ public class JWTUtil {
 	public DecodedJWT validateTokenAndRetrieveSubject(String token) throws JWTVerificationException {
 		JWTVerifier verifier = JWT.require(Algorithm.HMAC256(secret)).withSubject("User Details")
 				.withIssuer("ANTIMONEY").build();
-		return verifier.verify(token);
+		return verifier.verify(token.replace("Bearer ", ""));
 	}
 
 	public HashMap<String, String> getInfoFromJwt(HttpServletRequest request) {
