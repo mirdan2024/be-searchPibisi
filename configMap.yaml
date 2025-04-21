@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pibisi-configmap
+data:
+  API_BASE_LISTA_CATEGORIE: http://bebase-service:8080/base/api/lista-categorie/
+  APP_MODE: production
+  LOG_LEVEL: debug
+  MOCK_RESPONSE: "true"
+  API_BASE: "https://int.api.pibisi.com/v2"

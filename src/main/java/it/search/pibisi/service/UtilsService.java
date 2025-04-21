@@ -5,6 +5,8 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -29,6 +31,10 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Service
 public class UtilsService {
+	
+	Logger log = LogManager.getLogger(this.getClass());
+	
+	
 	@Value("${api.base.lista.categorie}")
 	private String urlApiBaseListaCategorie;
 
@@ -82,12 +88,12 @@ public class UtilsService {
 			if (!headerName.contains("Forwarded"))
 				headers.add(headerName, request.getHeader(headerName));
 		}
-
+		log.info("Call categorie");
 		HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 		ResponseEntity<String> response = restTemplate.exchange(
 				urlApiBaseListaCategorie + requestJson.getIdIntermediario(), HttpMethod.GET, requestEntity,
 				String.class);
-
+		log.info("Call categorie response: "+response);
 		ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

@@ -15,6 +15,8 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.function.Consumer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +39,7 @@ import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 
 @Service
 public class PdfService extends BaseService {
-
+	Logger log = LogManager.getLogger(this.getClass());
 	@Autowired
 	private AccountsDetailService detailService;
 
@@ -109,7 +111,7 @@ public class PdfService extends BaseService {
 			// Page Footer
 			getPageFooter(builder);
 
-			System.out.println("html: " + builder.toString());
+			log.info("html: " + builder.toString());
 
 			// Crea un ByteArrayOutputStream per mantenere il PDF in memoria
 			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -124,7 +126,7 @@ public class PdfService extends BaseService {
 			writeByteArrayToFile("C:\\Gestore\\pdf\\output_flying_saucer.pdf", byteArrayOutputStream.toByteArray());
 
 			byteArrayOutputStream.close();
-			System.out.println("PDF modificato con successo!");
+			log.info("PDF modificato con successo!");
 
 			return byteArrayOutputStream.toByteArray();
 

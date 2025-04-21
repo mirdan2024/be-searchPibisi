@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pibisi-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: pibisi.example.com  # Cambia con il tuo dominio o lascia vuoto se usi l'IP
+    http:
+      paths:
+      - path: /pibisi
+        pathType: Prefix
+        backend:
+          service:
+            name: pibisi-service
+            port:
+              number: 80

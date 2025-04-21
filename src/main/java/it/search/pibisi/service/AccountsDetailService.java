@@ -3,6 +3,8 @@ package it.search.pibisi.service;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,8 @@ import it.search.pibisi.wrapper.SoiWrapper;
 
 @Service
 public class AccountsDetailService extends BaseService {
+	
+	Logger log = LogManager.getLogger(this.getClass());
 
 	@Autowired
 	private AccountsService accountsService;
@@ -154,14 +158,14 @@ public class AccountsDetailService extends BaseService {
 	}
 
 	private void logUnknownInfo(Info info) {
-		System.out.println("Uuid    --> " + info.getUuid());
-		System.out.println("Content --> " + info.getContent());
-		System.out.println("Type    --> " + info.getType());
-		System.out.println("Class   --> " + info.getClass());
-		System.out.println("tGroup  --> " + info.getGroup());
-		System.out.println("-----------------------------------");
-		System.out.println("ERROR: " + info.getType());
-		System.out.println("-----------------------------------");
+		log.info("Uuid    --> " + info.getUuid());
+		log.info("Content --> " + info.getContent());
+		log.info("Type    --> " + info.getType());
+		log.info("Class   --> " + info.getClass());
+		log.info("tGroup  --> " + info.getGroup());
+		log.info("-----------------------------------");
+		log.info("ERROR: " + info.getType());
+		log.info("-----------------------------------");
 	}
 	// End read info in data -> matches
 

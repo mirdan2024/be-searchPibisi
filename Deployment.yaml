@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pibisi-deployment
+spec:
+  replicas: 1  # Numero di repliche del pod
+  selector:
+    matchLabels:
+      app: pibisi
+  template:
+    metadata:
+      labels:
+        app: pibisi
+    spec:
+      containers:
+        - name: pibisi-container
+          image: ghcr.io/mirdan2024/pibisi:1.0.10
+          ports:
+            - containerPort: 8080  # Porta esposta dal container
+          envFrom:
+            - configMapRef:
+                name: pibisi-configmap  # ConfigMap che contiene le variabili d'ambiente
+          volumeMounts:
+            - name: my-config-volume
+              mountPath: /config
+              readOnly: true
+      volumes:
+        - name: my-config-volume
+          configMap:
+            name: pibisi-configmap  # Monta la ConfigMap come volume

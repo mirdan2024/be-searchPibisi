@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pibisi-service
+spec:
+  selector:
+    app: pibisi
+  type: ClusterIP  # Puoi cambiarlo in ClusterIP o LoadBalancer se necessario
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080    

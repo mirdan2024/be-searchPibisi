@@ -1,0 +1,588 @@
+{
+	"data": {
+		"search_result": {
+			"uuid": "55c25189-9a0a-4953-a572-dfe2e97b4bb3",
+			"performed_at": "2025-02-16T09:53:30+01:00",
+			"threshold": 0.9,
+			"status": "processed",
+			"pois": [
+				{
+					"type": "name.full",
+					"content": "José Ignacio Encinas",
+					"threshold": "0.1"
+				}
+			],
+			"matches": [
+				{
+					"subject": "e709f2d3-3f59-4724-992c-1030158276bf",
+					"similarity": 0.99,
+					"cardinality": 0.5,
+					"similarity_vector": {
+						"id": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"name": {
+							"fuzzy": "eq",
+							"exact": 0.99,
+							"poi_uuids_1": [],
+							"poi_uuids_2": [
+								"634708c6-6159-401f-aee6-38cc0fd1702d"
+							]
+						},
+						"birth.date": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"death.date": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"person": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"function.current#country": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"function.current#scope": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"life_interval.birth": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						},
+						"life_interval.death": {
+							"fuzzy": "bk",
+							"exact": 0,
+							"poi_uuids_1": [],
+							"poi_uuids_2": []
+						}
+					}
+				}
+			],
+			"discarded_matches": [],
+			"account_uuid": "9c5e54af-2e9c-4375-b17c-9ff4090f596a",
+			"name_comparison_configs": {
+				"default": {
+					"search_type": "advanced",
+					"threshold": "0.9",
+					"max_allowed_blanks": 0,
+					"max_allowed_blanks_name": 0,
+					"max_allowed_blanks_surname": 0,
+					"allow_extra_words": false
+				}
+			},
+			"full_matches": []
+		},
+		"matches": [
+			{
+				"uuid": "e709f2d3-3f59-4724-992c-1030158276bf",
+				"info": [
+					{
+						"group": null,
+						"uuid": "111956bf-eb76-4a43-9789-393b160e95ab",
+						"type": "person",
+						"content": "P"
+					},
+					{
+						"group": null,
+						"uuid": "634708c6-6159-401f-aee6-38cc0fd1702d",
+						"type": "name.full",
+						"content": "josé ignacio encinas"
+					},
+					{
+						"group": null,
+						"uuid": "abb3bc8c-06b0-41b4-b60d-08d5e63437cd",
+						"type": "media",
+						"content": {
+							"types": [
+								"NEWS"
+							],
+							"summary": "Altos directivos de una empresa pública asociada con la venta irregular de armas",
+							"issuer": "El País",
+							"country": "ESP",
+							"from": "2019-03-07",
+							"url": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html"
+						}
+					},
+					{
+						"group": null,
+						"uuid": "fc90ab51-2da0-4428-b335-f659fe9e676d",
+						"type": "media",
+						"content": {
+							"types": [
+								"NEWS"
+							],
+							"issuer": "EL PAÍS‎",
+							"url": "https://elpais.com/economia/2019/10/14/actualidad/1571083646_671940.html",
+							"from": "2019-10-15"
+						}
+					},
+					{
+						"group": null,
+						"uuid": "50fa288e-0b54-4a94-9e86-e58876fa09b1",
+						"type": "media",
+						"content": {
+							"types": [
+								"NEWS"
+							],
+							"issuer": "ABC.es‎",
+							"url": "https://www.abc.es/espana/abci-juez-procesa-empresa-publica-defex-irregularidades-venta-armas-arabia-saudi-201903071048_noticia.html",
+							"from": "2019-03-07"
+						}
+					},
+					{
+						"group": null,
+						"uuid": "3a4b54bc-c505-48a2-9fe7-a28d3e9c3ff2",
+						"type": "media",
+						"content": {
+							"types": [
+								"NEWS"
+							],
+							"issuer": "EL PAÍS‎",
+							"url": "https://elpais.com/economia/2019/08/19/actualidad/1566240743_642303.html",
+							"from": "2019-08-20"
+						}
+					}
+				],
+				"similarity": 0.99,
+				"cardinality": 0.5,
+				"similarity_vector": {
+					"id": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"name": {
+						"fuzzy": "eq",
+						"exact": 0.99,
+						"poi_uuids_1": [],
+						"poi_uuids_2": [
+							"634708c6-6159-401f-aee6-38cc0fd1702d"
+						]
+					},
+					"birth.date": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"death.date": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"person": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"function.current#country": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"function.current#scope": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"life_interval.birth": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					},
+					"life_interval.death": {
+						"fuzzy": "bk",
+						"exact": 0,
+						"poi_uuids_1": [],
+						"poi_uuids_2": []
+					}
+				},
+				"scoring": {
+					"value": 10,
+					"flags": {
+						"is_pep": false,
+						"was_pep": false,
+						"was_pep_date": 0,
+						"is_sanctioned": false,
+						"was_sanctioned": false,
+						"was_sanctioned_date": "",
+						"is_terrorist": false,
+						"has_media": true,
+						"has_adverse_info": false,
+						"is_high_risk": false
+					},
+					"info": {
+						"pep": [],
+						"pep_pois": [],
+						"pep_relations": [],
+						"sanctioned": [],
+						"terrorist": [],
+						"media": [
+							"abb3bc8c-06b0-41b4-b60d-08d5e63437cd",
+							"fc90ab51-2da0-4428-b335-f659fe9e676d",
+							"50fa288e-0b54-4a94-9e86-e58876fa09b1",
+							"3a4b54bc-c505-48a2-9fe7-a28d3e9c3ff2"
+						],
+						"adverse_info": [],
+						"high_risk": []
+					},
+					"is_pep": false,
+					"was_pep": false,
+					"was_pep_date": 0,
+					"is_sanctioned": false,
+					"was_sanctioned": false,
+					"was_sanctioned_date": "",
+					"is_terrorist": false,
+					"has_media": true,
+					"has_adverse_info": false,
+					"is_high_risk": false
+				},
+				"subject": {
+					"uuid": "e709f2d3-3f59-4724-992c-1030158276bf",
+					"info": [
+						{
+							"group": null,
+							"uuid": "111956bf-eb76-4a43-9789-393b160e95ab",
+							"type": "person",
+							"content": "P",
+							"sois": [
+								{
+									"uuid": "3233a776-64af-49bb-bd33-29145eadc0c6",
+									"status": "active",
+									"uri": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html",
+									"internal_uri": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-10-17T13:54:18+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "1319bc79-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Noticia en versión digital de El País",
+									"soi_group": {
+										"uuid": "1319bc79-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Noticia en versión digital de El País",
+										"description": "Noticia en versión digital de El País",
+										"issuer": "Spain",
+										"info": "adverse media",
+										"group_set_code": "esp.public_companies"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=3233a776-64af-49bb-bd33-29145eadc0c6",
+									"rel_date": "2019-10-18T10:12:02+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "634708c6-6159-401f-aee6-38cc0fd1702d",
+							"type": "name.full",
+							"content": "josé ignacio encinas",
+							"sois": [
+								{
+									"uuid": "3233a776-64af-49bb-bd33-29145eadc0c6",
+									"status": "active",
+									"uri": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html",
+									"internal_uri": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-10-17T13:54:18+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "1319bc79-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Noticia en versión digital de El País",
+									"soi_group": {
+										"uuid": "1319bc79-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Noticia en versión digital de El País",
+										"description": "Noticia en versión digital de El País",
+										"issuer": "Spain",
+										"info": "adverse media",
+										"group_set_code": "esp.public_companies"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=3233a776-64af-49bb-bd33-29145eadc0c6",
+									"rel_date": "2019-10-18T10:12:02+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "abb3bc8c-06b0-41b4-b60d-08d5e63437cd",
+							"type": "media",
+							"content": {
+								"types": [
+									"NEWS"
+								],
+								"summary": "Altos directivos de una empresa pública asociada con la venta irregular de armas",
+								"issuer": "El País",
+								"country": "ESP",
+								"from": "2019-03-07",
+								"url": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html"
+							},
+							"sois": [
+								{
+									"uuid": "3233a776-64af-49bb-bd33-29145eadc0c6",
+									"status": "active",
+									"uri": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html",
+									"internal_uri": "https://elpais.com/politica/2019/03/06/actualidad/1551903344_580344.html",
+									"version": null,
+									"reliability": 1,
+									"gathered_at": "2019-10-17T13:54:18+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "1319bc79-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "spain",
+									"description": "Noticia en versión digital de El País",
+									"soi_group": {
+										"uuid": "1319bc79-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "spain",
+										"title": "Noticia en versión digital de El País",
+										"description": "Noticia en versión digital de El País",
+										"issuer": "Spain",
+										"info": "adverse media",
+										"group_set_code": "esp.public_companies"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=3233a776-64af-49bb-bd33-29145eadc0c6",
+									"rel_date": "2019-10-18T10:12:02+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "fc90ab51-2da0-4428-b335-f659fe9e676d",
+							"type": "media",
+							"content": {
+								"types": [
+									"NEWS"
+								],
+								"issuer": "EL PAÍS‎",
+								"url": "https://elpais.com/economia/2019/10/14/actualidad/1571083646_671940.html",
+								"from": "2019-10-15"
+							},
+							"sois": [
+								{
+									"uuid": "e559ea31-cf03-4c63-9c28-2cd476e8c713",
+									"status": "active",
+									"uri": "https://elpais.com/economia/2019/10/14/actualidad/1571083646_671940.html",
+									"internal_uri": "https://elpais.com/economia/2019/10/14/actualidad/1571083646_671940.html",
+									"version": null,
+									"reliability": 0.5,
+									"gathered_at": "2019-10-18T10:24:08+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "1319a75f-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "Found adverse media using Search Engines",
+									"soi_group": {
+										"uuid": "1319a75f-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "Found adverse media using Search Engines",
+										"description": "Found adverse media using Search Engines",
+										"issuer": "",
+										"info": "adverse media",
+										"group_set_code": "found_adverse_media"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=e559ea31-cf03-4c63-9c28-2cd476e8c713",
+									"rel_date": "2019-10-18T10:24:08+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "50fa288e-0b54-4a94-9e86-e58876fa09b1",
+							"type": "media",
+							"content": {
+								"types": [
+									"NEWS"
+								],
+								"issuer": "ABC.es‎",
+								"url": "https://www.abc.es/espana/abci-juez-procesa-empresa-publica-defex-irregularidades-venta-armas-arabia-saudi-201903071048_noticia.html",
+								"from": "2019-03-07"
+							},
+							"sois": [
+								{
+									"uuid": "2e4ade84-53dd-4973-90f2-cb07ded8ee9e",
+									"status": "active",
+									"uri": "https://www.abc.es/espana/abci-juez-procesa-empresa-publica-defex-irregularidades-venta-armas-arabia-saudi-201903071048_noticia.html",
+									"internal_uri": "https://www.abc.es/espana/abci-juez-procesa-empresa-publica-defex-irregularidades-venta-armas-arabia-saudi-201903071048_noticia.html",
+									"version": null,
+									"reliability": 0.5,
+									"gathered_at": "2019-10-18T10:24:08+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "1319a75f-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "Found adverse media using Search Engines",
+									"soi_group": {
+										"uuid": "1319a75f-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "Found adverse media using Search Engines",
+										"description": "Found adverse media using Search Engines",
+										"issuer": "",
+										"info": "adverse media",
+										"group_set_code": "found_adverse_media"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=2e4ade84-53dd-4973-90f2-cb07ded8ee9e",
+									"rel_date": "2019-10-18T10:24:08+01:00"
+								}
+							]
+						},
+						{
+							"group": null,
+							"uuid": "3a4b54bc-c505-48a2-9fe7-a28d3e9c3ff2",
+							"type": "media",
+							"content": {
+								"types": [
+									"NEWS"
+								],
+								"issuer": "EL PAÍS‎",
+								"url": "https://elpais.com/economia/2019/08/19/actualidad/1566240743_642303.html",
+								"from": "2019-08-20"
+							},
+							"sois": [
+								{
+									"uuid": "2feb2ded-4053-4479-b2d7-a4518d6f4e76",
+									"status": "active",
+									"uri": "https://elpais.com/economia/2019/08/19/actualidad/1566240743_642303.html",
+									"internal_uri": "https://elpais.com/economia/2019/08/19/actualidad/1566240743_642303.html",
+									"version": null,
+									"reliability": 0.5,
+									"gathered_at": "2019-10-18T10:24:08+01:00",
+									"published_at": null,
+									"active": true,
+									"has_screenshot": false,
+									"has_content_body": false,
+									"group_uuid": "1319a75f-a819-11eb-a3ed-22dc79c097d9",
+									"scope": "global",
+									"description": "Found adverse media using Search Engines",
+									"soi_group": {
+										"uuid": "1319a75f-a819-11eb-a3ed-22dc79c097d9",
+										"scope": "global",
+										"title": "Found adverse media using Search Engines",
+										"description": "Found adverse media using Search Engines",
+										"issuer": "",
+										"info": "adverse media",
+										"group_set_code": "found_adverse_media"
+									},
+									"pibisi_uri": "https://int-www.pibisi.com/es/resources/soi?soi=2feb2ded-4053-4479-b2d7-a4518d6f4e76",
+									"rel_date": "2019-10-18T10:24:08+01:00"
+								}
+							]
+						}
+					],
+					"scoring": {
+						"value": 10,
+						"flags": {
+							"is_pep": false,
+							"was_pep": false,
+							"was_pep_date": 0,
+							"is_sanctioned": false,
+							"was_sanctioned": false,
+							"was_sanctioned_date": "",
+							"is_terrorist": false,
+							"has_media": true,
+							"has_adverse_info": false,
+							"is_high_risk": false
+						},
+						"info": {
+							"pep": [],
+							"pep_pois": [],
+							"pep_relations": [],
+							"sanctioned": [],
+							"terrorist": [],
+							"media": [
+								"abb3bc8c-06b0-41b4-b60d-08d5e63437cd",
+								"fc90ab51-2da0-4428-b335-f659fe9e676d",
+								"50fa288e-0b54-4a94-9e86-e58876fa09b1",
+								"3a4b54bc-c505-48a2-9fe7-a28d3e9c3ff2"
+							],
+							"adverse_info": [],
+							"high_risk": []
+						},
+						"is_pep": false,
+						"was_pep": false,
+						"was_pep_date": 0,
+						"is_sanctioned": false,
+						"was_sanctioned": false,
+						"was_sanctioned_date": "",
+						"is_terrorist": false,
+						"has_media": true,
+						"has_adverse_info": false,
+						"is_high_risk": false
+					},
+					"created_at": {
+						"date": "2019-10-18 10:12:02.000000",
+						"timezone_type": 3,
+						"timezone": "Etc/GMT-1"
+					}
+				}
+			}
+		],
+		"discarded_matches": []
+	},
+	"meta": {
+		"total_count": 1,
+		"count": 1,
+		"page": 1,
+		"page_size": 10,
+		"add": false,
+		"query": {
+			"pois": [
+				{
+					"type": "name.full",
+					"content": "José Ignacio Encinas",
+					"threshold": "0.1"
+				}
+			],
+			"threshold": 0.9,
+			"match_config": {
+				"default": {
+					"search_type": "advanced",
+					"threshold": "0.9",
+					"max_allowed_blanks": 0,
+					"max_allowed_blanks_name": 0,
+					"max_allowed_blanks_surname": 0,
+					"allow_extra_words": false
+				}
+			}
+		},
+		"version": "v2",
+		"time": "2025-02-16T09:53:30+01:00"
+	}
+}
