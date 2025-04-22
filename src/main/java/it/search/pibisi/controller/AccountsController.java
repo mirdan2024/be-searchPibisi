@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.search.pibisi.controller.pojo.PibisiPojo;
+import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.pojo.users.me.UsersMeResponse;
@@ -34,25 +34,25 @@ public class AccountsController {
 
 	// Endpoint per inviare una richiesta di ricerca
 	@PostMapping("/accounts/subjects/find")
-	public AccountsSubjectsFindResponse findSubjects(@RequestBody PibisiPojo requestJson) {
+	public AccountsSubjectsFindResponse findSubjects(@RequestBody AccountsSearchPojo requestJson) {
 		return accountsService.accountsSubjectsFind(requestJson);
 	}
 
 	// Endpoint per ottenere i dettagli di un soggetto
 	@GetMapping("/accounts/subjects")
-	public AccountsSubjectsResponse accountsSubjects(@RequestBody PibisiPojo requestJson) {
+	public AccountsSubjectsResponse accountsSubjects(@RequestBody AccountsSearchPojo requestJson) {
 		return accountsService.accountsSubjects(requestJson);
 	}
 
 	// Endpoint per inviare una richiesta di ricerca
 	@PostMapping("/accounts/subjects/find-blocked")
-	public AccountsSubjectsFindResponse accountsSubjectsFindBlocked(@RequestBody PibisiPojo requestJson) {
+	public AccountsSubjectsFindResponse accountsSubjectsFindBlocked(@RequestBody AccountsSearchPojo requestJson) {
 		return accountsService.accountsSubjectsFindBlocked(requestJson);
 	}
 
 	// Endpoint per ottenere un report di un soggetto
 	@GetMapping("/accounts/subjects/report")
-	public ResponseEntity<byte[]> accountsSubjectsReport(@RequestBody PibisiPojo requestJson) {
+	public ResponseEntity<byte[]> accountsSubjectsReport(@RequestBody AccountsSearchPojo requestJson) {
 		return accountsService.accountsSubjectsReport(requestJson);
 	}
 }

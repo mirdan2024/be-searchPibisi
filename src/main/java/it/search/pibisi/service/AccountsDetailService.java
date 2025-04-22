@@ -2,9 +2,8 @@ package it.search.pibisi.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,30 +11,34 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.common.base.util.JWTUtil;
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.SoiBean;
 import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
-import it.search.pibisi.controller.pojo.PibisiPojo;
 import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.Data;
 import it.search.pibisi.pojo.accounts.subjects.Info;
 import it.search.pibisi.pojo.accounts.subjects.Soi;
 import it.search.pibisi.utils.Category;
 import it.search.pibisi.wrapper.SoiWrapper;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-public class AccountsDetailService extends BaseService {
-	
-	Logger log = LogManager.getLogger(this.getClass());
+public class AccountsDetailService {
 
 	@Autowired
 	private AccountsService accountsService;
 
+	@Autowired
+	private JWTUtil jwtUtil;
+
 	// Metodo per fare una richiesta di dettaglio
-	public MatchBean detail(AccountsSearchPojo requestJson) {
+	public MatchBean detail(AccountsSearchPojo requestJson, HttpServletRequest request) {
 		try {
-			return readMatchDetail(detailMatch(requestJson));
+			HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+			requestJson.setAccountId(map.get("accountId"));
+			return readMatchDetail(accountsService.accountsSubjects(requestJson));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -158,14 +161,14 @@ public class AccountsDetailService extends BaseService {
 	}
 
 	private void logUnknownInfo(Info info) {
-		log.info("Uuid    --> " + info.getUuid());
-		log.info("Content --> " + info.getContent());
-		log.info("Type    --> " + info.getType());
-		log.info("Class   --> " + info.getClass());
-		log.info("tGroup  --> " + info.getGroup());
-		log.info("-----------------------------------");
-		log.info("ERROR: " + info.getType());
-		log.info("-----------------------------------");
+		System.out.println("Uuid    --> " + info.getUuid());
+		System.out.println("Content --> " + info.getContent());
+		System.out.println("Type    --> " + info.getType());
+		System.out.println("Class   --> " + info.getClass());
+		System.out.println("tGroup  --> " + info.getGroup());
+		System.out.println("-----------------------------------");
+		System.out.println("ERROR: " + info.getType());
+		System.out.println("-----------------------------------");
 	}
 	// End read info in data -> matches
 
@@ -189,10 +192,4 @@ public class AccountsDetailService extends BaseService {
 		}
 	}
 
-	private AccountsSubjectsResponse detailMatch(AccountsSearchPojo requestJson) {
-		PibisiPojo pibisiPojo = new PibisiPojo();
-		pibisiPojo.setAccountId(accountsService.getAccountId());
-		pibisiPojo.setSubjectId(requestJson.getSubjectId());
-		return accountsService.accountsSubjects(pibisiPojo);
-	}
 }

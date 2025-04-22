@@ -1,12 +1,10 @@
 package it.search.pibisi.service;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -25,16 +23,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.base.ListaCategorieGruppoPojo;
+import it.common.base.ListaCategorieGruppoPojo;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
 public class UtilsService {
-	
-	Logger log = LogManager.getLogger(this.getClass());
-	
-	
 	@Value("${api.base.lista.categorie}")
 	private String urlApiBaseListaCategorie;
 
@@ -74,29 +68,49 @@ public class UtilsService {
 	}
 
 	@Cacheable("callGetListaCategorie")
-	public ListaCategorieGruppoPojo callGetListaCategorie(AccountsSearchPojo requestJson, HttpServletRequest request)
-			throws JsonProcessingException {
-		RestTemplate restTemplate = new RestTemplate(new SimpleClientHttpRequestFactory());
+	public ListaCategorieGruppoPojo callGetListaCategorie(AccountsSearchPojo requestJson,
+	                                                      HttpServletRequest request,
+	                                                      String idIntermediario) throws JsonProcessingException {
+	    RestTemplate restTemplate = new RestTemplate(new SimpleClientHttpRequestFactory());
 
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("X-Forwarded-For", getClientIp(request));
-		Enumeration<String> headerNames = request.getHeaderNames();
-		while (headerNames.hasMoreElements()) {
-			String headerName = headerNames.nextElement();
-			if (!headerName.contains("Forwarded"))
-				headers.add(headerName, request.getHeader(headerName));
-		}
-		log.info("Call categorie");
-		HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
-		ResponseEntity<String> response = restTemplate.exchange(
-				urlApiBaseListaCategorie + requestJson.getIdIntermediario(), HttpMethod.GET, requestEntity,
-				String.class);
-		log.info("Call categorie response: "+response);
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		return objectMapper.readValue(response.getBody(), ListaCategorieGruppoPojo.class);
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+	    headers.setContentType(MediaType.APPLICATION_JSON);
+	    headers.add("X-Forwarded-For", getClientIp(request));
+
+	    Enumeration<String> headerNames = request.getHeaderNames();
+	    while (headerNames.hasMoreElements()) {
+	        String headerName = headerNames.nextElement();
+	        if (!headerName.contains("Forwarded")) {
+	            headers.add(headerName, request.getHeader(headerName));
+	        }
+	    }
+
+	    HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+	    ResponseEntity<String> response = restTemplate.exchange(
+	            urlApiBaseListaCategorie + idIntermediario,
+	            HttpMethod.GET,
+	            requestEntity,
+	            String.class
+	    );
+
+	    String responseBody = response.getBody();
+	    System.out.println("RESPONSE BODY:\n" + responseBody);
+
+	    ObjectMapper objectMapper = new ObjectMapper();
+	    objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+	    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+	    // 👉 Filtro elementi nulli se serve, oppure gestisco errori jackson
+	    try {
+	        return objectMapper.readValue(responseBody, ListaCategorieGruppoPojo.class);
+	    } catch (IllegalArgumentException e) {
+	        System.err.println("Errore durante la deserializzazione: campo 'content' nullo o mancante.");
+	        throw new JsonProcessingException("Errore parsing JSON: campo obbligatorio assente o nullo", e) {};
+	    } catch (Exception e) {
+	        System.err.println("Errore imprevisto durante il parsing JSON: " + e.getMessage());
+	        throw new JsonProcessingException("Errore parsing JSON", e) {};
+	    }
 	}
+
 }

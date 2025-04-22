@@ -2,10 +2,9 @@ package it.search.pibisi.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,13 +12,13 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.base.ListaCategorieGruppoPojo;
+import it.common.base.ListaCategorieGruppoPojo;
+import it.common.base.util.JWTUtil;
 import it.search.pibisi.bean.MatchBean;
 import it.search.pibisi.bean.MatchListBean;
 import it.search.pibisi.bean.SoiBean;
 import it.search.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
-import it.search.pibisi.controller.pojo.PibisiPojo;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.pojo.accounts.subjects.find.Info__2;
 import it.search.pibisi.pojo.accounts.subjects.find.Match__1;
@@ -31,37 +30,39 @@ import it.search.pibisi.wrapper.SoiWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-public class AccountsSearchService extends BaseService {
-	Logger log = LogManager.getLogger(this.getClass());
-	
+public class AccountsSearchService {
+
 	@Autowired
 	private AccountsService accountsService;
 
 	@Autowired
 	private UtilsService utilsService;
 
+	@Autowired
+	private JWTUtil jwtUtil;
+
 	// Metodo per fare una richiesta di ricerca
 	public MatchListBean search(AccountsSearchPojo requestJson, HttpServletRequest request) {
 
 		try {
-
-			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(requestJson, request);
-			log.info("Return lcgp: "+lcgp.toString());
+			HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(requestJson, request,
+					map.get("idIntermediario"));
 			List<String> listCategorie = new ArrayList<>();
 			lcgp.getCategorieGruppoPojo().forEach(e -> {
 				e.getListaCategorie().forEach(c -> {
-					log.info("ADD: "+c.getCategoria());
 					listCategorie.add(c.getCategoria());
 				});
 			});
-			log.info("Return lcgp fine: "+ listCategorie.toString());
+
 			// Esegue una query per trovare possibili corrispondenze.
-			MatchListBean matchListBean = readMatchSearch(searchMatch(requestJson));
+			requestJson.setAccountId(map.get("accountId"));
+			MatchListBean matchListBean = readMatchSearch(accountsService.accountsSubjectsFind(requestJson));
 
 			// Esegue una query per trovare possibili corrispondenze solo con gli elenchi di
 			// sanzioni e terroristi.
-			// MatchListBean matchListBean =
-			// readMatchSearch(searchMatchBlocked(requestJson));
+//			 MatchListBean matchListBean =
+//			 readMatchSearch(accountsService.accountsSubjectsFindBlocked(requestJson));
 
 			MatchListBean matchListBeanResponse = new MatchListBean();
 			matchListBean.getElencoMatch().forEach(e -> {
@@ -228,14 +229,14 @@ public class AccountsSearchService extends BaseService {
 	}
 
 	private void logUnknownInfo(Info__2 info) {
-		log.info("Uuid    --> " + info.getUuid());
-		log.info("Content --> " + info.getContent());
-		log.info("Type    --> " + info.getType());
-		log.info("Class   --> " + info.getClass());
-		log.info("tGroup  --> " + info.getGroup());
-		log.info("-----------------------------------");
-		log.info("ERROR: " + info.getType());
-		log.info("-----------------------------------");
+		System.out.println("Uuid    --> " + info.getUuid());
+		System.out.println("Content --> " + info.getContent());
+		System.out.println("Type    --> " + info.getType());
+		System.out.println("Class   --> " + info.getClass());
+		System.out.println("tGroup  --> " + info.getGroup());
+		System.out.println("-----------------------------------");
+		System.out.println("ERROR: " + info.getType());
+		System.out.println("-----------------------------------");
 	}
 	// End read info in data -> matches
 
@@ -257,24 +258,6 @@ public class AccountsSearchService extends BaseService {
 			matchBean.setTypeCategory(category.toString());
 			matchBean.setTypeRisk(highRisk);
 		}
-	}
-
-	private AccountsSubjectsFindResponse searchMatch(AccountsSearchPojo requestJson) {
-		PibisiPojo pibisiPojo = new PibisiPojo();
-		pibisiPojo.setAccountId(accountsService.getAccountId());
-		pibisiPojo.setType(requestJson.getType());
-		pibisiPojo.setContent(requestJson.getContent());
-		pibisiPojo.setThreshold(requestJson.getThreshold());
-		return accountsService.accountsSubjectsFind(pibisiPojo);
-	}
-
-	private AccountsSubjectsFindResponse searchMatchBlocked(AccountsSearchPojo requestJson) {
-		PibisiPojo pibisiPojo = new PibisiPojo();
-		pibisiPojo.setAccountId(accountsService.getAccountId());
-		pibisiPojo.setType(requestJson.getType());
-		pibisiPojo.setContent(requestJson.getContent());
-		pibisiPojo.setThreshold(requestJson.getThreshold());
-		return accountsService.accountsSubjectsFindBlocked(pibisiPojo);
 	}
 
 }
