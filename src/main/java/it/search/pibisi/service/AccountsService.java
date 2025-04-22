@@ -1,10 +1,8 @@
 package it.search.pibisi.service;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URLEncoder;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -16,7 +14,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
@@ -205,9 +202,19 @@ public class AccountsService {
 	}
 
 	public String readFile(String filePath) throws IOException {
-		File file = ResourceUtils.getFile("classpath:" + filePath);
-		byte[] fileData = Files.readAllBytes(Paths.get(file.getPath()));
-		return new String(fileData);
+
+		try (InputStream inputStream = AccountsService.class.getClassLoader().getResourceAsStream(filePath)) {
+			if (inputStream == null) {
+				throw new IOException("File non trovato");
+			}
+
+			return new String(inputStream.readAllBytes()); // Java 9+
+			// Ora puoi usare bytes come vuoi
+		}
+
+//		File file = ResourceUtils.getFile("classpath:" + filePath);
+//		byte[] fileData = Files.readAllBytes(Paths.get(file.getPath()));
+//		return new String(fileData);
 	}
 
 	// Metodo per ottenere i dettagli di un soggetto
