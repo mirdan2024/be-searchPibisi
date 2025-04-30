@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +15,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import it.search.pibisi.utils.DateUtils;
+import it.common.base.util.DateUtils;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
-
-	@Autowired
-	private Environment env;
 
 	@ExceptionHandler(value = { IllegalArgumentException.class, IllegalStateException.class,
 			SQLIntegrityConstraintViolationException.class, MyResourceNotFoundException.class })
@@ -31,7 +26,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		String bodyOfResponse = "This should be application specific";
 		if (ex instanceof MyResourceNotFoundException) {
 			bodyOfResponse = ((MyResourceNotFoundException) ex).getMessage();
-			MyResourceNotFoundException myResourceNotFoundException =(MyResourceNotFoundException)ex;
+			MyResourceNotFoundException myResourceNotFoundException = (MyResourceNotFoundException) ex;
 			Error error = new Error();
 			error.setCode(myResourceNotFoundException.getCodice());
 			error.setDescription(myResourceNotFoundException.getDescrizione());
@@ -55,7 +50,6 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		body.put("errors", errors);
 
 		return new ResponseEntity<>(body, headers, status);
-
 	}
 
 	@Override
@@ -72,7 +66,6 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		body.put("errors", errors);
 
 		return new ResponseEntity<>(body, headers, status);
-
 	}
 
 }

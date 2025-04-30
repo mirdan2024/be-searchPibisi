@@ -9,22 +9,20 @@ public class MyResourceNotFoundException extends RuntimeException {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private String codice;
 	private String descrizione;
-	
-	
 
 	public MyResourceNotFoundException() {
 		super();
 	}
 
-	public MyResourceNotFoundException(String codice,String descrizione) {
+	public MyResourceNotFoundException(String codice, String descrizione) {
 		super();
-		this.codice=codice;
-		this.descrizione=descrizione;
+		this.codice = codice;
+		this.descrizione = descrizione;
 	}
-	
+
 	public MyResourceNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 	}
@@ -56,6 +54,5 @@ public class MyResourceNotFoundException extends RuntimeException {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
+
 }
