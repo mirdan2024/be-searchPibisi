@@ -3,6 +3,7 @@ package it.search.pibisi.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -12,6 +13,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -93,13 +95,28 @@ public class AccountsService {
 
 	// Metodo per ottenere le informazioni sugli account
 	public UsersMeAccountsResponse userMeAccounts() {
+
+		// 1. Crea gli header
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+
+		// 2. Crea l'HttpEntity
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+
+		// 3. Crea RestTemplate
+		RestTemplate restTemplate = new RestTemplate();
+
 		try {
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-
+			// 4. Fai la chiamata GET
 			ResponseEntity<String> response = restTemplate.exchange(accountsUrl, HttpMethod.GET, entity, String.class);
+
+			// 5. Gestisci la risposta
+			if (response.getStatusCode().is2xxSuccessful()) {
+				System.out.println("Risposta: " + response.getBody());
+			} else {
+				System.out.println("Errore HTTP: " + response.getStatusCode());
+			}
 
 			ObjectMapper objectMapper = new ObjectMapper();
 			objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
@@ -107,6 +124,7 @@ public class AccountsService {
 
 			return objectMapper.readValue(response.getBody(), UsersMeAccountsResponse.class);
 		} catch (Exception e) {
+			System.out.println("Eccezione: " + e.getMessage());
 			e.printStackTrace();
 			return null;
 		}
@@ -188,11 +206,24 @@ public class AccountsService {
 						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Pier_Silvio.json");
 				}
-				return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
+				
+				if (responseBodyMock != null && !responseBodyMock.trim().isEmpty()) {
+				    return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
+				} else {
+				    // throw new IllegalStateException("Risposta vuota dal servizio remoto");
+				    return null;
+				}
 			}
 
 			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-			return objectMapper.readValue(response.getBody(), AccountsSubjectsFindResponse.class);
+			String body = response.getBody();
+
+			if (body != null && !body.trim().isEmpty()) {
+				return objectMapper.readValue(body, AccountsSubjectsFindResponse.class);
+			} else {
+				return null;
+			}
+
 		} catch (
 
 		Exception e) {
@@ -259,6 +290,7 @@ public class AccountsService {
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsResponse.class);
 			}
 
+			
 			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 
 			return objectMapper.readValue(response.getBody(), AccountsSubjectsResponse.class);
@@ -388,7 +420,7 @@ public class AccountsService {
 	private StringBuilder setFilter(AccountsSearchPojo requestJson) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
-		if (!StringUtils.hasLength(requestJson.getNameFull())) {
+		if (StringUtils.hasLength(requestJson.getNameFull())) {
 			sb.append("{");
 			sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
 			sb.append(", ");
@@ -399,7 +431,7 @@ public class AccountsService {
 			}
 			sb.append("}");
 		}
-		if (!StringUtils.hasLength(requestJson.getBirthDate())) {
+		if (StringUtils.hasLength(requestJson.getBirthDate())) {
 			sb.append(",{");
 			sb.append("\"type\": \"" + requestJson.getBirthDateType() + "\"");
 			sb.append(", ");
@@ -410,7 +442,7 @@ public class AccountsService {
 			}
 			sb.append("}");
 		}
-		if (!StringUtils.hasLength(requestJson.getBirthPlace())) {
+		if (StringUtils.hasLength(requestJson.getBirthPlace())) {
 			sb.append(",{");
 			sb.append("\"type\": \"" + requestJson.getBirthPlaceType() + "\"");
 			sb.append(", ");
@@ -423,7 +455,7 @@ public class AccountsService {
 			}
 			sb.append("}");
 		}
-		if (!StringUtils.hasLength(requestJson.getGender())) {
+		if (StringUtils.hasLength(requestJson.getGender())) {
 			sb.append(",{");
 			sb.append("\"type\": \"" + requestJson.getGenderType() + "\"");
 			sb.append(", ");
@@ -434,7 +466,7 @@ public class AccountsService {
 			}
 			sb.append("}");
 		}
-		if (!StringUtils.hasLength(requestJson.getNationality())) {
+		if (StringUtils.hasLength(requestJson.getNationality())) {
 			sb.append(",{");
 			sb.append("\"type\": \"" + requestJson.getNationalityType() + "\"");
 			sb.append(", ");
@@ -445,7 +477,7 @@ public class AccountsService {
 			}
 			sb.append("}");
 		}
-		if (!StringUtils.hasLength(requestJson.getPerson())) {
+		if (StringUtils.hasLength(requestJson.getPerson())) {
 			sb.append(",{");
 			sb.append("\"type\": \"" + requestJson.getPersonType() + "\"");
 			sb.append(", ");
