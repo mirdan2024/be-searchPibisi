@@ -12,9 +12,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.common.base.util.JWTUtil;
-import it.search.pibisi.bean.MatchBean;
-import it.search.pibisi.bean.SoiBean;
-import it.search.pibisi.bean.SubjectPoiBean;
+import it.common.pibisi.bean.MatchBean;
+import it.common.pibisi.bean.SoiBean;
+import it.common.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.Data;

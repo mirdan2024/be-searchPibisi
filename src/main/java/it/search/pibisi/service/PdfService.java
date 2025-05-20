@@ -31,8 +31,8 @@ import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 
-import it.search.pibisi.bean.MatchBean;
-import it.search.pibisi.bean.SubjectPoiBean;
+import it.common.pibisi.bean.MatchBean;
+import it.common.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
 

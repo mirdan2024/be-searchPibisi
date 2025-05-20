@@ -14,10 +14,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.common.base.ListaCategorieGruppoPojo;
 import it.common.base.util.JWTUtil;
-import it.search.pibisi.bean.MatchBean;
-import it.search.pibisi.bean.MatchListBean;
-import it.search.pibisi.bean.SoiBean;
-import it.search.pibisi.bean.SubjectPoiBean;
+import it.common.pibisi.bean.MatchBean;
+import it.common.pibisi.bean.MatchListBean;
+import it.common.pibisi.bean.SoiBean;
+import it.common.pibisi.bean.SubjectPoiBean;
 import it.search.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.pojo.accounts.subjects.find.Info__2;

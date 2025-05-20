@@ -5,7 +5,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import it.search.pibisi.bean.SoiGroupBean;
+import it.common.pibisi.bean.SoiGroupBean;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SoiWrapper {

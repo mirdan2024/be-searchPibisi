@@ -2,7 +2,7 @@ package it.search.pibisi.utils;
 
 import org.springframework.util.StringUtils;
 
-import it.search.pibisi.bean.MatchBean;
+import it.common.pibisi.bean.MatchBean;
 
 public class Category {
 
