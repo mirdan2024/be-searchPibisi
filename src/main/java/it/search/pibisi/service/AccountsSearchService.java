@@ -12,13 +12,14 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.common.base.CreditoPojo;
 import it.common.base.ListaCategorieGruppoPojo;
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.MatchListBean;
 import it.common.pibisi.bean.SoiBean;
 import it.common.pibisi.bean.SubjectPoiBean;
-import it.search.pibisi.controller.pojo.AccountsSearchPojo;
+import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.pojo.accounts.subjects.find.AccountsSubjectsFindResponse;
 import it.search.pibisi.pojo.accounts.subjects.find.Info__2;
 import it.search.pibisi.pojo.accounts.subjects.find.Match__1;
@@ -46,14 +47,15 @@ public class AccountsSearchService {
 
 		try {
 			HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
-			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(requestJson, request,
-					map.get("idIntermediario"));
+			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(request);
 			List<String> listCategorie = new ArrayList<>();
 			lcgp.getCategorieGruppoPojo().forEach(e -> {
 				e.getListaCategorie().forEach(c -> {
 					listCategorie.add(c.getCategoria());
 				});
 			});
+
+			utilsService.callTracciamentoCrediti(requestJson, request);
 
 			// Esegue una query per trovare possibili corrispondenze.
 			requestJson.setAccountId(map.get("accountId"));

@@ -15,7 +15,7 @@ import it.common.base.util.JWTUtil;
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.SoiBean;
 import it.common.pibisi.bean.SubjectPoiBean;
-import it.search.pibisi.controller.pojo.AccountsSearchPojo;
+import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.pojo.accounts.subjects.AccountsSubjectsResponse;
 import it.search.pibisi.pojo.accounts.subjects.Data;
 import it.search.pibisi.pojo.accounts.subjects.Info;

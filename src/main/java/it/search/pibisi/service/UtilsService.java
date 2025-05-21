@@ -2,35 +2,44 @@ package it.search.pibisi.service;
 
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.common.base.ListaCategorieGruppoPojo;
-import it.search.pibisi.controller.pojo.AccountsSearchPojo;
+import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
 public class UtilsService {
 	@Value("${api.base.lista.categorie}")
 	private String urlApiBaseListaCategorie;
+
+	@Value("${api.base.tracciamento.crediti}")
+	private String urlApiBaseTracciamentoCrediti;
 
 	public static String[] getNullPropertyNames(Object source) {
 		final BeanWrapper src = new BeanWrapperImpl(source);
@@ -68,49 +77,92 @@ public class UtilsService {
 	}
 
 	@Cacheable("callGetListaCategorie")
-	public ListaCategorieGruppoPojo callGetListaCategorie(AccountsSearchPojo requestJson,
-	                                                      HttpServletRequest request,
-	                                                      String idIntermediario) throws JsonProcessingException {
-	    RestTemplate restTemplate = new RestTemplate(new SimpleClientHttpRequestFactory());
+	public ListaCategorieGruppoPojo callGetListaCategorie(HttpServletRequest request) {
+		// 1. Headers
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+		headers.add("X-Forwarded-For", getClientIp(request));
 
-	    HttpHeaders headers = new HttpHeaders();
-	    headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-	    headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("X-Forwarded-For", getClientIp(request));
+		Enumeration<String> headerNames = request.getHeaderNames();
+		while (headerNames.hasMoreElements()) {
+			String headerName = headerNames.nextElement();
+			if (!headerName.contains("Forwarded")) {
+				headers.add(headerName, request.getHeader(headerName));
+			}
+		}
 
-	    Enumeration<String> headerNames = request.getHeaderNames();
-	    while (headerNames.hasMoreElements()) {
-	        String headerName = headerNames.nextElement();
-	        if (!headerName.contains("Forwarded")) {
-	            headers.add(headerName, request.getHeader(headerName));
-	        }
-	    }
+		// 2. Configura RestTemplate
+		RestTemplate restTemplate = restTemplate();
+		restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-	    HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
-	    ResponseEntity<String> response = restTemplate.exchange(
-	            urlApiBaseListaCategorie + idIntermediario,
-	            HttpMethod.GET,
-	            requestEntity,
-	            String.class
-	    );
+		// 3. Chiamata GET senza body, ma con headers
+		HttpEntity<Void> entity = new HttpEntity<>(headers);
+		String nomeCategoriaGruppo = "Pibisi";
 
-	    String responseBody = response.getBody();
-	    System.out.println("RESPONSE BODY:\n" + responseBody);
-
-	    ObjectMapper objectMapper = new ObjectMapper();
-	    objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-	    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-	    // 👉 Filtro elementi nulli se serve, oppure gestisco errori jackson
-	    try {
-	        return objectMapper.readValue(responseBody, ListaCategorieGruppoPojo.class);
-	    } catch (IllegalArgumentException e) {
-	        System.err.println("Errore durante la deserializzazione: campo 'content' nullo o mancante.");
-	        throw new JsonProcessingException("Errore parsing JSON: campo obbligatorio assente o nullo", e) {};
-	    } catch (Exception e) {
-	        System.err.println("Errore imprevisto durante il parsing JSON: " + e.getMessage());
-	        throw new JsonProcessingException("Errore parsing JSON", e) {};
-	    }
+		ResponseEntity<ListaCategorieGruppoPojo> response = restTemplate.exchange(
+				urlApiBaseListaCategorie + nomeCategoriaGruppo, HttpMethod.GET, entity, ListaCategorieGruppoPojo.class);
+		return response.getBody();
 	}
 
+	public void callTracciamentoCrediti(AccountsSearchPojo requestJson, HttpServletRequest request) throws Exception {
+
+		try {
+			// 1. Headers
+			HttpHeaders headers = new HttpHeaders();
+			headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+			headers.set("Content-Type", "application/json;charset=UTF-8");
+			headers.add("X-Forwarded-For", getClientIp(request));
+
+			Enumeration<String> headerNames = request.getHeaderNames();
+			while (headerNames.hasMoreElements()) {
+				String headerName = headerNames.nextElement();
+				if (!headerName.contains("Forwarded")) {
+					headers.add(headerName, request.getHeader(headerName));
+				}
+			}
+
+			// 2. Body
+			Map<String, String> requestBody = new HashMap<>();
+			if (requestJson.getAccountId() != null)
+				requestBody.put("accountId", requestJson.getAccountId());
+			if (requestJson.getSubjectId() != null)
+				requestBody.put("subjectId", requestJson.getSubjectId());
+			if (requestJson.getNameFull() != null)
+				requestBody.put("nameFull", requestJson.getNameFull());
+			if (requestJson.getBirthDate() != null)
+				requestBody.put("birthDate", requestJson.getBirthDate());
+			if (requestJson.getBirthPlace() != null)
+				requestBody.put("birthPlace", requestJson.getBirthPlace());
+			if (requestJson.getGender() != null)
+				requestBody.put("gender", requestJson.getGender());
+			if (requestJson.getNationality() != null)
+				requestBody.put("nationality", requestJson.getNationality());
+			if (requestJson.getPerson() != null)
+				requestBody.put("person", requestJson.getPerson());
+			if (requestJson.getThreshold() != null)
+				requestBody.put("threshold", requestJson.getThreshold());
+			ObjectMapper objectMapper = new ObjectMapper();
+			String jsonBody = objectMapper.writeValueAsString(requestBody);
+
+			// 3. Configura RestTemplate
+			RestTemplate restTemplate = restTemplate();
+			restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+
+			// 4. Chiamata POST con body
+			String nomeCategoriaGruppo = "Pibisi";
+			restTemplate.exchange(urlApiBaseTracciamentoCrediti + nomeCategoriaGruppo, HttpMethod.POST,
+					new HttpEntity<>(jsonBody, headers), Void.class);
+		} catch (JsonProcessingException e) {
+			throw new Exception("Errore, JSON input errato", e);
+		} catch (Exception ex) {
+			throw new Exception("Errore, nel servizio di tracciamento dei crediti", ex);
+		}
+	}
+
+	@Bean
+	public RestTemplate restTemplate() {
+		CloseableHttpClient httpClient = HttpClients.createDefault();
+		HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
+		return new RestTemplate(factory);
+	}
 }

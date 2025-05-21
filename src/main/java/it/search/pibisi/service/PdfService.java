@@ -33,7 +33,7 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.SubjectPoiBean;
-import it.search.pibisi.controller.pojo.AccountsSearchPojo;
+import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
