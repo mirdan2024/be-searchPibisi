@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
-import it.search.pibisi.pojo.customers.create.CustomersCreateResponse;
+import it.common.pibisi.pojo.customers.create.CustomersCreateResponse;
 import it.search.pibisi.service.CustomersService;
 import jakarta.servlet.http.HttpServletRequest;
 

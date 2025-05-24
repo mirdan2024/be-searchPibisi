@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
-import it.search.pibisi.pojo.customers.create.CustomersCreateResponse;
+import it.common.pibisi.pojo.customers.create.CustomersCreateResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
@@ -157,320 +157,268 @@ public class CustomersService {
 
 	// Metodo GET per ottenere i clienti di un account
 	public ResponseEntity<String> getCustomersByAccountId(AccountsSearchPojo requestJson) {
-		try {
-			String url = getCustomersEndpoint.replace("{accountId}", requestJson.getAccountId());
+		String url = getCustomersEndpoint.replace("{accountId}", requestJson.getAccountId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 	}
 
 	public ResponseEntity<String> findCustomer(AccountsSearchPojo requestJson) {
-		try {
-			String url = findCustomerEndpoint.replace("{accountId}", requestJson.getAccountId());
+		String url = findCustomerEndpoint.replace("{accountId}", requestJson.getAccountId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			Map<Object, Object> data = new HashMap<>();
-			data.put("search", requestJson.getSearch());
+		Map<Object, Object> data = new HashMap<>();
+		data.put("search", requestJson.getSearch());
 
-			// Codifica dei dati in formato application/x-www-form-urlencoded
-			StringJoiner sj = new StringJoiner("&");
-			for (Map.Entry<Object, Object> entry : data.entrySet()) {
+		// Codifica dei dati in formato application/x-www-form-urlencoded
+		StringJoiner sj = new StringJoiner("&");
+		for (Map.Entry<Object, Object> entry : data.entrySet()) {
+			try {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				logger.error(bundle.getString("error.encoding"), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
 			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
 		}
+
+		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	public ResponseEntity<String> getCustomersByCustomerId(AccountsSearchPojo requestJson) {
-		try {
-			String url = customersEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-					requestJson.getCustomerId());
+		String url = customersEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 	}
 
 	// Metodo POST per attivare un cliente
 	public ResponseEntity<String> activateCustomer(AccountsSearchPojo requestJson) {
-		try {
-			String url = activateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId());
+		String url = activateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	public ResponseEntity<String> alertCustomer(AccountsSearchPojo requestJson) {
-		try {
-			String url = alertCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId());
+		String url = alertCustomerEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 	}
 
 	// Metodo POST per cambiare il rischio di un cliente
 	public ResponseEntity<String> changeCustomerRisk(AccountsSearchPojo requestJson) {
-		try {
-			String url = changeRiskEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-					requestJson.getCustomerId());
+		String url = changeRiskEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			Map<Object, Object> data = new HashMap<>();
-			data.put("risk", requestJson.getRisk());
+		Map<Object, Object> data = new HashMap<>();
+		data.put("risk", requestJson.getRisk());
 
-			// Codifica dei dati in formato application/x-www-form-urlencoded
-			StringJoiner sj = new StringJoiner("&");
-			for (Map.Entry<Object, Object> entry : data.entrySet()) {
+		// Codifica dei dati in formato application/x-www-form-urlencoded
+		StringJoiner sj = new StringJoiner("&");
+		for (Map.Entry<Object, Object> entry : data.entrySet()) {
+			try {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				logger.error(bundle.getString("error.encoding"), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
 			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
 		}
+
+		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	// Metodo POST per disattivare un cliente
 	public ResponseEntity<String> deactivateCustomer(AccountsSearchPojo requestJson) {
-		try {
-			String url = deactivateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId());
+		String url = deactivateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
+				.replace("{customerId}", requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	// Metodo POST per eliminare un cliente
 	public ResponseEntity<String> deleteCustomer(AccountsSearchPojo requestJson) {
-		try {
-			String url = deleteCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId());
+		String url = deleteCustomerEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	public ResponseEntity<String> documentCustomer(AccountsSearchPojo requestJson) {
-		try {
-			String url = documentEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-					requestJson.getCustomerId());
+		String url = documentEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 	}
 
 	public ResponseEntity<String> matchesCustomer(AccountsSearchPojo requestJson) {
-		try {
-			String url = matchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-					requestJson.getCustomerId());
+		String url = matchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 	}
 
 	// Metodo POST per rifiutare tutti i match di un cliente
 	public ResponseEntity<String> rejectAllMatches(AccountsSearchPojo requestJson) {
-		try {
-			String url = rejectAllMatchesEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId());
+		String url = rejectAllMatchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	// Metodo POST per accettare un match del cliente
 	public ResponseEntity<String> acceptMatch(AccountsSearchPojo requestJson) {
-		try {
-			String url = acceptMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId())
-					.replace("{matchId}", requestJson.getMatchId());
+		String url = acceptMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
+				.replace("{customerId}", requestJson.getCustomerId()).replace("{matchId}", requestJson.getMatchId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			Map<Object, Object> data = new HashMap<>();
-			data.put("comment", requestJson.getComment());
+		Map<Object, Object> data = new HashMap<>();
+		data.put("comment", requestJson.getComment());
 
-			// Codifica dei dati in formato application/x-www-form-urlencoded
-			StringJoiner sj = new StringJoiner("&");
-			for (Map.Entry<Object, Object> entry : data.entrySet()) {
+		// Codifica dei dati in formato application/x-www-form-urlencoded
+		StringJoiner sj = new StringJoiner("&");
+		for (Map.Entry<Object, Object> entry : data.entrySet()) {
+			try {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				logger.error(bundle.getString("error.encoding"), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
 			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
 		}
+
+		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	// Metodo POST per rifiutare un match del cliente
 	public ResponseEntity<String> rejectMatch(AccountsSearchPojo requestJson) {
-		try {
-			String url = rejectMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId())
-					.replace("{matchId}", requestJson.getMatchId());
+		String url = rejectMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
+				.replace("{customerId}", requestJson.getCustomerId()).replace("{matchId}", requestJson.getMatchId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			Map<Object, Object> data = new HashMap<>();
-			data.put("comment", requestJson.getComment());
+		Map<Object, Object> data = new HashMap<>();
+		data.put("comment", requestJson.getComment());
 
-			// Codifica dei dati in formato application/x-www-form-urlencoded
-			StringJoiner sj = new StringJoiner("&");
-			for (Map.Entry<Object, Object> entry : data.entrySet()) {
+		// Codifica dei dati in formato application/x-www-form-urlencoded
+		StringJoiner sj = new StringJoiner("&");
+		for (Map.Entry<Object, Object> entry : data.entrySet()) {
+			try {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				logger.error(bundle.getString("error.encoding"), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
 			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
 		}
+
+		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	// Metodo POST per aggiungere i points of information (pois)
 	public ResponseEntity<String> addCustomerPois(AccountsSearchPojo requestJson) {
-		try {
-			String url = addPoisEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-					requestJson.getCustomerId());
+		String url = addPoisEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
-			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			Map<Object, Object> data = new HashMap<>();
-			data.put("data", requestJson.getData());
+		Map<Object, Object> data = new HashMap<>();
+		data.put("data", requestJson.getData());
 
-			// Codifica dei dati in formato application/x-www-form-urlencoded
-			StringJoiner sj = new StringJoiner("&");
-			for (Map.Entry<Object, Object> entry : data.entrySet()) {
+		// Codifica dei dati in formato application/x-www-form-urlencoded
+		StringJoiner sj = new StringJoiner("&");
+		for (Map.Entry<Object, Object> entry : data.entrySet()) {
+			try {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				logger.error(bundle.getString("error.encoding"), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
 			}
-
-			HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-			return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
 		}
+
+		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	public ResponseEntity<byte[]> getCustomerReport(AccountsSearchPojo requestJson) {
-		try {
-			String url = getCustomerReportEndpoint.replace("{accountId}", requestJson.getAccountId())
-					.replace("{customerId}", requestJson.getCustomerId());
+		String url = getCustomerReportEndpoint.replace("{accountId}", requestJson.getAccountId())
+				.replace("{customerId}", requestJson.getCustomerId());
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.set("X-AUTH-TOKEN", token);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
 
-			HttpEntity<String> entity = new HttpEntity<>(headers);
+		HttpEntity<String> entity = new HttpEntity<>(headers);
 
-			return restTemplate.exchange(url, HttpMethod.GET, entity, byte[].class);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		return restTemplate.exchange(url, HttpMethod.GET, entity, byte[].class);
 	}
 }
