@@ -122,7 +122,7 @@ public class CustomersService {
 				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
 			}
 		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, bundle.getString("error.record.not.found"));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.monitoring"));
 		}
 	}
 
