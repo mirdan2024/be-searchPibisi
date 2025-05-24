@@ -22,7 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -49,8 +48,6 @@ public class PdfService {
 	}
 
 	public byte[] createPdf(AccountsSearchPojo requestJson, HttpServletRequest request) {
-
-		ObjectMapper objectMapper = new ObjectMapper();
 
 		try {
 			// Recupero il dettaglio
@@ -1180,8 +1177,9 @@ public class PdfService {
 		builder.append("<td class=\"s2\" style=\"text-align: justify;\">");
 		builder.append("List of an individual's personal and ");
 		builder.append("business connections, direct and indirect associations with ");
-		builder.append("individuals and companies. This tool helps identify potential reputational, legal, or "); 
-		builder.append("regulatory risks, supporting due diligence analysis, AML/KYC compliance, and risk assessments.");
+		builder.append("individuals and companies. This tool helps identify potential reputational, legal, or ");
+		builder.append(
+				"regulatory risks, supporting due diligence analysis, AML/KYC compliance, and risk assessments.");
 		builder.append("The information should be ");
 		builder.append("verified and contextualized before making operational or strategic decisions.");
 		builder.append("</td>");

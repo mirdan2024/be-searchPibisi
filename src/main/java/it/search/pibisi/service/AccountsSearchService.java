@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.common.base.CreditoPojo;
-import it.common.base.ListaCategorieGruppoPojo;
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.MatchListBean;
@@ -47,13 +45,6 @@ public class AccountsSearchService {
 
 		try {
 			HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
-			ListaCategorieGruppoPojo lcgp = utilsService.callGetListaCategorie(request);
-			List<String> listCategorie = new ArrayList<>();
-			lcgp.getCategorieGruppoPojo().forEach(e -> {
-				e.getListaCategorie().forEach(c -> {
-					listCategorie.add(c.getCategoria());
-				});
-			});
 
 			utilsService.callTracciamentoCrediti(requestJson, request);
 
@@ -66,9 +57,10 @@ public class AccountsSearchService {
 //			 MatchListBean matchListBean =
 //			 readMatchSearch(accountsService.accountsSubjectsFindBlocked(requestJson));
 
+			List<String> listCategorie = utilsService.getListaCategorie(request);
 			MatchListBean matchListBeanResponse = new MatchListBean();
 			matchListBean.getElencoMatch().forEach(e -> {
-				if (Boolean.TRUE.equals(matchCategory(e, listCategorie))) {
+				if (Boolean.TRUE.equals(utilsService.matchCategory(e, listCategorie))) {
 					matchListBeanResponse.addMatchBean(e);
 				}
 			});
@@ -78,26 +70,6 @@ public class AccountsSearchService {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	public Boolean matchCategory(MatchBean matchBean, List<String> listCategorie) {
-		if ((matchBean.isPep() || matchBean.isWasPep()) && !listCategorie.contains("PEP")) {
-			return Boolean.FALSE;
-		}
-		if ((matchBean.isSanctioned() || matchBean.isWasSanctioned()) && !listCategorie.contains("Sanction")) {
-			return Boolean.FALSE;
-		}
-		if (matchBean.isTerrorist() && !listCategorie.contains("Terrorist")) {
-			return Boolean.FALSE;
-		}
-		if (matchBean.isHasMedia() && !listCategorie.contains("Adverse media")) {
-			return Boolean.FALSE;
-		}
-		if (matchBean.isHasAdverseInfo() && !listCategorie.contains("Adverse info")) {
-			return Boolean.FALSE;
-		}
-
-		return Boolean.TRUE;
 	}
 
 	private MatchListBean readMatchSearch(AccountsSubjectsFindResponse accountsSubjectsFindResponse)

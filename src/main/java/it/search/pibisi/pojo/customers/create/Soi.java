@@ -1,4 +1,5 @@
-package it.search.pibisi.pojo.accounts.subjects;
+
+package it.search.pibisi.pojo.customers.create;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -13,13 +14,11 @@ public class Soi {
 	@JsonProperty("internal_uri")
 	private String internalUri;
 	@JsonProperty("version")
-	private Object version;
+	private String version;
 	@JsonProperty("reliability")
-	private Integer reliability;
-	
+	private Double reliability;
 	@JsonProperty("gathered_at")
 	private String gatheredAt;
-	
 	@JsonProperty("published_at")
 	private Object publishedAt;
 	@JsonProperty("active")
@@ -36,8 +35,6 @@ public class Soi {
 	private String description;
 	@JsonProperty("soi_group")
 	private SoiGroup soiGroup;
-	@JsonProperty("pibisi_uri")
-	private String pibisiUri;
 	@JsonProperty("rel_date")
 	private String relDate;
 
@@ -73,19 +70,19 @@ public class Soi {
 		this.internalUri = internalUri;
 	}
 
-	public Object getVersion() {
+	public String getVersion() {
 		return version;
 	}
 
-	public void setVersion(Object version) {
+	public void setVersion(String version) {
 		this.version = version;
 	}
 
-	public Integer getReliability() {
+	public Double getReliability() {
 		return reliability;
 	}
 
-	public void setReliability(Integer reliability) {
+	public void setReliability(Double reliability) {
 		this.reliability = reliability;
 	}
 
@@ -159,14 +156,6 @@ public class Soi {
 
 	public void setSoiGroup(SoiGroup soiGroup) {
 		this.soiGroup = soiGroup;
-	}
-
-	public String getPibisiUri() {
-		return pibisiUri;
-	}
-
-	public void setPibisiUri(String pibisiUri) {
-		this.pibisiUri = pibisiUri;
 	}
 
 	public String getRelDate() {

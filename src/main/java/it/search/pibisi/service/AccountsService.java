@@ -6,8 +6,10 @@ import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.StringJoiner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpEntity;
@@ -56,13 +58,17 @@ public class AccountsService {
 	@Value("${api.accounts.find-blocked-subjects-url}")
 	private String findBlockedSubjectsUrl;
 
+	@Autowired
+	private UtilsService utilsService;
+
 	private RestTemplate restTemplate = new RestTemplate();
+
+	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
 
 	// Metodo per ottenere le informazioni sugli account
 	@Cacheable("accountId")
 	public String getAccountId() {
 		try {
-
 			UsersMeAccountsResponse usersMeAccountsResponse = userMeAccounts();
 
 			return usersMeAccountsResponse.getData().get(0).getAccount().getUuid();
@@ -134,17 +140,17 @@ public class AccountsService {
 	public AccountsSubjectsFindResponse accountsSubjectsFind(AccountsSearchPojo requestJson) {
 		try {
 
+			if (!StringUtils.hasLength(requestJson.getNameFull())) {
+				throw new IllegalArgumentException(bundle.getString("error.namefull.required"));
+			}
+
 			String url = findSubjectsUrl.replace("{accountId}", requestJson.getAccountId());
 
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			if (!StringUtils.hasLength(requestJson.getNameFull())) {
-				throw new IllegalArgumentException("Il campo 'nameFull' è obbligatorio.");
-			}
-
-			StringBuilder sb = setFilter(requestJson);
+			StringBuilder sb = utilsService.setFilter(requestJson);
 
 			Map<Object, Object> data = new HashMap<>();
 			data.put("pois", sb.toString());
@@ -206,12 +212,11 @@ public class AccountsService {
 						|| "Berlusconi Pier Silvio".equalsIgnoreCase(requestJson.getNameFull())) {
 					responseBodyMock = readFile("Berlusconi_Pier_Silvio.json");
 				}
-				
+
 				if (responseBodyMock != null && !responseBodyMock.trim().isEmpty()) {
-				    return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
+					return objectMapper.readValue(responseBodyMock, AccountsSubjectsFindResponse.class);
 				} else {
-				    // throw new IllegalStateException("Risposta vuota dal servizio remoto");
-				    return null;
+					return null;
 				}
 			}
 
@@ -236,7 +241,7 @@ public class AccountsService {
 
 		try (InputStream inputStream = AccountsService.class.getClassLoader().getResourceAsStream(filePath)) {
 			if (inputStream == null) {
-				throw new IOException("File non trovato");
+				throw new IOException(bundle.getString("error.file.not.found"));
 			}
 
 			return new String(inputStream.readAllBytes()); // Java 9+
@@ -290,7 +295,6 @@ public class AccountsService {
 				return objectMapper.readValue(responseBodyMock, AccountsSubjectsResponse.class);
 			}
 
-			
 			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 
 			return objectMapper.readValue(response.getBody(), AccountsSubjectsResponse.class);
@@ -333,7 +337,7 @@ public class AccountsService {
 			headers.set("X-AUTH-TOKEN", token);
 			headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
 
-			StringBuilder sb = setFilter(requestJson);
+			StringBuilder sb = utilsService.setFilter(requestJson);
 
 			Map<Object, Object> data = new HashMap<>();
 			data.put("pois", sb.toString());
@@ -415,80 +419,5 @@ public class AccountsService {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	private StringBuilder setFilter(AccountsSearchPojo requestJson) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("[");
-		if (StringUtils.hasLength(requestJson.getNameFull())) {
-			sb.append("{");
-			sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getNameFull() + "\"");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
-				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-			}
-			sb.append("}");
-		}
-		if (StringUtils.hasLength(requestJson.getBirthDate())) {
-			sb.append(",{");
-			sb.append("\"type\": \"" + requestJson.getBirthDateType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getBirthDate() + "\"");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
-				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-			}
-			sb.append("}");
-		}
-		if (StringUtils.hasLength(requestJson.getBirthPlace())) {
-			sb.append(",{");
-			sb.append("\"type\": \"" + requestJson.getBirthPlaceType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": {");
-			sb.append("\"country\": \"" + requestJson.getBirthPlace() + "\"");
-			sb.append("}");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
-				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-			}
-			sb.append("}");
-		}
-		if (StringUtils.hasLength(requestJson.getGender())) {
-			sb.append(",{");
-			sb.append("\"type\": \"" + requestJson.getGenderType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getGender() + "\"");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
-				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-			}
-			sb.append("}");
-		}
-		if (StringUtils.hasLength(requestJson.getNationality())) {
-			sb.append(",{");
-			sb.append("\"type\": \"" + requestJson.getNationalityType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getNationality() + "\"");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
-				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-			}
-			sb.append("}");
-		}
-		if (StringUtils.hasLength(requestJson.getPerson())) {
-			sb.append(",{");
-			sb.append("\"type\": \"" + requestJson.getPersonType() + "\"");
-			sb.append(", ");
-			sb.append("\"content\": \"" + requestJson.getPerson() + "\"");
-			if (StringUtils.hasLength(requestJson.getThreshold())) {
-				sb.append(", ");
-				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
-			}
-			sb.append("}");
-		}
-		sb.append("]");
-		return sb;
 	}
 }

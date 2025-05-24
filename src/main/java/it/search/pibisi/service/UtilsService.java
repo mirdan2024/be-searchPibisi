@@ -1,5 +1,6 @@
 package it.search.pibisi.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -24,12 +25,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.common.base.ListaCategorieGruppoPojo;
+import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -164,5 +167,111 @@ public class UtilsService {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
 		return new RestTemplate(factory);
+	}
+
+	public StringBuilder setFilter(AccountsSearchPojo requestJson) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		if (StringUtils.hasLength(requestJson.getNameFull())) {
+			sb.append("{");
+			sb.append("\"type\": \"" + requestJson.getNameFullType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getNameFull() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (StringUtils.hasLength(requestJson.getBirthDate())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getBirthDateType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getBirthDate() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (StringUtils.hasLength(requestJson.getBirthPlace())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getBirthPlaceType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": {");
+			sb.append("\"country\": \"" + requestJson.getBirthPlace() + "\"");
+			sb.append("}");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (StringUtils.hasLength(requestJson.getGender())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getGenderType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getGender() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (StringUtils.hasLength(requestJson.getNationality())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getNationalityType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getNationality() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		if (StringUtils.hasLength(requestJson.getPerson())) {
+			sb.append(",{");
+			sb.append("\"type\": \"" + requestJson.getPersonType() + "\"");
+			sb.append(", ");
+			sb.append("\"content\": \"" + requestJson.getPerson() + "\"");
+			if (StringUtils.hasLength(requestJson.getThreshold())) {
+				sb.append(", ");
+				sb.append("\"threshold\": \"" + requestJson.getThreshold() + "\"");
+			}
+			sb.append("}");
+		}
+		sb.append("]");
+		return sb;
+	}
+
+	public List<String> getListaCategorie(HttpServletRequest request) {
+		ListaCategorieGruppoPojo lcgp = callGetListaCategorie(request);
+		List<String> listCategorie = new ArrayList<>();
+		lcgp.getCategorieGruppoPojo().forEach(e -> {
+			e.getListaCategorie().forEach(c -> {
+				listCategorie.add(c.getCategoria());
+			});
+		});
+		return listCategorie;
+	}
+
+	public Boolean matchCategory(MatchBean matchBean, List<String> listCategorie) {
+		if ((matchBean.isPep() || matchBean.isWasPep()) && !listCategorie.contains("PEP")) {
+			return Boolean.FALSE;
+		}
+		if ((matchBean.isSanctioned() || matchBean.isWasSanctioned()) && !listCategorie.contains("Sanction")) {
+			return Boolean.FALSE;
+		}
+		if (matchBean.isTerrorist() && !listCategorie.contains("Terrorist")) {
+			return Boolean.FALSE;
+		}
+		if (matchBean.isHasMedia() && !listCategorie.contains("Adverse media")) {
+			return Boolean.FALSE;
+		}
+		if (matchBean.isHasAdverseInfo() && !listCategorie.contains("Adverse info")) {
+			return Boolean.FALSE;
+		}
+
+		return Boolean.TRUE;
 	}
 }
