@@ -229,9 +229,7 @@ public class AccountsService {
 				return null;
 			}
 
-		} catch (
-
-		Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}

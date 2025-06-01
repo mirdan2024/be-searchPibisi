@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.common.pibisi.bean.MatchBean;
+import it.common.pibisi.bean.MatchListBean;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import it.common.pibisi.pojo.customers.create.CustomersCreateResponse;
+import it.search.pibisi.service.CustomersCreateService;
+import it.search.pibisi.service.CustomersFindByCustomerService;
+import it.search.pibisi.service.CustomersMatchService;
 import it.search.pibisi.service.CustomersService;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -20,11 +25,75 @@ public class CustomersController {
 	@Autowired
 	private CustomersService customersService;
 
+	@Autowired
+	private CustomersMatchService customersMatchService;
+
+	@Autowired
+	private CustomersCreateService customersCreateService;
+
+	@Autowired
+	private CustomersFindByCustomerService customersFindByCustomerService;
+
 	// Nuovo metodo POST per inviare i dati dei clienti
 	@PostMapping("/create")
-	public CustomersCreateResponse createCustomer(@RequestBody AccountsSearchPojo requestJson,
-			HttpServletRequest request) {
-		return customersService.createCustomer(requestJson, request);
+	public CustomersCreateResponse create(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersCreateService.create(requestJson, request);
+	}
+
+	// Returns all information (visible for the given company account) of a customer
+	@GetMapping("/find-by-customer")
+	public MatchBean findByCustomer(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersFindByCustomerService.findByCustomer(requestJson, request);
+	}
+
+	@PostMapping("/matches")
+	public MatchListBean matches(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersMatchService.matches(requestJson, request);
+	}
+
+	// Make a search in customers. The search term will be matched against names and
+	// document ids of the customers.
+	@PostMapping("/find")
+	public ResponseEntity<String> find(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.find(requestJson, request);
+	}
+
+	// Attivazione di un cliente
+	@PostMapping("/activate")
+	public ResponseEntity<String> activate(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.activate(requestJson, request);
+	}
+
+	// Deactivates a customer and stops monitoring. You normally deactivate a
+	// customer when he/she is no longer your customer but want or need to keep the
+	// data.
+	@PostMapping("/deactivate")
+	public ResponseEntity<String> deactivate(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.deactivate(requestJson, request);
+	}
+
+	// Eliminazione di un cliente
+	@PostMapping("/delete")
+	public ResponseEntity<String> delete(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.delete(requestJson, request);
+	}
+
+	// Returns all alerts related to a given customer
+	@PostMapping("/alerts")
+	public ResponseEntity<String> alert(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.alert(requestJson, request);
+	}
+
+	// Accettare un match del cliente
+	@PostMapping("/accept")
+	public ResponseEntity<String> accept(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.accept(requestJson, request);
+	}
+
+	// Rifiutare un match del cliente
+	@PostMapping("/reject")
+	public ResponseEntity<String> reject(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.reject(requestJson, request);
 	}
 
 	// Registers a new person (customer) to follow up. You can send multiple pieces
@@ -33,95 +102,39 @@ public class CustomersController {
 	// identifier (POI of type id.*) must be included. All other pieces of
 	// information are optional, such as, birth.date, birth.place, nationality or
 	// address.
-	@GetMapping("/")
-	public ResponseEntity<String> getCustomersByAccountId(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.getCustomersByAccountId(requestJson);
-	}
-
-	// Make a search in customers. The search term will be matched against names and
-	// document ids of the customers.
-	@PostMapping("/find")
-	public ResponseEntity<String> findCustomer(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.findCustomer(requestJson);
-	}
-
-	// Returns all information (visible for the given company account) of a customer
-	@GetMapping("/customer")
-	public ResponseEntity<String> getCustomersByCustomerId(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.getCustomersByCustomerId(requestJson);
-	}
-
-	// Attivazione di un cliente
-	@PostMapping("/activate")
-	public ResponseEntity<String> activateCustomer(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.activateCustomer(requestJson);
-	}
-
-	// Returns all alerts related to a given customer
-	@GetMapping("/alerts")
-	public ResponseEntity<String> alertCustomer(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.alertCustomer(requestJson);
+	@GetMapping("/find-by-account")
+	public ResponseEntity<String> findByAccount(HttpServletRequest request) {
+		return customersService.findByAccount(request);
 	}
 
 	// Sets a new risk value. You can change the risk and add a comment. As response
 	// you will get the whole customer object.
 	@PostMapping("/change-risk")
-	public ResponseEntity<String> changeCustomerRisk(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.changeCustomerRisk(requestJson);
-	}
-
-	// Deactivates a customer and stops monitoring. You normally deactivate a
-	// customer when he/she is no longer your customer but want or need to keep the
-	// data.
-	@PostMapping("/deactivate")
-	public ResponseEntity<String> deactivateCustomer(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.deactivateCustomer(requestJson);
-	}
-
-	// Eliminazione di un cliente
-	@PostMapping("/delete")
-	public ResponseEntity<String> deleteCustomer(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.deleteCustomer(requestJson);
+	public ResponseEntity<String> changeRisk(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.changeRisk(requestJson, request);
 	}
 
 	@GetMapping("/documents")
-	public ResponseEntity<String> documentCustomer(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.documentCustomer(requestJson);
-	}
-
-	@GetMapping("/matches")
-	public ResponseEntity<String> matchesCustomer(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.matchesCustomer(requestJson);
+	public ResponseEntity<String> documents(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.documents(requestJson, request);
 	}
 
 	// Rifiutare tutti i match di un cliente
 	@PostMapping("/reject-all")
-	public ResponseEntity<String> rejectAllMatches(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.rejectAllMatches(requestJson);
-	}
-
-	// Accettare un match del cliente
-	@PostMapping("/accept")
-	public ResponseEntity<String> acceptMatch(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.acceptMatch(requestJson);
-	}
-
-	// Rifiutare un match del cliente
-	@PostMapping("/reject")
-	public ResponseEntity<String> rejectMatch(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.rejectMatch(requestJson);
+	public ResponseEntity<String> rejectAll(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.rejectAll(requestJson, request);
 	}
 
 	// Aggiungere points of information (pois) per un cliente
 	@PostMapping("/pois")
-	public ResponseEntity<String> addCustomerPois(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.addCustomerPois(requestJson);
+	public ResponseEntity<String> addPois(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.addPois(requestJson, request);
 	}
 
 	// Endpoint per ottenere un report di un soggetto
 	@GetMapping("/report")
-	public ResponseEntity<byte[]> getCustomerReport(@RequestBody AccountsSearchPojo requestJson) {
-		return customersService.getCustomerReport(requestJson);
+	public ResponseEntity<byte[]> report(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersService.report(requestJson, request);
 	}
 
 }

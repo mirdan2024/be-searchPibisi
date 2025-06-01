@@ -1,8 +1,6 @@
 package it.search.pibisi.service;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -14,13 +12,13 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -32,6 +30,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.common.base.ListaCategorieGruppoPojo;
+import it.common.base.util.CommonUtils;
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,6 +42,9 @@ public class UtilsService {
 
 	@Value("${api.base.tracciamento.crediti}")
 	private String urlApiBaseTracciamentoCrediti;
+
+	@Autowired
+	private CommonUtils commonUtils;
 
 	public static String[] getNullPropertyNames(Object source) {
 		final BeanWrapper src = new BeanWrapperImpl(source);
@@ -63,36 +65,10 @@ public class UtilsService {
 		BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
 	}
 
-	public String getClientIp(HttpServletRequest request) {
-
-		String ipAddress = request.getHeader("X-Forwarded-For");
-		if (ipAddress == null || ipAddress.isEmpty() || "unknown".equalsIgnoreCase(ipAddress)) {
-			ipAddress = request.getHeader("X-Real-IP");
-		}
-		if (ipAddress == null || ipAddress.isEmpty() || "unknown".equalsIgnoreCase(ipAddress)) {
-			ipAddress = request.getRemoteAddr();
-		}
-		// In caso di più IP in X-Forwarded-For, prendere il primo
-		if (ipAddress != null && ipAddress.contains(",")) {
-			ipAddress = ipAddress.split(",")[0].trim();
-		}
-		return ipAddress;
-	}
-
 	@Cacheable("callGetListaCategorie")
 	public ListaCategorieGruppoPojo callGetListaCategorie(HttpServletRequest request) {
 		// 1. Headers
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-		headers.add("X-Forwarded-For", getClientIp(request));
-
-		Enumeration<String> headerNames = request.getHeaderNames();
-		while (headerNames.hasMoreElements()) {
-			String headerName = headerNames.nextElement();
-			if (!headerName.contains("Forwarded")) {
-				headers.add(headerName, request.getHeader(headerName));
-			}
-		}
+		HttpHeaders headers = commonUtils.getHttpHeaders(request);
 
 		// 2. Configura RestTemplate
 		RestTemplate restTemplate = restTemplate();
@@ -111,18 +87,7 @@ public class UtilsService {
 
 		try {
 			// 1. Headers
-			HttpHeaders headers = new HttpHeaders();
-			headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-			headers.set("Content-Type", "application/json;charset=UTF-8");
-			headers.add("X-Forwarded-For", getClientIp(request));
-
-			Enumeration<String> headerNames = request.getHeaderNames();
-			while (headerNames.hasMoreElements()) {
-				String headerName = headerNames.nextElement();
-				if (!headerName.contains("Forwarded")) {
-					headers.add(headerName, request.getHeader(headerName));
-				}
-			}
+			HttpHeaders headers = commonUtils.getHttpHeaders(request);
 
 			// 2. Body
 			Map<String, String> requestBody = new HashMap<>();

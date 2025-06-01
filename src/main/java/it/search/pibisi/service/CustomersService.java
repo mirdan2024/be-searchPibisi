@@ -18,18 +18,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
-import it.common.pibisi.pojo.customers.create.CustomersCreateResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
@@ -43,9 +36,6 @@ public class CustomersService {
 
 	@Value("${api.customers.get}")
 	private String getCustomersEndpoint;
-
-	@Value("${api.customers.post}")
-	private String postCustomersEndpoint;
 
 	@Value("${api.customers.find}")
 	private String findCustomerEndpoint;
@@ -70,9 +60,6 @@ public class CustomersService {
 
 	@Value("${api.customers.documents}")
 	private String documentEndpoint;
-
-	@Value("${api.customers.matches}")
-	private String matchesEndpoint;
 
 	@Value("${api.customers.matches.reject-all}")
 	private String rejectAllMatchesEndpoint;
@@ -99,75 +86,10 @@ public class CustomersService {
 
 	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
 
-	// Metodo POST per creare un cliente in monitoraggio
-	public CustomersCreateResponse createCustomer(AccountsSearchPojo requestJson, HttpServletRequest request) {
-		if (!StringUtils.hasLength(requestJson.getNameFull()) || !StringUtils.hasLength(requestJson.getPerson())) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-					bundle.getString("error.both.namefull.person.required"));
-		}
-
+	public ResponseEntity<String> find(AccountsSearchPojo requestJson, HttpServletRequest request) {
 		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
-		String body = callPostCustomersEndpoint(requestJson, map);
-		if (body != null && !body.trim().isEmpty()) {
-			try {
-				ObjectMapper objectMapper = new ObjectMapper();
-				objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-				return objectMapper.readValue(body, CustomersCreateResponse.class);
-			} catch (JsonMappingException e) {
-				logger.error(bundle.getString("json.mapping.error"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.mapping.error"));
-			} catch (JsonProcessingException e) {
-				logger.error(bundle.getString("json.processing.error"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
-			}
-		} else {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.monitoring"));
-		}
-	}
+		requestJson.setAccountId(map.get("accountId"));
 
-	private String callPostCustomersEndpoint(AccountsSearchPojo requestJson, HashMap<String, String> map) {
-		String url = postCustomersEndpoint.replace("{accountId}", map.get("accountId"));
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
-
-		StringBuilder sb = utilsService.setFilter(requestJson);
-
-		Map<Object, Object> data = new HashMap<>();
-		data.put("pois", sb.toString());
-
-		// Codifica dei dati in formato application/x-www-form-urlencoded
-		StringJoiner sj = new StringJoiner("&");
-		for (Map.Entry<Object, Object> entry : data.entrySet()) {
-			try {
-				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
-						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
-			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
-			}
-		}
-
-		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-		return response.getBody();
-	}
-
-	// Metodo GET per ottenere i clienti di un account
-	public ResponseEntity<String> getCustomersByAccountId(AccountsSearchPojo requestJson) {
-		String url = getCustomersEndpoint.replace("{accountId}", requestJson.getAccountId());
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-	}
-
-	public ResponseEntity<String> findCustomer(AccountsSearchPojo requestJson) {
 		String url = findCustomerEndpoint.replace("{accountId}", requestJson.getAccountId());
 
 		HttpHeaders headers = new HttpHeaders();
@@ -192,22 +114,14 @@ public class CustomersService {
 		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
 
 		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-	}
 
-	public ResponseEntity<String> getCustomersByCustomerId(AccountsSearchPojo requestJson) {
-		String url = customersEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-				requestJson.getCustomerId());
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 	}
 
 	// Metodo POST per attivare un cliente
-	public ResponseEntity<String> activateCustomer(AccountsSearchPojo requestJson) {
+	public ResponseEntity<String> activate(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
 		String url = activateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 				requestJson.getCustomerId());
 
@@ -219,49 +133,11 @@ public class CustomersService {
 		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
-	public ResponseEntity<String> alertCustomer(AccountsSearchPojo requestJson) {
-		String url = alertCustomerEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-				requestJson.getCustomerId());
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-	}
-
-	// Metodo POST per cambiare il rischio di un cliente
-	public ResponseEntity<String> changeCustomerRisk(AccountsSearchPojo requestJson) {
-		String url = changeRiskEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-				requestJson.getCustomerId());
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
-
-		Map<Object, Object> data = new HashMap<>();
-		data.put("risk", requestJson.getRisk());
-
-		// Codifica dei dati in formato application/x-www-form-urlencoded
-		StringJoiner sj = new StringJoiner("&");
-		for (Map.Entry<Object, Object> entry : data.entrySet()) {
-			try {
-				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
-						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
-			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
-			}
-		}
-
-		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
-
-		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-	}
-
 	// Metodo POST per disattivare un cliente
-	public ResponseEntity<String> deactivateCustomer(AccountsSearchPojo requestJson) {
+	public ResponseEntity<String> deactivate(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
 		String url = deactivateCustomerEndpoint.replace("{accountId}", requestJson.getAccountId())
 				.replace("{customerId}", requestJson.getCustomerId());
 
@@ -274,7 +150,10 @@ public class CustomersService {
 	}
 
 	// Metodo POST per eliminare un cliente
-	public ResponseEntity<String> deleteCustomer(AccountsSearchPojo requestJson) {
+	public ResponseEntity<String> delete(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
 		String url = deleteCustomerEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 				requestJson.getCustomerId());
 
@@ -286,8 +165,11 @@ public class CustomersService {
 		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
-	public ResponseEntity<String> documentCustomer(AccountsSearchPojo requestJson) {
-		String url = documentEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+	public ResponseEntity<String> alert(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
+		String url = alertCustomerEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 				requestJson.getCustomerId());
 
 		HttpHeaders headers = new HttpHeaders();
@@ -296,35 +178,13 @@ public class CustomersService {
 
 		HttpEntity<String> entity = new HttpEntity<>(headers);
 		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-	}
-
-	public ResponseEntity<String> matchesCustomer(AccountsSearchPojo requestJson) {
-		String url = matchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-				requestJson.getCustomerId());
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-	}
-
-	// Metodo POST per rifiutare tutti i match di un cliente
-	public ResponseEntity<String> rejectAllMatches(AccountsSearchPojo requestJson) {
-		String url = rejectAllMatchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-				requestJson.getCustomerId());
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
 	// Metodo POST per accettare un match del cliente
-	public ResponseEntity<String> acceptMatch(AccountsSearchPojo requestJson) {
+	public ResponseEntity<String> accept(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
 		String url = acceptMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
 				.replace("{customerId}", requestJson.getCustomerId()).replace("{matchId}", requestJson.getMatchId());
 
@@ -353,7 +213,10 @@ public class CustomersService {
 	}
 
 	// Metodo POST per rifiutare un match del cliente
-	public ResponseEntity<String> rejectMatch(AccountsSearchPojo requestJson) {
+	public ResponseEntity<String> reject(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
 		String url = rejectMatchEndpoint.replace("{accountId}", requestJson.getAccountId())
 				.replace("{customerId}", requestJson.getCustomerId()).replace("{matchId}", requestJson.getMatchId());
 
@@ -381,8 +244,88 @@ public class CustomersService {
 		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
+	// Metodo GET per ottenere i clienti di un account
+	public ResponseEntity<String> findByAccount(HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+
+		String url = getCustomersEndpoint.replace("{accountId}", map.get("accountId"));
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+	}
+
+	// Metodo POST per cambiare il rischio di un cliente
+	public ResponseEntity<String> changeRisk(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
+		String url = changeRiskEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+
+		Map<Object, Object> data = new HashMap<>();
+		data.put("risk", requestJson.getRisk());
+
+		// Codifica dei dati in formato application/x-www-form-urlencoded
+		StringJoiner sj = new StringJoiner("&");
+		for (Map.Entry<Object, Object> entry : data.entrySet()) {
+			try {
+				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
+						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				logger.error(bundle.getString("error.encoding"), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
+			}
+		}
+
+		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
+
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+	}
+
+	public ResponseEntity<String> documents(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
+		String url = documentEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+	}
+
+	// Metodo POST per rifiutare tutti i match di un cliente
+	public ResponseEntity<String> rejectAll(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
+		String url = rejectAllMatchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
+				requestJson.getCustomerId());
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-AUTH-TOKEN", token);
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+	}
+
 	// Metodo POST per aggiungere i points of information (pois)
-	public ResponseEntity<String> addCustomerPois(AccountsSearchPojo requestJson) {
+	public ResponseEntity<String> addPois(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
 		String url = addPoisEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 				requestJson.getCustomerId());
 
@@ -410,7 +353,10 @@ public class CustomersService {
 		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 
-	public ResponseEntity<byte[]> getCustomerReport(AccountsSearchPojo requestJson) {
+	public ResponseEntity<byte[]> report(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		requestJson.setAccountId(map.get("accountId"));
+
 		String url = getCustomerReportEndpoint.replace("{accountId}", requestJson.getAccountId())
 				.replace("{customerId}", requestJson.getCustomerId());
 
