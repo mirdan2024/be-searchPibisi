@@ -12,7 +12,9 @@ import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.MatchListBean;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import it.common.pibisi.pojo.customers.create.CustomersCreateResponse;
+import it.search.pibisi.pojo.customer.matches.CustomersSubjectsResponse;
 import it.search.pibisi.service.CustomersCreateService;
+import it.search.pibisi.service.CustomersFindByAccountService;
 import it.search.pibisi.service.CustomersFindByCustomerService;
 import it.search.pibisi.service.CustomersMatchService;
 import it.search.pibisi.service.CustomersService;
@@ -34,6 +36,9 @@ public class CustomersController {
 	@Autowired
 	private CustomersFindByCustomerService customersFindByCustomerService;
 
+	@Autowired
+	private CustomersFindByAccountService customersFindByAccountService;
+
 	// Nuovo metodo POST per inviare i dati dei clienti
 	@PostMapping("/create")
 	public CustomersCreateResponse create(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
@@ -44,6 +49,17 @@ public class CustomersController {
 	@GetMapping("/find-by-customer")
 	public MatchBean findByCustomer(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
 		return customersFindByCustomerService.findByCustomer(requestJson, request);
+	}
+
+	// Registers a new person (customer) to follow up. You can send multiple pieces
+	// of information (aka. pois), but at least the types 'person' (allowed values:
+	// 'P' for natural person, and 'E' for legal person), 'name.full' and one
+	// identifier (POI of type id.*) must be included. All other pieces of
+	// information are optional, such as, birth.date, birth.place, nationality or
+	// address.
+	@GetMapping("/find-by-account")
+	public MatchListBean findByAccount(HttpServletRequest request) {
+		return customersFindByAccountService.findByAccount(request);
 	}
 
 	@PostMapping("/matches")
@@ -94,17 +110,6 @@ public class CustomersController {
 	@PostMapping("/reject")
 	public ResponseEntity<String> reject(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
 		return customersService.reject(requestJson, request);
-	}
-
-	// Registers a new person (customer) to follow up. You can send multiple pieces
-	// of information (aka. pois), but at least the types 'person' (allowed values:
-	// 'P' for natural person, and 'E' for legal person), 'name.full' and one
-	// identifier (POI of type id.*) must be included. All other pieces of
-	// information are optional, such as, birth.date, birth.place, nationality or
-	// address.
-	@GetMapping("/find-by-account")
-	public ResponseEntity<String> findByAccount(HttpServletRequest request) {
-		return customersService.findByAccount(request);
 	}
 
 	// Sets a new risk value. You can change the risk and add a comment. As response

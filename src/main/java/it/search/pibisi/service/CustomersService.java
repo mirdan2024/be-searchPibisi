@@ -34,9 +34,6 @@ public class CustomersService {
 	@Value("${api.token}")
 	private String token;
 
-	@Value("${api.customers.get}")
-	private String getCustomersEndpoint;
-
 	@Value("${api.customers.find}")
 	private String findCustomerEndpoint;
 
@@ -75,9 +72,6 @@ public class CustomersService {
 
 	@Value("${api.customers.report}")
 	private String getCustomerReportEndpoint;
-
-	@Autowired
-	private UtilsService utilsService;
 
 	@Autowired
 	private JWTUtil jwtUtil;
@@ -242,20 +236,6 @@ public class CustomersService {
 		HttpEntity<String> entity = new HttpEntity<>(sj.toString(), headers);
 
 		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-	}
-
-	// Metodo GET per ottenere i clienti di un account
-	public ResponseEntity<String> findByAccount(HttpServletRequest request) {
-		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
-
-		String url = getCustomersEndpoint.replace("{accountId}", map.get("accountId"));
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-AUTH-TOKEN", token);
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 	}
 
 	// Metodo POST per cambiare il rischio di un cliente

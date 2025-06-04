@@ -14,10 +14,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -87,7 +89,7 @@ public class CustomersMatchService {
 		}
 	}
 
-	private CustomersSubjectsResponse matchesCustomer(AccountsSearchPojo requestJson) throws JsonProcessingException {
+	private CustomersSubjectsResponse matchesCustomer(AccountsSearchPojo requestJson) {
 		String url = matchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 				requestJson.getCustomerId());
 
@@ -106,10 +108,13 @@ public class CustomersMatchService {
 		System.out.println("body --> " + body);
 
 		if (body != null && !body.trim().isEmpty()) {
-			return objectMapper.readValue(body, CustomersSubjectsResponse.class);
-		} else {
-			return null;
+			try {
+				return objectMapper.readValue(body, CustomersSubjectsResponse.class);
+			} catch (JsonProcessingException e) {
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
+			}
 		}
+		return null;
 	}
 
 	private MatchListBean readMatchSearch(CustomersSubjectsResponse customersSubjectsResponse) throws IOException {
