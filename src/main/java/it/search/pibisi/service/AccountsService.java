@@ -12,6 +12,7 @@ import java.util.StringJoiner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -63,8 +64,10 @@ public class AccountsService {
 
 	private RestTemplate restTemplate = new RestTemplate();
 
-	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
-
+//	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
+//	@Autowired
+//	private MessageSource messageSource;
+	
 	// Metodo per ottenere le informazioni sugli account
 	@Cacheable("accountId")
 	public String getAccountId() {
@@ -141,7 +144,7 @@ public class AccountsService {
 		try {
 
 			if (!StringUtils.hasLength(requestJson.getNameFull())) {
-				throw new IllegalArgumentException(bundle.getString("error.namefull.required"));
+				throw new IllegalArgumentException("error.namefull.required");
 			}
 
 			String url = findSubjectsUrl.replace("{accountId}", requestJson.getAccountId());
@@ -239,7 +242,7 @@ public class AccountsService {
 
 		try (InputStream inputStream = AccountsService.class.getClassLoader().getResourceAsStream(filePath)) {
 			if (inputStream == null) {
-				throw new IOException(bundle.getString("error.file.not.found"));
+				throw new IOException("error.file.not.found");
 			}
 
 			return new String(inputStream.readAllBytes()); // Java 9+

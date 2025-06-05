@@ -25,6 +25,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.common.base.message.MessageService;
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.MatchListBean;
@@ -62,16 +63,19 @@ public class CustomersMatchService {
 	@Autowired
 	private JWTUtil jwtUtil;
 
-	private RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@Autowired
+	public MessageService messageService;
 
-	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
 
 	public MatchListBean matches(AccountsSearchPojo requestJson, HttpServletRequest request) {
 		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
 		requestJson.setAccountId(map.get("accountId"));
 
 		try {
-			CustomersSubjectsResponse customersSubjectsResponse = matchesCustomer(requestJson);
+			CustomersSubjectsResponse customersSubjectsResponse = matchesCustomer(requestJson,map);
 			MatchListBean matchListBean = readMatchSearch(customersSubjectsResponse);
 
 			List<String> listCategorie = utilsService.getListaCategorie(request);
@@ -89,7 +93,7 @@ public class CustomersMatchService {
 		}
 	}
 
-	private CustomersSubjectsResponse matchesCustomer(AccountsSearchPojo requestJson) {
+	private CustomersSubjectsResponse matchesCustomer(AccountsSearchPojo requestJson,HashMap<String, String> map) {
 		String url = matchesEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
 				requestJson.getCustomerId());
 
@@ -111,7 +115,7 @@ public class CustomersMatchService {
 			try {
 				return objectMapper.readValue(body, CustomersSubjectsResponse.class);
 			} catch (JsonProcessingException e) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.processing.error",map.get("lingua")));
 			}
 		}
 		return null;

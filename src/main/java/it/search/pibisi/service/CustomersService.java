@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
+import it.common.base.message.MessageService;
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
@@ -76,9 +77,12 @@ public class CustomersService {
 	@Autowired
 	private JWTUtil jwtUtil;
 
-	private RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@Autowired
+	public MessageService messageService;
 
-	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
 
 	public ResponseEntity<String> find(AccountsSearchPojo requestJson, HttpServletRequest request) {
 		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
@@ -100,8 +104,8 @@ public class CustomersService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
+				logger.error(messageService.get("error.encoding",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.encoding",map.get("lingua")));
 			}
 		}
 
@@ -196,8 +200,8 @@ public class CustomersService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
+				logger.error(messageService.get("error.encoding",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.encoding",map.get("lingua")));
 			}
 		}
 
@@ -228,8 +232,8 @@ public class CustomersService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
+				logger.error(messageService.get("error.encoding",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.encoding",map.get("lingua")));
 			}
 		}
 
@@ -260,8 +264,8 @@ public class CustomersService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
+				logger.error(messageService.get("error.encoding",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.encoding",map.get("lingua")));
 			}
 		}
 
@@ -323,8 +327,8 @@ public class CustomersService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
+				logger.error(messageService.get("error.encoding",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.encoding",map.get("lingua")));
 			}
 		}
 

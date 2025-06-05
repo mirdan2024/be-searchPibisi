@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.common.base.message.MessageService;
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.SoiBean;
@@ -54,10 +55,11 @@ public class CustomersFindByCustomerService {
 	@Autowired
 	private JWTUtil jwtUtil;
 
-	private RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	private RestTemplate restTemplate;
 
-	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
-
+	@Autowired
+	public MessageService messageService;
 	public MatchBean findByCustomer(AccountsSearchPojo requestJson, HttpServletRequest request) {
 		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
 		String body = callFindByCustomer(requestJson, map);
@@ -68,17 +70,17 @@ public class CustomersFindByCustomerService {
 				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 				return readMatchSearch(objectMapper.readValue(body, CustomersFindByCustomerResponse.class));
 			} catch (JsonMappingException e) {
-				logger.error(bundle.getString("json.mapping.error"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.mapping.error"));
+				logger.error(messageService.get("json.mapping.error",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.mapping.error",map.get("lingua")));
 			} catch (JsonProcessingException e) {
-				logger.error(bundle.getString("json.processing.error"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
+				logger.error(messageService.get("json.processing.error",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.processing.error",map.get("lingua")));
 			} catch (IOException e) {
-				logger.error(bundle.getString("json.processing.error"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
+				logger.error(messageService.get("json.processing.error",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.processing.error",map.get("lingua")));
 			}
 		} else {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.monitoring"));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.monitoring",map.get("lingua")));
 		}
 	}
 

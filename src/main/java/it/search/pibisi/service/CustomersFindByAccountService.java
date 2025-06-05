@@ -23,6 +23,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.common.base.message.MessageService;
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.MatchListBean;
@@ -49,9 +50,10 @@ public class CustomersFindByAccountService {
 	@Autowired
 	private JWTUtil jwtUtil;
 
-	private RestTemplate restTemplate = new RestTemplate();
-
-	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
+	@Autowired
+	private RestTemplate restTemplate;
+	@Autowired
+	public MessageService messageService;
 
 	// Metodo GET per ottenere i clienti di un account
 	public MatchListBean findByAccount(HttpServletRequest request) {
@@ -77,9 +79,9 @@ public class CustomersFindByAccountService {
 			try {
 				return readMatchSearch(objectMapper.readValue(body, CustomersFindByAccountResponse.class));
 			} catch (JsonProcessingException e) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.processing.error",map.get("lingua")));
 			} catch (IOException e) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("io.exception.error"));
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("io.exception.error",map.get("lingua")));
 			}
 		}
 		return null;

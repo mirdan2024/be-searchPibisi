@@ -26,6 +26,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.common.base.message.MessageService;
 import it.common.base.util.JWTUtil;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import it.common.pibisi.pojo.customers.create.CustomersCreateResponse;
@@ -49,18 +50,21 @@ public class CustomersCreateService {
 	@Autowired
 	private JWTUtil jwtUtil;
 
-	private RestTemplate restTemplate = new RestTemplate();
-
-	private final ResourceBundle bundle = ResourceBundle.getBundle("bundle.messages-errors");
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@Autowired
+	public MessageService messageService;
 
 	// Metodo POST per creare un cliente in monitoraggio
 	public CustomersCreateResponse create(AccountsSearchPojo requestJson, HttpServletRequest request) {
+		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
 		if (!StringUtils.hasLength(requestJson.getNameFull()) || !StringUtils.hasLength(requestJson.getPerson())) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-					bundle.getString("error.both.namefull.person.required"));
+					messageService.get("error.both.namefull.person.required",map.get("lingua")).toString());
 		}
 
-		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
+		
 		String body = callPostCustomersEndpoint(requestJson, map);
 		if (body != null && !body.trim().isEmpty()) {
 			try {
@@ -69,14 +73,14 @@ public class CustomersCreateService {
 				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 				return objectMapper.readValue(body, CustomersCreateResponse.class);
 			} catch (JsonMappingException e) {
-				logger.error(bundle.getString("json.mapping.error"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.mapping.error"));
+				logger.error(messageService.get("json.mapping.error",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.mapping.error",map.get("lingua")));
 			} catch (JsonProcessingException e) {
-				logger.error(bundle.getString("json.processing.error"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("json.processing.error"));
+				logger.error(messageService.get("json.processing.error",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.processing.error",map.get("lingua")));
 			}
 		} else {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.monitoring"));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.monitoring",map.get("lingua")));
 		}
 	}
 
@@ -99,8 +103,8 @@ public class CustomersCreateService {
 				sj.add(URLEncoder.encode(entry.getKey().toString(), "UTF-8") + "="
 						+ URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				logger.error(bundle.getString("error.encoding"), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, bundle.getString("error.encoding"));
+				logger.error(messageService.get("error.encoding",map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.encoding",map.get("lingua")));
 			}
 		}
 
