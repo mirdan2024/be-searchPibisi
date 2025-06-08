@@ -3,7 +3,6 @@ package it.search.pibisi.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ResourceBundle;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,6 +59,7 @@ public class CustomersFindByCustomerService {
 
 	@Autowired
 	public MessageService messageService;
+
 	public MatchBean findByCustomer(AccountsSearchPojo requestJson, HttpServletRequest request) {
 		HashMap<String, String> map = jwtUtil.getInfoFromJwt(request);
 		String body = callFindByCustomer(requestJson, map);
@@ -70,17 +70,21 @@ public class CustomersFindByCustomerService {
 				objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 				return readMatchSearch(objectMapper.readValue(body, CustomersFindByCustomerResponse.class));
 			} catch (JsonMappingException e) {
-				logger.error(messageService.get("json.mapping.error",map.get("lingua")), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.mapping.error",map.get("lingua")));
+				logger.error(messageService.get("json.mapping.error", map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+						messageService.get("json.mapping.error", map.get("lingua")));
 			} catch (JsonProcessingException e) {
-				logger.error(messageService.get("json.processing.error",map.get("lingua")), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.processing.error",map.get("lingua")));
+				logger.error(messageService.get("json.processing.error", map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+						messageService.get("json.processing.error", map.get("lingua")));
 			} catch (IOException e) {
-				logger.error(messageService.get("json.processing.error",map.get("lingua")), e);
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("json.processing.error",map.get("lingua")));
+				logger.error(messageService.get("json.processing.error", map.get("lingua")), e);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+						messageService.get("json.processing.error", map.get("lingua")));
 			}
 		} else {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messageService.get("error.monitoring",map.get("lingua")));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+					messageService.get("error.monitoring", map.get("lingua")));
 		}
 	}
 
@@ -88,7 +92,7 @@ public class CustomersFindByCustomerService {
 		requestJson.setAccountId(map.get("accountId"));
 
 		String url = customersEndpoint.replace("{accountId}", requestJson.getAccountId()).replace("{customerId}",
-				requestJson.getCustomerId());
+				requestJson.getSubjectId());
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("X-AUTH-TOKEN", token);

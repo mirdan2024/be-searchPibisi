@@ -36,7 +36,7 @@ import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-public class PdfService {
+public class AccountsReportService {
 
 	@Autowired
 	private AccountsDetailService detailService;
@@ -492,8 +492,8 @@ public class PdfService {
 
 	private void getPageCover(StringBuilder builder) {
 
-		URL imageLogo = PdfService.class.getClassLoader().getResource("logo/AEGIS-X-logo.png");
-		URL imageCover = PdfService.class.getClassLoader().getResource("logo/COVER.png");
+		URL imageLogo = AccountsReportService.class.getClassLoader().getResource("logo/AEGIS-X-logo.png");
+		URL imageCover = AccountsReportService.class.getClassLoader().getResource("logo/COVER.png");
 
 		builder.append("<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" align=\"center\">");
 		builder.append("<tr>");
@@ -518,8 +518,8 @@ public class PdfService {
 		builder.append("<tr>");
 		builder.append("<td></td>");
 		builder.append("</tr>");
-		builder.append("<tr><td style=\"padding-left: 300px;\">Report Date: " + PdfService.getCurrentDateTime()
-				+ "</td></tr>");
+		builder.append("<tr><td style=\"padding-left: 300px;\">Report Date: "
+				+ AccountsReportService.getCurrentDateTime() + "</td></tr>");
 		builder.append("</table>");
 		builder.append("</td></tr>");
 		builder.append("</table>");
@@ -616,20 +616,22 @@ public class PdfService {
 	}
 
 	private void getPageOverviewCategory(MatchBean matchBean, StringBuilder builder) {
-		URL imagePepV = PdfService.class.getClassLoader().getResource("category/PEP_V.png");
-		URL imagePepX = PdfService.class.getClassLoader().getResource("category/PEP_X.png");
-		URL imageExPepV = PdfService.class.getClassLoader().getResource("category/EX-PEP_V.png");
-		URL imageExPepX = PdfService.class.getClassLoader().getResource("category/EX-PEP_X.png");
-		URL imageSanctionedV = PdfService.class.getClassLoader().getResource("category/SANCTIONED_V.png");
-		URL imageSanctionedX = PdfService.class.getClassLoader().getResource("category/SANCTIONED_X.png");
-		URL imageExSanctionedV = PdfService.class.getClassLoader().getResource("category/EX-SANCTIONED_V.png");
-		URL imageExSanctionedX = PdfService.class.getClassLoader().getResource("category/EX-SANCTIONED_X.png");
-		URL imageTerroristV = PdfService.class.getClassLoader().getResource("category/TERRORIST_V.png");
-		URL imageTerroristX = PdfService.class.getClassLoader().getResource("category/TERRORIST_X.png");
-		URL imageMediaV = PdfService.class.getClassLoader().getResource("category/MEDIA_V.png");
-		URL imageMediaX = PdfService.class.getClassLoader().getResource("category/MEDIA_X.png");
-		URL imageAdverseInfoV = PdfService.class.getClassLoader().getResource("category/ADVERSE-INFO_V.png");
-		URL imageAdverseInfoX = PdfService.class.getClassLoader().getResource("category/ADVERSE-INFO_X.png");
+		URL imagePepV = AccountsReportService.class.getClassLoader().getResource("category/PEP_V.png");
+		URL imagePepX = AccountsReportService.class.getClassLoader().getResource("category/PEP_X.png");
+		URL imageExPepV = AccountsReportService.class.getClassLoader().getResource("category/EX-PEP_V.png");
+		URL imageExPepX = AccountsReportService.class.getClassLoader().getResource("category/EX-PEP_X.png");
+		URL imageSanctionedV = AccountsReportService.class.getClassLoader().getResource("category/SANCTIONED_V.png");
+		URL imageSanctionedX = AccountsReportService.class.getClassLoader().getResource("category/SANCTIONED_X.png");
+		URL imageExSanctionedV = AccountsReportService.class.getClassLoader()
+				.getResource("category/EX-SANCTIONED_V.png");
+		URL imageExSanctionedX = AccountsReportService.class.getClassLoader()
+				.getResource("category/EX-SANCTIONED_X.png");
+		URL imageTerroristV = AccountsReportService.class.getClassLoader().getResource("category/TERRORIST_V.png");
+		URL imageTerroristX = AccountsReportService.class.getClassLoader().getResource("category/TERRORIST_X.png");
+		URL imageMediaV = AccountsReportService.class.getClassLoader().getResource("category/MEDIA_V.png");
+		URL imageMediaX = AccountsReportService.class.getClassLoader().getResource("category/MEDIA_X.png");
+		URL imageAdverseInfoV = AccountsReportService.class.getClassLoader().getResource("category/ADVERSE-INFO_V.png");
+		URL imageAdverseInfoX = AccountsReportService.class.getClassLoader().getResource("category/ADVERSE-INFO_X.png");
 
 		builder.append("<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"90%\" align=\"center\">");
 
@@ -1282,33 +1284,36 @@ public class PdfService {
 			throws JSONException, URISyntaxException {
 		List<String> urlArray = new ArrayList<>();
 
-		// Crea l'inizio della tabella Notizie
-		builder.append("<br/>");
-		builder.append("<table cellspacing=\"0\" cellpadding=\"0\" style=\"width: 100%;\">");
+		if (urlArray != null && !urlArray.isEmpty()) {
 
-		// SubjectPoiBean
-		getNotizieNameFull(matchBean, builder, urlArray);
-		getNotiziePerson(matchBean, builder, urlArray);
-		getNotizieGender(matchBean, builder, urlArray);
-		getNotizieBirthDate(matchBean, builder, urlArray);
-		getNotizieBirthPlace(matchBean, builder, urlArray);
-		getNotizieNationality(matchBean, builder, urlArray);
-		getNotizieIllegal(matchBean, builder, urlArray);
-		getNotizieIdPlatform(matchBean, builder, urlArray);
-		getNotiziePlatform(matchBean, builder, urlArray);
-		getNotizieNameFirst(matchBean, builder, urlArray);
-		getNotizieNameLast(matchBean, builder, urlArray);
-		getNotizieIdPassport(matchBean, builder, urlArray);
-		getNotiziePhoto(matchBean, builder, urlArray);
-		getNotizieFunction(matchBean, builder, urlArray);
-		getNotizieFunctionPublic(matchBean, builder, urlArray);
-		getNotizieFunctionPolitical(matchBean, builder, urlArray);
-		getNotizieSanction(matchBean, builder, urlArray);
-		getNotizieMedia(matchBean, builder, urlArray);
-		getNotizieDead(matchBean, builder, urlArray);
-		getNotizieRelationRelative(matchBean, builder, urlArray);
+			// Crea l'inizio della tabella Notizie
+			builder.append("<br/>");
+			builder.append("<table cellspacing=\"0\" cellpadding=\"0\" style=\"width: 100%;\">");
 
-		builder.append("</table>");
+			// SubjectPoiBean
+			getNotizieNameFull(matchBean, builder, urlArray);
+			getNotiziePerson(matchBean, builder, urlArray);
+			getNotizieGender(matchBean, builder, urlArray);
+			getNotizieBirthDate(matchBean, builder, urlArray);
+			getNotizieBirthPlace(matchBean, builder, urlArray);
+			getNotizieNationality(matchBean, builder, urlArray);
+			getNotizieIllegal(matchBean, builder, urlArray);
+			getNotizieIdPlatform(matchBean, builder, urlArray);
+			getNotiziePlatform(matchBean, builder, urlArray);
+			getNotizieNameFirst(matchBean, builder, urlArray);
+			getNotizieNameLast(matchBean, builder, urlArray);
+			getNotizieIdPassport(matchBean, builder, urlArray);
+			getNotiziePhoto(matchBean, builder, urlArray);
+			getNotizieFunction(matchBean, builder, urlArray);
+			getNotizieFunctionPublic(matchBean, builder, urlArray);
+			getNotizieFunctionPolitical(matchBean, builder, urlArray);
+			getNotizieSanction(matchBean, builder, urlArray);
+			getNotizieMedia(matchBean, builder, urlArray);
+			getNotizieDead(matchBean, builder, urlArray);
+			getNotizieRelationRelative(matchBean, builder, urlArray);
+
+			builder.append("</table>");
+		}
 	}
 
 	private static void getNotizieNameFull(MatchBean matchBean, StringBuilder builder, List<String> urlArray)

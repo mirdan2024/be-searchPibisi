@@ -12,11 +12,11 @@ import it.common.pibisi.bean.MatchBean;
 import it.common.pibisi.bean.MatchListBean;
 import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import it.common.pibisi.pojo.customers.create.CustomersCreateResponse;
-import it.search.pibisi.pojo.customer.matches.CustomersSubjectsResponse;
 import it.search.pibisi.service.CustomersCreateService;
 import it.search.pibisi.service.CustomersFindByAccountService;
 import it.search.pibisi.service.CustomersFindByCustomerService;
 import it.search.pibisi.service.CustomersMatchService;
+import it.search.pibisi.service.CustomersReportService;
 import it.search.pibisi.service.CustomersService;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -39,6 +39,9 @@ public class CustomersController {
 	@Autowired
 	private CustomersFindByAccountService customersFindByAccountService;
 
+	@Autowired
+	private CustomersReportService customersReportService;
+
 	// Nuovo metodo POST per inviare i dati dei clienti
 	@PostMapping("/create")
 	public CustomersCreateResponse create(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
@@ -46,7 +49,7 @@ public class CustomersController {
 	}
 
 	// Returns all information (visible for the given company account) of a customer
-	@GetMapping("/find-by-customer")
+	@PostMapping("/findByCustomer")
 	public MatchBean findByCustomer(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
 		return customersFindByCustomerService.findByCustomer(requestJson, request);
 	}
@@ -57,7 +60,7 @@ public class CustomersController {
 	// identifier (POI of type id.*) must be included. All other pieces of
 	// information are optional, such as, birth.date, birth.place, nationality or
 	// address.
-	@GetMapping("/find-by-account")
+	@GetMapping("/findByAccount")
 	public MatchListBean findByAccount(HttpServletRequest request) {
 		return customersFindByAccountService.findByAccount(request);
 	}
@@ -137,9 +140,9 @@ public class CustomersController {
 	}
 
 	// Endpoint per ottenere un report di un soggetto
-	@GetMapping("/report")
-	public ResponseEntity<byte[]> report(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
-		return customersService.report(requestJson, request);
+	@PostMapping("/report")
+	public byte[] report(@RequestBody AccountsSearchPojo requestJson, HttpServletRequest request) {
+		return customersReportService.createPdf(requestJson, request);
 	}
 
 }

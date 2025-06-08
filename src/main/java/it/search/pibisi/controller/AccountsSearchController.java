@@ -12,7 +12,7 @@ import it.common.pibisi.controller.pojo.AccountsSearchPojo;
 import it.search.pibisi.bean.PdfResponse;
 import it.search.pibisi.service.AccountsDetailService;
 import it.search.pibisi.service.AccountsSearchService;
-import it.search.pibisi.service.PdfService;
+import it.search.pibisi.service.AccountsReportService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
@@ -26,7 +26,7 @@ public class AccountsSearchController {
 	private AccountsDetailService detailService;
 
 	@Autowired
-	private PdfService pdfService;
+	private AccountsReportService pdfService;
 
 	// Endpoint per la ricerca di un nominativo sulle liste
 	@PostMapping("/search")
