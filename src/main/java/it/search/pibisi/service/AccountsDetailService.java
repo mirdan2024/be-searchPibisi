@@ -61,7 +61,7 @@ public class AccountsDetailService {
 	// Start read info in data -> matches
 	private void readSubjectBean(Data data, MatchBean matchBean) throws IOException {
 		if (data.getCreatedAt() != null)
-			matchBean.setCreatedAtDate(data.getCreatedAt().getDate());
+			matchBean.setCreatedAtDate(data.getCreatedAt());
 		if (data.getUuid() != null)
 			matchBean.setSubjectUuid(data.getUuid());
 

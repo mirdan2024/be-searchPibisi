@@ -1,5 +1,6 @@
 package it.search.pibisi.pojo.accounts.subjects.find;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,7 +14,7 @@ public class Subject {
 	@JsonProperty("scoring")
 	private Scoring__1 scoring;
 	@JsonProperty("created_at")
-	private CreatedAt createdAt;
+	private String createdAt;
 
 	public String getUuid() {
 		return uuid;
@@ -39,12 +40,13 @@ public class Subject {
 		this.scoring = scoring;
 	}
 
-	public CreatedAt getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(CreatedAt createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
+
 
 }

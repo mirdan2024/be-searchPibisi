@@ -16,7 +16,7 @@ public class Data {
 	private Scoring scoring;
 	
 	@JsonProperty("created_at")
-	private CreatedAt createdAt;
+	private String createdAt;
 
 	public String getUuid() {
 		return uuid;
@@ -42,11 +42,11 @@ public class Data {
 		this.scoring = scoring;
 	}
 
-	public CreatedAt getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(CreatedAt createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
 
