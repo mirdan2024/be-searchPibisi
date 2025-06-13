@@ -20,11 +20,12 @@ jobs:
           path: commonBase
           token: ${{ secrets.GH_PAT }}
           
-      - name: Estrai tag e repository lowercase
+      - name: Estrai tag e repo lowercase
         id: vars
         run: |
           echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-          echo "REPO_LOWER=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+          REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "REPO=${REPO_LOWER}" >> $GITHUB_OUTPUT
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -61,4 +62,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ steps.vars.outputs.REPO_LOWER }}:${{ steps.vars.outputs.TAG }}
+          tags: ghcr.io/${{ steps.vars.outputs.REPO }}:${{ steps.vars.outputs.TAG }}
